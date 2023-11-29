@@ -1,8 +1,8 @@
 {
-  "name": "LetXPath test",
+  "name": "TS360-XPathLocator test",
   "short_name": "XPath finder",
-  "description": "XPath Finder, simple and useful, open-source project by LetCode with Koushik",
-  "author": "Koushik Chatterjee",
+  "description": "XPath Finder, simple and useful",
+  "author": "ishratpinky",
   "version": "2.0.3",
   "manifest_version": 2,
   "icons": {

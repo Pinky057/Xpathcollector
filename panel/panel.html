@@ -82,11 +82,14 @@
       <li class="tab-item c-hand" data-option="2">
         <a class="badge" id="cssbadge" data-badge="0">CSS</a>
       </li>
-      <li class="tab-item c-hand" data-option="3">
+      <!-- <li class="tab-item c-hand" data-option="3">
         <a>Axes</a>
-      </li>
-      <li class="tab-item c-hand" data-option="5">
+      </li> -->
+      <!-- <li class="tab-item c-hand" data-option="5">
         <a>Search</a>
+      </li> -->
+      <li class="tab-item c-hand" data-option="3">
+        <a>Verification Methods</a>
       </li>
       <!-- <li class="tab-item c-hand" data-option="6">
         <a>Record</a>
@@ -127,13 +130,32 @@
         </div>
       </div>
     </div>
-    <!-- Axes -->
+    <!-- verification methods -->
     <div class="container_item card bg-dark" data-item="3">
       <div class="card-body" id="anchorXPath">
         <div class="empty bg-dark">
-          <p class="empty-title h5">Please use the context menu (Right click on page) to select parent & child element
-          </p>
-          <p class="empty-subtitle">You can switch between XPath, CSS & Axes any time :)</p>
+          <p class="empty-title h5"> Verification Methods </p>
+          <form action="/action_page.php">
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            <label for="vehicle1"> Presence of element</label><br>
+
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> click on an element</label><br>
+
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3"> Right click on an element</label><br>
+
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3">Type</label><br>
+
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3">Clear Content</label><br>
+
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3">Select</label><br><br>
+
+            <input type="submit" value="Submit">
+          </form>
         </div>
       </div>
     </div>
