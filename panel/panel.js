@@ -106,6 +106,7 @@ function utilsLocatorUI(data) {
   }
 }
 // generate axes based on user inputs
+// we will need to remove this functions not for our project
 function generateAxes(req) {
   // Bring the panel to active
   $('#tab_header li.tab-item').removeClass('active');

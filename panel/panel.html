@@ -133,10 +133,10 @@
     <!-- verification methods -->
     <div class="container_item card bg-dark" data-item="3">
       <div class="card-body" id="anchorXPath">
-        <div class="empty bg-dark">
-          <p class="empty-title h5"> Verification Methods </p>
-          <form action="/action_page.php">
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <div class="title">
+          <h3 class="text-secondary"> Verification Methods </h3>
+          <div>
+            <input type="checkbox"  id="vehicle1" name="vehicle1" value="Bike">
             <label for="vehicle1"> Presence of element</label><br>
 
             <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
@@ -153,9 +153,11 @@
 
             <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
             <label for="vehicle3">Select</label><br><br>
-
-            <input type="submit" value="Submit">
-          </form>
+            <div class="form-group text-center">
+              <button class="btn btn-success" id="save">Copy To Clipboard</button>
+            </div>
+            <!-- <input type="submit" value="Submit"> -->
+          </div>
         </div>
       </div>
     </div>
