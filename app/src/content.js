@@ -1,7 +1,3 @@
-/**
- * @author Koushik Chatterjee <koushik350@gmail.com>
- * @description heart - core engine of extension
- */
 
 // get the target element with context click
 "use strict";
@@ -210,7 +206,7 @@ function parseDOM(targetElement) {
                 anchor: false,
                 atrributesArray: atrributesArray
             };
-            // 
+            //
             chrome.runtime.sendMessage(domInfo);
             atrributesArray = [];
             // getAnchorXPath = [];

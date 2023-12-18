@@ -215,7 +215,7 @@ function buildUI(data) {
     generateXPathUI(data, i);
   }
 }
-// -------- Build XPath UI ---------
+// -------- Build XPath UI -------
 function generateXPathUI(data, i) {
   let ui = `<div class="form-horizontal bg-dark">
     <span class="label label-success label-rounded sm">${i + 1}. ${data.xpathid[i][1]}</span>
