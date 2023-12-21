@@ -15,7 +15,8 @@
     "contextMenus",
     "activeTab",
     "storage",
-    "notifications"
+    "notifications",
+    "clipboardWrite"
   ],
   "content_scripts": [
     {

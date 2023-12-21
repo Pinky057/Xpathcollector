@@ -21,10 +21,13 @@
       box-sizing: border-box;
       margin-top: 5px;
     }
-    input[type="checkbox"]:checked + .accordion-content,
-    .selected-checkbox + .accordion-content {
-      max-height: 100px; /* Adjust this value based on your content height */
+
+    input[type="checkbox"]:checked+.accordion-content,
+    .selected-checkbox+.accordion-content {
+      max-height: 100px;
+      /* Adjust this value based on your content height */
     }
+
     span.label {
       font-size: small;
     }
@@ -189,7 +192,7 @@
             <button class="btn btn-success" id="save" type="button" onclick="copySelectedToClipboard()">Copy Selected to
               Clipboard</button>
           </form>
-
+          <!-- for the copy function to be executed -->
           <br>
         </div>
       </div>

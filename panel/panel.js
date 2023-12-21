@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener((req, rec, res) => {
-  document.querySelector('.toast').classList.add('d-hide');
+  document.querySelector(".toast").classList.add("d-hide");
   switch (req.request) {
     // case "pageInfo":
     //   console.log(req.request);
@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
     //     <tr>
     //     <td>Page Title</td>
     //     <td>${req.tab.title}</td>
-    //     </tr>    
+    //     </tr>
     //     <tr>
     //     <td>Page URL</td>
     //     <td>${req.tab.url}</td>
@@ -21,9 +21,11 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
 
     case "send_to_dev":
       buildUI(req);
-      document.getElementById("cssbadge").attributes.getNamedItem('data-badge').value = '0'
+      document
+        .getElementById("cssbadge")
+        .attributes.getNamedItem("data-badge").value = "0";
       if (req.cssPath.length > 0) {
-        buildCSSUI(req)
+        buildCSSUI(req);
       } else {
         jQuery("#cssbody").empty();
         let ui = `<div class="empty bg-dark">
@@ -44,9 +46,13 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
       }
       return true;
     case "anchor":
-      document.getElementById("xpbadge").attributes.getNamedItem('data-badge').value = 0;
+      document
+        .getElementById("xpbadge")
+        .attributes.getNamedItem("data-badge").value = 0;
       jQuery("#addXPath").empty();
-      document.getElementById("cssbadge").attributes.getNamedItem('data-badge').value = 0;
+      document
+        .getElementById("cssbadge")
+        .attributes.getNamedItem("data-badge").value = 0;
       jQuery("#cssbody").empty();
       let ui = `<div class="empty bg-dark">
           <p class="empty-title h5">Please select any element to get XPath/CSS</p>
@@ -69,8 +75,10 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
     default:
       return true;
   }
-})
-let devtools_connections = chrome.runtime.connect({ name: "ortoni_devtools_message" });
+});
+let devtools_connections = chrome.runtime.connect({
+  name: "ortoni_devtools_message",
+});
 
 function buildSearchUI(data) {
   jQuery("#insertsearch").empty();
@@ -96,7 +104,7 @@ function utilsLocatorUI(data) {
     $("#show").append(ui);
   }
   function getTR() {
-    let tr = '';
+    let tr = "";
     for (let i = 0; i < data.length; i++) {
       tr += `<tr><td><input class="checkbox" type="checkbox" name="locator" id="loc${i}"></td>
             <td>${data[i][1]}</td>
@@ -105,19 +113,56 @@ function utilsLocatorUI(data) {
     return tr;
   }
 }
+// for the verification methods copy
+
+function copyToClipboard(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  // alert('Text copied to clipboard:\n' + text);
+}
+
+function copySelectedToClipboard() {
+  const selectedCheckboxes = document.querySelectorAll(
+    'input[type="checkbox"]:checked'
+  );
+  let clipboardText = "";
+
+  selectedCheckboxes.forEach((checkbox, index) => {
+    const accordionContent = checkbox.nextElementSibling;
+    const textarea = accordionContent.querySelector("textarea");
+    const accordionText = textarea ? textarea.value.trim() : "";
+
+    clipboardText += `${checkbox.value}\n${accordionText}`;
+
+    // Add a newline separator between items, except for the last one
+    if (index < selectedCheckboxes.length - 1) {
+      clipboardText += "\n";
+    }
+  });
+
+  copyToClipboard(clipboardText);
+}
+
 // generate axes based on user inputs
 // we will need to remove this functions not for our project
 function generateAxes(req) {
   // Bring the panel to active
-  $('#tab_header li.tab-item').removeClass('active');
-  $("#tab_header li.tab-item[data-option='3']").addClass('active');
-  $('#tab_container .container_item').removeClass('active');
-  $('div[data-item="3"]').addClass('active');
+  $("#tab_header li.tab-item").removeClass("active");
+  $("#tab_header li.tab-item[data-option='3']").addClass("active");
+  $("#tab_container .container_item").removeClass("active");
+  $('div[data-item="3"]').addClass("active");
   jQuery("#anchorXPath").empty();
   let ui = `<div class="form-horizontal">
     <div class="form-group">
     <div class="col-12">
-      <code class="form-label tooltip tooltip-bottom" id="anxp" data-copytarget="#anxp" data-tooltip="Click to copy" value="${req.data.proOrFol}">${req.data.defaultXPath}</code>
+      <code class="form-label tooltip tooltip-bottom" id="anxp" data-copytarget="#anxp" data-tooltip="Click to copy" value="${
+        req.data.proOrFol
+      }">${req.data.defaultXPath}</code>
     </div>
     </div>
   </div>
@@ -131,12 +176,12 @@ function generateAxes(req) {
       <p class="chip bg-success">Child Element</p>
       ${targetElement(req.data.dst)}
     </div>
-  </div>`
+  </div>`;
   jQuery("#anchorXPath").append(ui);
 }
 // Build the source element
 function sourceElement(element) {
-  let ui = '';
+  let ui = "";
   for (let i = 0; i < element.length; i++) {
     if (i == 0) {
       ui += `<div class="form-group has-info">
@@ -144,7 +189,7 @@ function sourceElement(element) {
           <input type="radio" name="src" value="${element[i][1]}" checked>
           <i class="form-icon"></i>${i + 1}. ${element[i][2]}
         </label>
-      </div>`
+      </div>`;
     } else {
       ui += `<div class="form-group">
         <label class="form-switch">
@@ -158,7 +203,7 @@ function sourceElement(element) {
 }
 // Build the target element
 function targetElement(element) {
-  let ui = '';
+  let ui = "";
   for (let i = 0; i < element.length; i++) {
     if (i == 0) {
       ui += `<div class="form-group">
@@ -166,7 +211,7 @@ function targetElement(element) {
           <input type="radio" name="tgt" value="${element[i][1]}" checked>
           <i class="form-icon"></i>${i + 1}. ${element[i][2]}
         </label>
-      </div>`
+      </div>`;
     } else {
       ui += `<div class="form-group">
         <label class="form-switch">
@@ -210,7 +255,9 @@ function buildUI(data) {
     jQuery("#addXPath").append(table);
   }
   let len = data.xpathid;
-  document.getElementById("xpbadge").attributes.getNamedItem('data-badge').value = len.length
+  document
+    .getElementById("xpbadge")
+    .attributes.getNamedItem("data-badge").value = len.length;
   for (let i = 0; i < len.length; i++) {
     generateXPathUI(data, i);
   }
@@ -218,13 +265,22 @@ function buildUI(data) {
 // -------- Build XPath UI -------
 function generateXPathUI(data, i) {
   let ui = `<div class="form-horizontal bg-dark">
-    <span class="label label-success label-rounded sm">${i + 1}. ${data.xpathid[i][1]}</span>
+    <span class="label label-success label-rounded sm">${i + 1}. ${
+    data.xpathid[i][1]
+  }</span>
     <div class="form-group">
       <div class="col-10 c-hand" id="xpathVal" data-copytarget="#xpath${i}">
-        <code class="form-label tooltip tooltip-top" id="xpath${i}" data-copytarget="#xpath${i}" data-tooltip="Click to copy">${data.xpathid[i][2]}</code>
+        <code class="form-label tooltip tooltip-top" id="xpath${i}" data-copytarget="#xpath${i}" data-tooltip="Click to copy">${
+    data.xpathid[i][2]
+  }</code>
       </div>
       <div class="col-2 tooltip tooltip-top" data-tooltip="Copy Snippet">
-      <div class="form-group bg-dark"><select class="form-select select-sm " id="snippetsSelector">${getSelectionValues(data, i, data.xpathid, false)}</select></div>
+      <div class="form-group bg-dark"><select class="form-select select-sm " id="snippetsSelector">${getSelectionValues(
+        data,
+        i,
+        data.xpathid,
+        false
+      )}</select></div>
       </div>
     </div>
   </div>`;
@@ -234,11 +290,11 @@ function generateXPathUI(data, i) {
 function getSelectionValues(data, i, xp, isCSS) {
   // let xp = data.xpathid;
   let finalOP;
-  let t = '';
+  let t = "";
   if (isCSS) {
-    t = 'CSS';
+    t = "CSS";
   } else {
-    t = xp[i][1]
+    t = xp[i][1];
   }
   let type = data.type;
   let tag = data.tag;
@@ -246,48 +302,59 @@ function getSelectionValues(data, i, xp, isCSS) {
     case "textarea":
       finalOP = `<option value = "snippet" ct = "snip" cv = "snip" vn = "snip">Snippet</option>
         <option value="sendKeys" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">sendKeys</option>
-        <option value="getAttribute" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getAttribute</option>`
+        <option value="getAttribute" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getAttribute</option>`;
       break;
     case "input":
       if (type === "submit" || type === "radio" || type === "checkbox") {
         finalOP = `<option value = "snippet" ct = "snip" cv = "snip" vn = "snip">Snippet</option>
           <option value="click" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">click</option>
-          <option value="getAttribute" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getAttribute</option>`
+          <option value="getAttribute" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getAttribute</option>`;
       } else {
         finalOP = `<option value = "snippet" ct = "snip" cv = "snip" vn = "snip">Snippet</option>
           <option value="sendKeys" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">sendKeys</option>
-          <option value="getAttribute" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getAttribute</option>`
+          <option value="getAttribute" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getAttribute</option>`;
       }
       break;
     case "img":
       finalOP = `<option value = "snippet" ct = "snip" cv = "snip" vn = "snip">Snippet</option>
         <option value="click" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">click</option>
-        <option value="getAttribute" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getAttribute</option>`
+        <option value="getAttribute" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getAttribute</option>`;
       break;
     default:
       finalOP = `<option value = "snippet" ct = "snip" cv = "snip" vn = "snip">Snippet</option>
         <option value="click" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">click</option>
-        <option value="getText" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getText</option>`
+        <option value="getText" ct="${t}" cv="${xp[i][2]}" vn="${data.variablename}" mn="${data.methodname}">getText</option>`;
       break;
   }
   return finalOP;
 }
 function buildCSSUI(data) {
-  document.getElementById("cssbadge").attributes.getNamedItem('data-badge').value = data.cssPath.length
+  document
+    .getElementById("cssbadge")
+    .attributes.getNamedItem("data-badge").value = data.cssPath.length;
   jQuery("#cssbody").empty();
-  let ui = '';
+  let ui = "";
   for (let i = 0; i < data.cssPath.length; i++) {
     ui += `<div class="form-horizontal">
-      <span class="label label-rounded label-success sm">${i + 1}. ${data.cssPath[i][1]}</span>
+      <span class="label label-rounded label-success sm">${i + 1}. ${
+      data.cssPath[i][1]
+    }</span>
         <div class="form-group">
           <div class="col-10 tooltip tooltip-top" id="xpathVal" data-tooltip="Click to copy" data-copytarget="#css${i}">
-            <code class="form-label" id="css${i}" data-copytarget="#css${i}">${data.cssPath[i][2]}</code>
+            <code class="form-label" id="css${i}" data-copytarget="#css${i}">${
+      data.cssPath[i][2]
+    }</code>
           </div>
           <div class="col-2 tooltip tooltip-top" data-tooltip="Copy Snippet">
-            <select class="form-select select-sm" id="snippetsSelector">${getSelectionValues(data, i, data.cssPath, true)}</select>
+            <select class="form-select select-sm" id="snippetsSelector">${getSelectionValues(
+              data,
+              i,
+              data.cssPath,
+              true
+            )}</select>
           </div>
         </div>
       </div>`;
   }
-  jQuery("#cssbody").append(ui)
+  jQuery("#cssbody").append(ui);
 }
