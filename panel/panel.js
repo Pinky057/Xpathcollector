@@ -115,38 +115,70 @@ function utilsLocatorUI(data) {
 }
 // for the verification methods copy
 
-function copyToClipboard(text) {
-  const textarea = document.createElement("textarea");
-  textarea.value = text;
-  document.body.appendChild(textarea);
-  textarea.select();
+document.getElementById("copyButton").addEventListener("click", function() {
+  // get all checkboxes
+  var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
+
+  // initialise an empty array to hold the names of checkboxes
+  var selectedOptions = [];
+
+  // loop through all selected(check) checkboxes
+  for(var i = 0; i < checkboxes.length; i++) {
+     // push the checkbox's value into the array
+     selectedOptions.push(checkboxes[i].value);
+  }
+  
+  // join the array into a string with ", " separator
+  var copiedText = selectedOptions.join(", ");
+  
+  // create a temporary input field for copying the content to clipboard
+  var tempInput = document.createElement("input");
+  tempInput.value = copiedText;
+  document.body.appendChild(tempInput);
+
+  // select the content in the input field and copy it to the clipboard
+  tempInput.select();
   document.execCommand("copy");
-  document.body.removeChild(textarea);
 
-  // alert('Text copied to clipboard:\n' + text);
-}
+  // remove the temporary input field
+  document.body.removeChild(tempInput);
 
-function copySelectedToClipboard() {
-  const selectedCheckboxes = document.querySelectorAll(
-    'input[type="checkbox"]:checked'
-  );
-  let clipboardText = "";
+  // alert the user that the contents were copied
+  alert("Selected options have been copied to clipboard: " + copiedText);
+});
 
-  selectedCheckboxes.forEach((checkbox, index) => {
-    const accordionContent = checkbox.nextElementSibling;
-    const textarea = accordionContent.querySelector("textarea");
-    const accordionText = textarea ? textarea.value.trim() : "";
+// function copyToClipboard(text) {
+//   const textarea = document.createElement("textarea");
+//   textarea.value = text;
+//   document.body.appendChild(textarea);
+//   textarea.select();
+//   document.execCommand("copy");
+//   document.body.removeChild(textarea);
 
-    clipboardText += `${checkbox.value}\n${accordionText}`;
+//   // alert('Text copied to clipboard:\n' + text);
+// }
 
-    // Add a newline separator between items, except for the last one
-    if (index < selectedCheckboxes.length - 1) {
-      clipboardText += "\n";
-    }
-  });
+// function copySelectedToClipboard() {
+//   const selectedCheckboxes = document.querySelectorAll(
+//     'input[type="checkbox"]:checked'
+//   );
+//   let clipboardText = "";
 
-  copyToClipboard(clipboardText);
-}
+//   selectedCheckboxes.forEach((checkbox, index) => {
+//     const accordionContent = checkbox.nextElementSibling;
+//     const textarea = accordionContent.querySelector("textarea");
+//     const accordionText = textarea ? textarea.value.trim() : "";
+
+//     clipboardText += `${checkbox.value}\n${accordionText}`;
+
+//     // Add a newline separator between items, except for the last one
+//     if (index < selectedCheckboxes.length - 1) {
+//       clipboardText += "\n";
+//     }
+//   });
+
+//   copyToClipboard(clipboardText);
+// }
 
 // generate axes based on user inputs
 // we will need to remove this functions not for our project
