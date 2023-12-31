@@ -34,10 +34,14 @@
         "app/src/textXPath.js",
         "app/src/utils.js",
         "app/src/parentElements.js",
-        "app/src/handleTable.js"
+        "app/src/handleTable.js",
+        "app/src/alertOnLoad.js"
       ],
       "css": ["app/styles/highlight.css"]
     }
+  ],
+  "web_accessible_resources": [
+    "display.html"
   ],
   "background": {
     "persistent": true,

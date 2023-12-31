@@ -180,6 +180,18 @@ document.getElementById("copyButton").addEventListener("click", function() {
 //   copyToClipboard(clipboardText);
 // }
 
+// for the save button to save the input elements to the local storage
+// Add this to your panel.js
+document.getElementById("saveButton").addEventListener("click", function() {
+  var checkedItems = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(checkbox => checkbox.value);
+  localStorage.setItem("selectedItems", JSON.stringify(checkedItems));
+});
+
+
+// save button function  done
+
+
+
 // generate axes based on user inputs
 // we will need to remove this functions not for our project
 function generateAxes(req) {

@@ -144,7 +144,10 @@ function updateNotification() {
         }
     )
 }
+   // for notications on page reloads
 
+
+// done with notifications on page
 chrome.runtime.onInstalled.addListener((details) => {
     installReason(details)
 })
