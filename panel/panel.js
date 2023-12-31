@@ -114,9 +114,8 @@ function utilsLocatorUI(data) {
   }
 }
 // for the verification methods copy
-
 document.getElementById("copyButton").addEventListener("click", function() {
-  // get all checkboxes
+  // Get all checked checkboxes
   var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
 
   // initialise an empty array to hold the names of checkboxes
@@ -124,13 +123,23 @@ document.getElementById("copyButton").addEventListener("click", function() {
 
   // loop through all selected(check) checkboxes
   for(var i = 0; i < checkboxes.length; i++) {
-     // push the checkbox's value into the array
-     selectedOptions.push(checkboxes[i].value);
+    // Get the checkbox's value
+    var value = checkboxes[i].value;
+
+    // Get corresponding textarea value
+    var textarea = checkboxes[i].parentNode.querySelector("textarea");
+
+    if (textarea && textarea.value) {
+      value += " " + textarea.value; // Append textarea value to checkbox value
+    }
+
+    // Push the value into the array
+    selectedOptions.push(value);
   }
-  
+
   // join the array into a string with ", " separator
   var copiedText = selectedOptions.join(", ");
-  
+
   // create a temporary input field for copying the content to clipboard
   var tempInput = document.createElement("input");
   tempInput.value = copiedText;
@@ -147,38 +156,38 @@ document.getElementById("copyButton").addEventListener("click", function() {
   alert("Selected options have been copied to clipboard: " + copiedText);
 });
 
-// function copyToClipboard(text) {
-//   const textarea = document.createElement("textarea");
-//   textarea.value = text;
-//   document.body.appendChild(textarea);
-//   textarea.select();
+// document.getElementById("copyButton").addEventListener("click", function() {
+//   // get all checkboxes
+//   var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
+//
+//   // initialise an empty array to hold the names of checkboxes
+//   var selectedOptions = [];
+//
+//   // loop through all selected(check) checkboxes
+//   for(var i = 0; i < checkboxes.length; i++) {
+//      // push the checkbox's value into the array
+//      selectedOptions.push(checkboxes[i].value);
+//   }
+//
+//   // join the array into a string with ", " separator
+//   var copiedText = selectedOptions.join(", ");
+//
+//   // create a temporary input field for copying the content to clipboard
+//   var tempInput = document.createElement("input");
+//   tempInput.value = copiedText;
+//   document.body.appendChild(tempInput);
+//
+//   // select the content in the input field and copy it to the clipboard
+//   tempInput.select();
 //   document.execCommand("copy");
-//   document.body.removeChild(textarea);
+//
+//   // remove the temporary input field
+//   document.body.removeChild(tempInput);
+//
+//   // alert the user that the contents were copied
+//   alert("Selected options have been copied to clipboard: " + copiedText);
+// });
 
-//   // alert('Text copied to clipboard:\n' + text);
-// }
-
-// function copySelectedToClipboard() {
-//   const selectedCheckboxes = document.querySelectorAll(
-//     'input[type="checkbox"]:checked'
-//   );
-//   let clipboardText = "";
-
-//   selectedCheckboxes.forEach((checkbox, index) => {
-//     const accordionContent = checkbox.nextElementSibling;
-//     const textarea = accordionContent.querySelector("textarea");
-//     const accordionText = textarea ? textarea.value.trim() : "";
-
-//     clipboardText += `${checkbox.value}\n${accordionText}`;
-
-//     // Add a newline separator between items, except for the last one
-//     if (index < selectedCheckboxes.length - 1) {
-//       clipboardText += "\n";
-//     }
-//   });
-
-//   copyToClipboard(clipboardText);
-// }
 
 // for the save button to save the input elements to the local storage
 // Add this to your panel.js
