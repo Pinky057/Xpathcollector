@@ -1,3 +1,5 @@
+// variable be used for console log
+var bkg = chrome.extension.getBackgroundPage();
 chrome.runtime.onMessage.addListener((req, rec, res) => {
   document.querySelector(".toast").classList.add("d-hide");
   switch (req.request) {
@@ -151,9 +153,12 @@ document.getElementById("copyButton").addEventListener("click", function() {
 
   // remove the temporary input field
   document.body.removeChild(tempInput);
-
+  bkg.console.log("Copy to clipboard" , copiedText);
   // alert the user that the contents were copied
   alert("Selected options have been copied to clipboard: " + copiedText);
+  // after copying to clipboard reset the verification methods to default state
+  resetVerificationMethods();
+
 });
 
 // document.getElementById("copyButton").addEventListener("click", function() {
@@ -194,12 +199,32 @@ document.getElementById("copyButton").addEventListener("click", function() {
 document.getElementById("saveButton").addEventListener("click", function() {
   var checkedItems = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(checkbox => checkbox.value);
   localStorage.setItem("selectedItems", JSON.stringify(checkedItems));
+  bkg.console.log("Saved to local storage", JSON.stringify(checkedItems));
+  //after saved to local storage, reset verification methods values to default
+  resetVerificationMethods();
 });
 
 
 // save button function  done
 
+function resetVerificationMethods(){
+  // Get all checked checkboxes
+  var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
 
+  // loop through all selected(check) checkboxes
+  for(var i = 0; i < checkboxes.length; i++) {
+    // reset the checkbox's value
+    checkboxes[i].checked = false;
+
+    // Get corresponding textarea value
+    var textarea = checkboxes[i].parentNode.querySelector("textarea");
+    if (textarea && textarea.value) {
+     //reset to default values
+      textarea.value = "";
+      textarea.placeholder = "Additional Information";
+    }
+  }
+}
 
 // generate axes based on user inputs
 // we will need to remove this functions not for our project
