@@ -1,7 +1,12 @@
+"use strict";
 // variable be used for console log
 var bkg = chrome.extension.getBackgroundPage();
+bkg.console.log("Working on ", document.baseURI);
+
 chrome.runtime.onMessage.addListener((req, rec, res) => {
   document.querySelector(".toast").classList.add("d-hide");
+  bkg.console.log("From message listener with request ", req.request);
+  bkg.console.log("Sender tab id" , rec.tab.id, " own tabID ", chrome.devtools.inspectedWindow.tabId);
   switch (req.request) {
     // case "pageInfo":
     //   console.log(req.request);
@@ -74,6 +79,20 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
       return true;
     case "customSearchResult":
       buildSearchUI(req.data);
+    case "activeDevTools" :
+      var answer = false;
+      if(rec.tab.id == chrome.devtools.inspectedWindow.tabId) {
+        answer = true;
+      }
+      const response = { reply: answer};
+      bkg.console.log("Request tab ID ", rec.tab.id, " devtools/panel tab ID ", chrome.devtools.inspectedWindow.tabId,  "replying  ", answer);
+      res(response);
+      return true;
+    case "reset" :
+      if(rec.tab.id == chrome.devtools.inspectedWindow.tabId) {
+        bkg.console.log("resetting the panel");
+        resetVerificationMethods();
+      }
     default:
       return true;
   }
@@ -200,7 +219,7 @@ document.getElementById("saveButton").addEventListener("click", function() {
   var checkedItems = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(checkbox => checkbox.value);
   localStorage.setItem("selectedItems", JSON.stringify(checkedItems));
   bkg.console.log("Saved to local storage", JSON.stringify(checkedItems));
-  //after saved to local storage, reset verification methods values to default
+  // after saved to local storage, reset verification methods values to default
   resetVerificationMethods();
 });
 
@@ -224,6 +243,12 @@ function resetVerificationMethods(){
       textarea.placeholder = "Additional Information";
     }
   }
+}
+
+window.isDirty = function (){
+  // Get all checked checkboxes
+   var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
+   return checkboxes.length > 0;
 }
 
 // generate axes based on user inputs

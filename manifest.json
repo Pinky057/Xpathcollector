@@ -13,6 +13,7 @@
   "permissions": [
     "<all_urls>",
     "contextMenus",
+    "tabs",
     "activeTab",
     "storage",
     "notifications",
