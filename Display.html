@@ -29,6 +29,24 @@
         ul {
             font-size: large;
         }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.1s ease-out;
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        input[type="checkbox"]:checked+.accordion-content,
+        .selected-checkbox+.accordion-content {
+            max-height: 100px;
+            /* Adjust this value based on your content height */
+        }
     </style>
 </head>
 
@@ -105,8 +123,18 @@
             <label>
                 <input type="checkbox" name="pageAction13" value="Scrollmultipage">
                 Scroll Multi Page
+                <div class="accordion-content">
+                    <input list="browsers" placeholder="Google Chrome:5-7">
+                    <datalist id="browsers">
+                        <option value="Google Chrome">
+                        <option value="Firefox">
+                        <option value="Safari">
+                        <option value="Internet Explorer">
+                        <option value="Opera">
+                    </datalist>
+                </div>
             </label>
-            <br>
+
             <label>
                 <input type="checkbox" name="pageAction14" value="selectAllTextInScreen">
                 Select All Text In Screen
@@ -115,13 +143,31 @@
             <label>
                 <input type="checkbox" name="pageAction15" value="fwdNavigationThroughKeyPress">
                 Forward Navigation Through Key Press
+                <div class="accordion-content">
+                    <input list="browsers" placeholder="Google Chrome-5">
+                    <datalist id="browsers">
+                        <option value="Google Chrome">
+                        <option value="Firefox">
+                        <option value="Safari">
+                        <option value="Internet Explorer">
+                        <option value="Opera">
+                    </datalist>
+                </div>
             </label>
-            <br>
             <label>
                 <input type="checkbox" name="pageAction16" value="tabNavigation">
                 Tab Navigation
+                <div class="accordion-content">
+                    <input list="browsers" placeholder="Google Chrome-3">
+                    <datalist id="browsers">
+                        <option value="Google Chrome">
+                        <option value="Firefox">
+                        <option value="Safari">
+                        <option value="Internet Explorer">
+                        <option value="Opera">
+                    </datalist>
+                </div>
             </label>
-            <br>
             <label>
                 <input type="checkbox" name="pageAction17" value="doOCR">
                 Do OCR
@@ -133,8 +179,12 @@
             </label>
             <br>
             <label>
-                <input type="checkbox" class="accordion-content" name="pageAction19" value="findElement">
+                <input type="checkbox" name="pageAction19" value="findElement">
                 Find Element
+                <div class="accordion-content">
+                    <textarea placeholder="Element name."></textarea>
+                </div>
+
             </label>
             <br>
             <br>
