@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Display Page</title>
-<link rel="stylesheet" type="text/css" href="app/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="app/styles/main.css">
     <style>
         body {
             background-color: #f0f0f0;
@@ -20,29 +21,128 @@
             justify-content: center;
         }
 
-        h1{
+        h1 {
             color: #fffaf7;
             margin-bottom: 20px;
         }
-        ul{
+
+        ul {
             font-size: large;
         }
     </style>
 </head>
+
 <body class="bg-dark">
-<div class="center-div container">
-<!--    <div class="container">-->
-    <h1>List of Methods !</h1>
+    <div class="center-div container">
+        <!--    <div class="container">-->
+        <h1>List of Methods!</h1>
 
-    <ul>
-        <li id="display"></li>
-    </ul>
-
-    <button type="button" class="btn btn-success">Generate Method</button>
-<!--</div>-->
-</div>
-<script src="display.js"></script>
-
-<!-- Rest of your HTML content -->
+        <ul>
+            <li id="display"></li>
+        </ul>
+        <h5>Page level Methods:</h5>
+        <form id="page-actions">
+            <label>
+                <input type="checkbox" name="pageAction1" value="Scrollupslow">
+                Scroll Up Slow
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction2" value="Scrolldownslow">
+                Scroll Down Slow
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction3" value="Scrolldownsfast">
+                Scroll Down Fast
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction4" value="Quickwait">
+                Quick Wait
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction5" value="Smallwait">
+                Small Wait
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction6" value="Medwait">
+                Med Wait
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction7" value="Longwait">
+                Long Wait
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction8" value="Quickestwait">
+                Quickest Wait
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction9" value="Launchapp">
+                Launch App
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction10" value="Navigateback">
+                Navigate Back
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction11" value="Restartapp">
+                Restart App
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction12" value="Dismissprompt">
+                Dismiss Prompt
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction13" value="Scrollmultipage">
+                Scroll Multi Page
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction14" value="selectAllTextInScreen">
+                Select All Text In Screen
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction15" value="fwdNavigationThroughKeyPress">
+                Forward Navigation Through Key Press
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction16" value="tabNavigation">
+                Tab Navigation
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction17" value="doOCR">
+                Do OCR
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="pageAction18" value="doImageComparison">
+                Do Image Comparison
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" class="accordion-content" name="pageAction19" value="findElement">
+                Find Element
+            </label>
+            <br>
+            <br>
+            <button type="button" id="generateMethod" class="btn btn-success">Generate Method</button>
+        </form>
+        <!--</div>-->
+    </div>
+    <script src="display.js"></script>
 </body>
+
 </html>
