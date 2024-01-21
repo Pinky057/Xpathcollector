@@ -107,7 +107,7 @@
         <a>Search</a>
       </li> -->
       <li class="tab-item c-hand" data-option="3">
-        <a>Verification Methods</a>
+        <a> Methods</a>
       </li>
       <!-- <li class="tab-item c-hand" data-option="6">
         <a>Record</a>
@@ -148,11 +148,11 @@
         </div>
       </div>
     </div>
-    <!-- verification methods -->
+    <!-- element level verification methods -->
     <div class="container_item card bg-dark" data-item="3">
       <div class="card-body" id="anchorXPath">
         <div class="title">
-          <h2 class="text-secondary"> Verification Methods</h2>
+          <h2 class="text-secondary"> Methods</h2>
 
           <form id="checkboxForm">
             <label>
@@ -163,13 +163,20 @@
             <label>
               <input type="checkbox" name="option2" value="Click on an element">
               Click on an element
+              <div class="accordion-content">
+                <textarea placeholder="Additional information."></textarea>
+                <textarea placeholder="Additional information."></textarea>
+              </div>
             </label>
-            <br>
             <label>
               <input type="checkbox" name="option3" value="Right Click on an element">
               Right Click on an element
+              <div class="accordion-content">
+                <textarea placeholder="Additional information."></textarea>
+                <textarea placeholder="Additional information."></textarea>
+              </div>
             </label>
-            <br>
+
             <label>
               <input type="checkbox" name="option4" value="Type">
               Type
@@ -187,8 +194,47 @@
               Select
               <div class="accordion-content">
                 <textarea placeholder="Additional information."></textarea>
+                <textarea placeholder="Additional information."></textarea>
               </div>
             </label>
+
+            <label>
+              <input type="checkbox" name="option7" value="LongPress">
+              LongPress
+            </label>
+            <br>
+            <label>
+              <input type="checkbox" name="option8" value="Find and click on element">
+              Find and click on element
+              <div class="accordion-content">
+                <textarea placeholder="Additional information."></textarea>
+                <textarea placeholder="Additional information."></textarea>
+
+              </div>
+            </label>
+            <label>
+              <input type="checkbox" name="option9" value="Keypress on element">
+              Keypress on element
+              <div class="accordion-content">
+                <textarea placeholder="Additional information."></textarea>
+                <textarea placeholder="Additional information."></textarea>
+
+              </div>
+            </label>
+            <label>
+              <input type="checkbox" name="option10" value="Conditional Click">
+              Conditional Click
+              <div class="accordion-content">
+                <textarea placeholder="Additional information."></textarea>
+                <textarea placeholder="Additional information."></textarea>
+
+              </div>
+            </label>
+            <label>
+              <input type="checkbox" name="option11" value="Hide keyboard">
+              Hide keyboard
+            </label>
+            <br>
             <button id="saveButton" class="btn btn-primary" type="button">Save Selected</button>
             <button class="btn btn-success" id="copyButton" type="button">Copy Selected to
               Clipboard</button>
