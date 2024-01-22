@@ -13,7 +13,6 @@
             height: 100vh;
             margin: 0;
         }
-
         .center-div {
             display: flex;
             flex-direction: column;
@@ -46,6 +45,14 @@
         .selected-checkbox+.accordion-content {
             max-height: 100px;
             /* Adjust this value based on your content height */
+        }
+        .parent-div {
+            display: flex;
+            justify-content: space-between; /* If you want some space between them */
+        }
+
+        .child-input {
+            flex-basis: 40%; /* Needed for responsiveness, you can modify the percentage as per your requirement */
         }
     </style>
 </head>
@@ -188,8 +195,15 @@
             </label>
             <br>
             <br>
-            <button type="button" id="generateMethod" class="btn btn-success">Generate Method</button>
-            <button type="button" id="next" class="btn btn-success">Next</button>
+            <div class="parent-div">
+                <label class="child-input"> Method Name:
+                    <textarea  placeholder="Element name."></textarea>
+                </label>
+                <label class="child-input" > Parameter:
+                    <textarea placeholder="Element name."></textarea>
+                </label>
+            </div>
+            <button type="button" id="generateMethod" class="btn btn-success btn-block"> Save </button>
 
         </form>
         <!--</div>-->
