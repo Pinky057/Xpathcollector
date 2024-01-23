@@ -135,7 +135,9 @@ function utilsLocatorUI(data) {
   }
 }
 // for the verification methods copy
-document.getElementById("copyButton").addEventListener("click", function() {
+
+// function to handle copy button click
+function handleCopyButtonClick() {
   // Get all checked checkboxes
   var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
 
@@ -172,59 +174,47 @@ document.getElementById("copyButton").addEventListener("click", function() {
 
   // remove the temporary input field
   document.body.removeChild(tempInput);
+
   bkg.console.log("Copy to clipboard" , copiedText);
+
   // alert the user that the contents were copied
   alert("Selected options have been copied to clipboard: " + copiedText);
+
   // after copying to clipboard reset the verification methods to default state
   resetVerificationMethods();
-
-});
-
-// document.getElementById("copyButton").addEventListener("click", function() {
-//   // get all checkboxes
-//   var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
-//
-//   // initialise an empty array to hold the names of checkboxes
-//   var selectedOptions = [];
-//
-//   // loop through all selected(check) checkboxes
-//   for(var i = 0; i < checkboxes.length; i++) {
-//      // push the checkbox's value into the array
-//      selectedOptions.push(checkboxes[i].value);
-//   }
-//
-//   // join the array into a string with ", " separator
-//   var copiedText = selectedOptions.join(", ");
-//
-//   // create a temporary input field for copying the content to clipboard
-//   var tempInput = document.createElement("input");
-//   tempInput.value = copiedText;
-//   document.body.appendChild(tempInput);
-//
-//   // select the content in the input field and copy it to the clipboard
-//   tempInput.select();
-//   document.execCommand("copy");
-//
-//   // remove the temporary input field
-//   document.body.removeChild(tempInput);
-//
-//   // alert the user that the contents were copied
-//   alert("Selected options have been copied to clipboard: " + copiedText);
-// });
+}
 
 
 // for the save button to save the input elements to the local storage
 // Add this to your panel.js
-document.getElementById("saveButton").addEventListener("click", function() {
-  var checkedItems = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(checkbox => checkbox.value);
+// document.getElementById("saveButton").addEventListener("click", function() {
+//   var checkedItems = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(checkbox => checkbox.value);
+//   localStorage.setItem("selectedItems", JSON.stringify(checkedItems));
+//   bkg.console.log("Saved to local storage", JSON.stringify(checkedItems));
+//   // after saved to local storage, reset verification methods values to default
+//   resetVerificationMethods();
+// });
+
+// function to handle save button click
+function handleSaveButtonClick() {
+  var checkedItems = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map((checkbox) => checkbox.value);
   localStorage.setItem("selectedItems", JSON.stringify(checkedItems));
   bkg.console.log("Saved to local storage", JSON.stringify(checkedItems));
-  // after saved to local storage, reset verification methods values to default
+
+}
+
+// save button function  done
+
+//called the save and copy function when the user clicks on the save and copy button
+
+document.getElementById("saveAndCopyButton").addEventListener("click", function() {
+  handleSaveButtonClick(); // comment out resetVerificationMethods() inside this function
+  handleCopyButtonClick(); // comment out resetVerificationMethods() inside this function
+
+  // After both the functions are executed, reset verification methods
   resetVerificationMethods();
 });
 
-
-// save button function  done
 
 function resetVerificationMethods(){
   // Get all checked checkboxes
