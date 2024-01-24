@@ -179,9 +179,6 @@ function handleCopyButtonClick() {
 
   // alert the user that the contents were copied
   alert("Selected options have been copied to clipboard: " + copiedText);
-
-  // after copying to clipboard reset the verification methods to default state
-  resetVerificationMethods();
 }
 
 
