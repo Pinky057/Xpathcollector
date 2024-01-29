@@ -5,28 +5,43 @@
     <title>Display Page</title>
     <link rel="stylesheet" type="text/css" href="app/styles/main.css">
     <style>
-        body {
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .center-div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .item1 {
+            grid-area: header;
         }
 
-        h1 {
-            color: #fffaf7;
-            margin-bottom: 20px;
+        .item2 {
+            grid-area: menu;
         }
 
-        ul {
-            font-size: large;
+        .item3 {
+            grid-area: main;
+        }
+
+        .item4 {
+            grid-area: right;
+        }
+
+        .item5 {
+            grid-area: footer;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header header header header header'
+                'menu main main middle middle right right'
+                'menu main main middle middle right right'
+                'menu footer footer footer footer footer footer';
+            gap: 5px;
+            background-color: #afd2f4;
+            padding: 5px;
+        }
+
+        .grid-container>div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: left;
+            padding: 10px 0;
+            font-size: 15px;
         }
 
         .accordion-content {
@@ -46,169 +61,188 @@
             max-height: 100px;
             /* Adjust this value based on your content height */
         }
+
         .parent-div {
             display: flex;
-            justify-content: space-between; /* If you want some space between them */
+            justify-content: space-between;
+            /* If you want some space between them */
         }
 
         .child-input {
-            flex-basis: 40%; /* Needed for responsiveness, you can modify the percentage as per your requirement */
+            flex-basis: 40%;
+            /* Needed for responsiveness, you can modify the percentage as per your requirement */
         }
     </style>
 </head>
 
-<body class="bg-dark">
-    <div class="center-div container">
-        <!--    <div class="container">-->
-        <h1>List of Methods!</h1>
-
-        <ul>
-            <li id="display"></li>
-        </ul>
-        <h5>Page level Methods:</h5>
-        <form id="page-actions">
-            <label>
-                <input type="checkbox" name="pageAction1" value="Scrollupslow">
-                Scroll Up Slow
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction2" value="Scrolldownslow">
-                Scroll Down Slow
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction3" value="Scrolldownsfast">
-                Scroll Down Fast
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction4" value="Quickwait">
-                Quick Wait
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction5" value="Smallwait">
-                Small Wait
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction6" value="Medwait">
-                Med Wait
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction7" value="Longwait">
-                Long Wait
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction8" value="Quickestwait">
-                Quickest Wait
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction9" value="Launchapp">
-                Launch App
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction10" value="Navigateback">
-                Navigate Back
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction11" value="Restartapp">
-                Restart App
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction12" value="Dismissprompt">
-                Dismiss Prompt
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction13" value="Scrollmultipage">
-                Scroll Multi Page
-                <div class="accordion-content">
-                    <input list="browsers" placeholder="Google Chrome:5-7">
-                    <datalist id="browsers">
-                        <option value="Google Chrome">
-                        <option value="Firefox">
-                        <option value="Safari">
-                        <option value="Internet Explorer">
-                        <option value="Opera">
-                    </datalist>
-                </div>
-            </label>
-
-            <label>
-                <input type="checkbox" name="pageAction14" value="selectAllTextInScreen">
-                Select All Text In Screen
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction15" value="fwdNavigationThroughKeyPress">
-                Forward Navigation Through Key Press
-                <div class="accordion-content">
-                    <input list="browsers" placeholder="Google Chrome-5">
-                    <datalist id="browsers">
-                        <option value="Google Chrome">
-                        <option value="Firefox">
-                        <option value="Safari">
-                        <option value="Internet Explorer">
-                        <option value="Opera">
-                    </datalist>
-                </div>
-            </label>
-            <label>
-                <input type="checkbox" name="pageAction16" value="tabNavigation">
-                Tab Navigation
-                <div class="accordion-content">
-                    <input list="browsers" placeholder="Google Chrome-3">
-                    <datalist id="browsers">
-                        <option value="Google Chrome">
-                        <option value="Firefox">
-                        <option value="Safari">
-                        <option value="Internet Explorer">
-                        <option value="Opera">
-                    </datalist>
-                </div>
-            </label>
-            <label>
-                <input type="checkbox" name="pageAction17" value="doOCR">
-                Do OCR
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction18" value="doImageComparison">
-                Do Image Comparison
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="pageAction19" value="findElement">
-                Find Element
-                <div class="accordion-content">
-                    <textarea placeholder="Element name."></textarea>
-                </div>
-
-            </label>
-            <br>
-            <br>
-            <div class="parent-div">
-                <label class="child-input"> Method Name:
-                    <textarea  placeholder="Element name."></textarea>
+<body>
+    <div class="grid-container">
+        <div class="item1" color: #2196F3 text-align='center'>
+            <img alt="TS360 Company Logo" 
+                src="app/src/TS360Logo.png" width = "120" height = "120" style = "color:rgb(105, 174, 242)"/>
+            <h2 style="text-align:center">TS360: Elevate Continuous Testing!</h2>
+        </div>
+        <div class="item2">
+            <h2>List of Methods!</h2>
+            <h3>Page level Methods:</h3>
+            <form id="page-actions">
+                <label>
+                    <input type="checkbox" name="pageAction1" value="Scrollupslow">
+                    Scroll Up Slow
                 </label>
-                <label class="child-input" > Parameter:
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction2" value="Scrolldownslow">
+                    Scroll Down Slow
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction3" value="Scrolldownsfast">
+                    Scroll Down Fast
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction4" value="Quickwait">
+                    Quick Wait
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction5" value="Smallwait">
+                    Small Wait
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction6" value="Medwait">
+                    Med Wait
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction7" value="Longwait">
+                    Long Wait
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction8" value="Quickestwait">
+                    Quickest Wait
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction9" value="Launchapp">
+                    Launch App
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction10" value="Navigateback">
+                    Navigate Back
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction11" value="Restartapp">
+                    Restart App
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction12" value="Dismissprompt">
+                    Dismiss Prompt
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction13" value="Scrollmultipage">
+                    Scroll Multi Page
+                    <div class="accordion-content">
+                        <input list="browsers" placeholder="Google Chrome:5-7">
+                        <datalist id="browsers">
+                            <option value="Google Chrome">
+                            <option value="Firefox">
+                            <option value="Safari">
+                            <option value="Internet Explorer">
+                            <option value="Opera">
+                        </datalist>
+                    </div>
+                </label>
+
+                <label>
+                    <input type="checkbox" name="pageAction14" value="selectAllTextInScreen">
+                    Select All Text In Screen
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction15" value="fwdNavigationThroughKeyPress">
+                    Forward Navigation Through Key Press
+                    <div class="accordion-content">
+                        <input list="browsers" placeholder="Google Chrome-5">
+                        <datalist id="browsers">
+                            <option value="Google Chrome">
+                            <option value="Firefox">
+                            <option value="Safari">
+                            <option value="Internet Explorer">
+                            <option value="Opera">
+                        </datalist>
+                    </div>
+                </label>
+                <label>
+                    <input type="checkbox" name="pageAction16" value="tabNavigation">
+                    Tab Navigation
+                    <div class="accordion-content">
+                        <input list="browsers" placeholder="Google Chrome-3">
+                        <datalist id="browsers">
+                            <option value="Google Chrome">
+                            <option value="Firefox">
+                            <option value="Safari">
+                            <option value="Internet Explorer">
+                            <option value="Opera">
+                        </datalist>
+                    </div>
+                </label>
+                <label>
+                    <input type="checkbox" name="pageAction17" value="doOCR">
+                    Do OCR
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction18" value="doImageComparison">
+                    Do Image Comparison
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction19" value="findElement">
+                    Find Element
+                    <div class="accordion-content">
+                        <textarea placeholder="Element name."></textarea>
+                    </div>
+
+                </label>
+                <br>
+        </div>
+        <div class="item3"><b></b></div>
+        <div class="item4"><b></b>
+        </div>
+
+        <div class="item5">
+            <div class="parent-div">
+                <label class="child-input"> Method Name:<br>
+                    <textarea placeholder="Element name."></textarea>
+                </label><br>
+                <label class="child-input"> Parameter:<br>
+                    <textarea placeholder="Element name."></textarea>
+                </label><br>
+                <label class="child-input"> Variables:<br>
                     <textarea placeholder="Element name."></textarea>
                 </label>
             </div>
-            <button type="button" id="generateMethod" class="btn btn-success btn-block"> Save </button>
+            <button type="button" id="generateMethod" class="btn btn-success btn-block" color: 'green'> Save </button>
 
-        </form>
-        <!--</div>-->
+            </form>
+
+            <!--</div>-->
+        </div>
+        <div class="item6">Element1</div>
+        <div class="item7">Element2</div>
+        <div class="item8">Element3</div>
+        <div class="item9">Element4</div>
     </div>
-    <script src="display.js"></script>
+    </div>
+
 </body>
 
 </html>
