@@ -666,8 +666,8 @@ html:lang(ko),
 }
 
 .btn.btn-success {
-  background: #32b643;
-  border-color: #2faa3f;
+  background: #2b7bcf;
+  border-color: #2c95c2;
   color: #fff;
 }
 
@@ -677,8 +677,8 @@ html:lang(ko),
 
 .btn.btn-success:focus,
 .btn.btn-success:hover {
-  background: #30ae40;
-  border-color: #2da23c;
+  background: #2f8cb7;
+  border-color: #26889e;
   color: #fff;
 }
 
