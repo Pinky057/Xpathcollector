@@ -5,34 +5,49 @@
     <title>Display Page</title>
     <link rel="stylesheet" type="text/css" href="app/styles/main.css">
     <style>
+        table {
+            border: 2px solid rgb(251, 246, 246);
+            color: dodgerblue;
+        }
+
+        td {
+            background-color: rgb(242, 242, 245);
+            color: dodgerblue;
+            border-radius: 10px;
+        }
+
+        img {
+            border-radius: 50%;
+        }
+
         .item1 {
             grid-area: header;
+
+            color: dodgerblue;
         }
 
         .item2 {
             grid-area: menu;
+            color: dodgerblue;
         }
 
         .item3 {
             grid-area: main;
+            /* width: 75%; */
         }
 
         .item4 {
-            grid-area: right;
-        }
-
-        .item5 {
             grid-area: footer;
+            color: dodgerblue;
         }
 
         .grid-container {
             display: grid;
             grid-template-areas:
-                'header header header header header header header'
-                'menu main main middle middle right right'
-                'menu main main middle middle right right'
-                'menu footer footer footer footer footer footer';
-            gap: 5px;
+                'header header header header header header'
+                'menu main main main main main'
+                'menu footer footer footer footer footer';
+            gap: 10px;
             background-color: #afd2f4;
             padding: 5px;
         }
@@ -51,7 +66,7 @@
         }
 
         textarea {
-            width: 100%;
+            width: 50%;
             box-sizing: border-box;
             margin-top: 5px;
         }
@@ -60,6 +75,12 @@
         .selected-checkbox+.accordion-content {
             max-height: 100px;
             /* Adjust this value based on your content height */
+        }
+
+        button {
+            width: 50%;
+            text-align: center;
+            color: dodgerblue;
         }
 
         .parent-div {
@@ -73,17 +94,36 @@
             /* Needed for responsiveness, you can modify the percentage as per your requirement */
         }
     </style>
+    <script src="display.js" defer></script>
 </head>
 
 <body>
     <div class="grid-container">
-        <div class="item1" color: #2196F3 text-align='center'>
-            <img alt="TS360 Company Logo" 
-                src="app/src/TS360Logo.png" width = "120" height = "120" style = "color:rgb(105, 174, 242)"/>
-            <h2 style="text-align:center">TS360: Elevate Continuous Testing!</h2>
+        <div class="item1">
+            <table>
+                <tr>
+                    <td>
+                        <img alt="TS360 Company Logo" src="app/src/TS360Logo.png" width="150" height="150" />
+
+                    </td>
+                    <td>
+                        <h1 style="text-align:center;" ;>TS360: Elevate Continuous Testing!</h1>
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; font-size: x-large;">
+                <b>Page Title: </b><br>
+                <textarea style="margin: 0 auto; font-size: medium;"
+                    placeholder="Please Enter an Unique Page Title For Your Document."
+                    style="text-align: center; width: 50%"></textarea>
+                <div style=" text-align: center;">
+                    <button type="button" id="afterpageTitle" class="btn btn-success btn-block"
+                        style="width: 10%; display:inline"> Next </button>
+                </div>
+            </div>
         </div>
         <div class="item2">
-            <h2>List of Methods!</h2>
+
             <h3>Page level Methods:</h3>
             <form id="page-actions">
                 <label>
@@ -150,14 +190,15 @@
                     <input type="checkbox" name="pageAction13" value="Scrollmultipage">
                     Scroll Multi Page
                     <div class="accordion-content">
-                        <input list="browsers" placeholder="Google Chrome:5-7">
-                        <datalist id="browsers">
-                            <option value="Google Chrome">
-                            <option value="Firefox">
-                            <option value="Safari">
-                            <option value="Internet Explorer">
-                            <option value="Opera">
-                        </datalist>
+                        <select id="browserSelectScrollMultiPage">
+                            <option value="Google Chrome">Google Chrome</option>
+                            <option value="Firefox">Firefox</option>
+                            <option value="Safari">Safari</option>
+                            <option value="Internet Explorer">Internet Explorer</option>
+                            <option value="Opera">Opera</option>
+                        </select>
+
+                        <input type="text" id="browserInputScrollMultiPage" placeholder="Google Chrome - 3-8">
                     </div>
                 </label>
 
@@ -170,28 +211,30 @@
                     <input type="checkbox" name="pageAction15" value="fwdNavigationThroughKeyPress">
                     Forward Navigation Through Key Press
                     <div class="accordion-content">
-                        <input list="browsers" placeholder="Google Chrome-5">
-                        <datalist id="browsers">
-                            <option value="Google Chrome">
-                            <option value="Firefox">
-                            <option value="Safari">
-                            <option value="Internet Explorer">
-                            <option value="Opera">
-                        </datalist>
+                        <select id="browserSelectForNavThKeyPr">
+                            <option value="Google Chrome">Google Chrome</option>
+                            <option value="Firefox">Firefox</option>
+                            <option value="Safari">Safari</option>
+                            <option value="Internet Explorer">Internet Explorer</option>
+                            <option value="Opera">Opera</option>
+                        </select>
+
+                        <input type="text" id="browserInputForNavThKeyPr" placeholder="Google Chrome - 5">
                     </div>
                 </label>
                 <label>
                     <input type="checkbox" name="pageAction16" value="tabNavigation">
                     Tab Navigation
                     <div class="accordion-content">
-                        <input list="browsers" placeholder="Google Chrome-3">
-                        <datalist id="browsers">
-                            <option value="Google Chrome">
-                            <option value="Firefox">
-                            <option value="Safari">
-                            <option value="Internet Explorer">
-                            <option value="Opera">
-                        </datalist>
+                        <select id="browserSelectTabNav">
+                            <option value="Google Chrome">Google Chrome</option>
+                            <option value="Firefox">Firefox</option>
+                            <option value="Safari">Safari</option>
+                            <option value="Internet Explorer">Internet Explorer</option>
+                            <option value="Opera">Opera</option>
+                        </select>
+
+                        <input type="text" id="browserInputTabNav" placeholder="Google Chrome - 3">
                     </div>
                 </label>
                 <label>
@@ -212,36 +255,144 @@
                     </div>
 
                 </label>
-                <br>
-        </div>
-        <div class="item3"><b></b></div>
-        <div class="item4"><b></b>
-        </div>
-
-        <div class="item5">
-            <div class="parent-div">
-                <label class="child-input"> Method Name:<br>
-                    <textarea placeholder="Element name."></textarea>
-                </label><br>
-                <label class="child-input"> Parameter:<br>
-                    <textarea placeholder="Element name."></textarea>
-                </label><br>
-                <label class="child-input"> Variables:<br>
-                    <textarea placeholder="Element name."></textarea>
+                <label>
+                    <input type="checkbox" name="pageAction20" value="Scrollupfast">
+                    Scroll Up Fast
                 </label>
-            </div>
-            <button type="button" id="generateMethod" class="btn btn-success btn-block" color: 'green'> Save </button>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction21" value="keydownkeypress">
+                    Key Down Key Press
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction22" value="selectfromlist">
+                    Select From List
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction23" value="clickall">
+                    Click All
+                    <div class="accordion-content">
+                        <select id="elementTESTSelectClickAll">
+                            <option value="Element1">Element1</option>
+                            <option value="Element2">Element2</option>
+                            <option value="Element3">Element3</option>
+                            <option value="Element4">Element4</option>
+                            <option value="Element5">Element5</option>
+                        </select>
+
+                        <input type="text" id="elementTESTInputClickAll">
+                    </div>
+                </label>
+                <label>
+                    <input type="checkbox" name="pageAction24" value="Elseblock">
+                    Else Block
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="pageAction25" value="Endofblock">
+                    End Of Block
+                </label>
+                <br>
+                <label>
+                    <!-- <input id= "elementTESTClick" type="checkbox" name="pageAction26" value="Scrolltoelement" onclick="resetInput()"> -->
+                    <input id="elementTESTClick" type="checkbox" name="pageAction26" value="Scrolltoelement">
+                    Scroll To Element
+                    <div class="accordion-content">
+                        <select id="elementTESTSelect">
+                            <option value="Element1">Element7</option>
+                            <option value="Element2">Element2</option>
+                            <option value="Element3">Element3</option>
+                            <option value="Element4">Element4</option>
+                            <option value="Element5">Element5</option>
+                        </select>
+
+                        <input type="text" id="elementTESTInput">
+                    </div>
+                </label>
+
+                <label>
+                    <input type="checkbox" name="pageAction27" value="Multicall">
+                    Multi Call
+
+
+                    <div class="accordion-content">
+                        <select id="methodSelect">
+                            <option value="method1">Method1</option>
+                            <option value="method2">Method2</option>
+                            <option value="method3">Method3</option>
+                            <option value="method4">Method4</option>
+                            <option value="method5">Method5</option>
+                        </select>
+                    </div>
+                </label>
 
             </form>
-
-            <!--</div>-->
         </div>
-        <div class="item6">Element1</div>
-        <div class="item7">Element2</div>
-        <div class="item8">Element3</div>
-        <div class="item9">Element4</div>
+        <div class="item3">
+            <table>
+                <tr>
+                    <td style="width:25%;border:2px solid lightblue">
+                        <b>Gmail:</b> <br>
+                        Selected Methods:
+                        <ul id="selectedmethodlist">
+                            <li>Presence of element</li>
+                            <li>Type</li>
+                            <li>Clear content</li>
+                        </ul>
+                        <!--<label id="display"></label>-->
+                    </td>
+                    <td style="width:25%;border:2px solid lightblue">
+                        <b>Search Button:</b> <br>
+                        Selected Methods:
+                        <ul id="selectedmethodlist">
+                            <li>Presence of element</li>
+                            <li>Type : cricket</li>
+                            <li>Clear content</li>
+                        </ul>
+                    </td>
+                    <td style="width:25%;border:2px solid lightblue">
+                        <b>Store:</b> <br>
+                        Selected Methods:
+                        <ul id="selectedmethodlist">
+                            <li>Presence of element</li>
+                            <li>Type</li>
+                            <li>Clear content</li>
+                        </ul>
+                    </td>
+                    <td style="width:25%;border:2px solid lightblue">
+                        <b>About:</b> <br>
+                        Selected Methods:
+                        <ul id="selectedmethodlist">
+                            <li>Presence of element</li>
+                            <li>Type</li>
+                            <li>Clear content</li>
+                        </ul>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="item4">
+            <div class="parent-div">
+                <label class="child-input"><b>Method Name:</b><br>
+                    <textarea placeholder="Element name."></textarea>
+                </label><br>
+                <label class="child-input"> <b>Parameter:</b><br>
+                    <textarea placeholder="Element name."></textarea>
+                </label><br>
+                <label class="child-input"> <b>Variables:</b><br>
+                    <textarea placeholder="Element name."></textarea>
+                </label><br>
+            </div>
+            <div style="text-align: center;">
+                <button type="button" id="generateMethod" class="btn btn-success btn-block"
+                    style="width: 50%; display:inline "> Save </button>
+            </div>
+        </div>
     </div>
-    </div>
+
 
 </body>
 
