@@ -3,9 +3,9 @@
 var bkg = chrome.extension.getBackgroundPage();
 
 //window.onload = function () {
-//   var savedItems = JSON.parse(localStorage.getItem("selectedItems"));
-//   var displayElement = document.getElementById("display");
-//   displayElement.innerHTML = savedItems ? savedItems.join(", ") : "No items have been saved.";
+//  var savedItems = JSON.parse(localStorage.getItem("selectedItems"));
+ // var displayElement = document.getElementById("display");
+//  displayElement.innerHTML = savedItems ? savedItems.join(", ") : "No items have been saved.";
 
 //     var dynGridElement = document.getElementById("dynamic_grid");
 //     var tmpHtml = "";

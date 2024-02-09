@@ -113,9 +113,8 @@
             </table>
             <div style="text-align: center; font-size: x-large;">
                 <b>Page Title: </b><br>
-                <textarea style="margin: 0 auto; font-size: medium;"
-                    placeholder="Please Enter an Unique Page Title For Your Document."
-                    style="text-align: center; width: 50%"></textarea>
+                <input type = "text" id = "pagetitle" style="margin: 0 auto; font-size: medium;" placeholder="Please Enter an Unique Page Title For Your Document."
+                    style="text-align: center;" required>
                 <div style=" text-align: center;">
                     <button type="button" id="afterpageTitle" class="btn btn-success btn-block"
                         style="width: 10%; display:inline"> Next </button>
@@ -335,7 +334,7 @@
                 <tr>
                     <td style="width:25%;border:2px solid lightblue">
                         <b>Gmail:</b> <br>
-                        Selected Methods:
+                        Selected Methods: <br>
                         <ul id="selectedmethodlist">
                             <li>Presence of element</li>
                             <li>Type</li>
@@ -385,10 +384,13 @@
                 <label class="child-input"> <b>Variables:</b><br>
                     <textarea placeholder="Element name."></textarea>
                 </label><br>
-            </div>
+            <label class="child-input"> <b>Return Type:</b><br>
+                <textarea placeholder="Element name."></textarea>
+            </label><br>
+        </div>
             <div style="text-align: center;">
                 <button type="button" id="generateMethod" class="btn btn-success btn-block"
-                    style="width: 50%; display:inline "> Save </button>
+                    style="width: 25%; display:inline "> Save </button>
             </div>
         </div>
     </div>
