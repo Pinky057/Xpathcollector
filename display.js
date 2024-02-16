@@ -1,27 +1,42 @@
 // display.js
 
 var bkg = chrome.extension.getBackgroundPage();
+let listItemMap = {}; // Store references to list items
+function handleCheckboxChange(event) {
+    // Check if the checkbox is checked
+    if (event.target.checked) {
+        updateList(event.target.value, "checked")
+        console.log(`Checkbox with value ${event.target.value} is checked.`);
+    } else {
+        console.log(`Checkbox with value ${event.target.value} is unchecked.`);
+        updateList(event.target.value, "unchecked")
+    }
+}
 
-//window.onload = function () {
-//  var savedItems = JSON.parse(localStorage.getItem("selectedItems"));
- // var displayElement = document.getElementById("display");
-//  displayElement.innerHTML = savedItems ? savedItems.join(", ") : "No items have been saved.";
+function pageMethodSelected() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', handleCheckboxChange);
+    });
+}
 
-//     var dynGridElement = document.getElementById("dynamic_grid");
-//     var tmpHtml = "";
-//     for (var i = 0; i < 3; i++) {
-//         tmpHtml += "<div class=\"grid-container>div\">ElementX</div>";
-//     }
-//     //dynGridElement.innerHTML = tmpHtml;
-//     //dynGridElement.innerHTML = "<div class=\"item6\">Element1</div> <div class=\"item7\">Element2</div> <div class=\"item8\">Element3</div><div class=\"item9\">Element4</div>"
-//     console.log("AAAAAAAA ", dynGridElement.innerHTML);
-// }
-
-// // Listener for Generate method button
-// document.getElementById("generateMethod").addEventListener("click", function () {
-//     //TODO: Need to save
-//     bkg.console.log("Getting Methods for display ");
-// })
+function updateList(item, status) {
+    const list = document.getElementById("sortable");
+    if (status === 'checked') {
+        const li = document.createElement('li');
+        li.textContent = item;
+        list.appendChild(li);
+        listItemMap[item] = li;
+        console.log("added", li);
+    } else if (status === 'unchecked') {
+        const li = listItemMap[item]; // Get the reference to the list item
+        if (li) {
+            list.removeChild(li);
+            delete listItemMap[item]; // Remove the reference
+            console.log("removed", li);
+        }
+    }
+}
 
 function resetInput() {
     var inputElement = document.getElementById("elementTESTClick");
@@ -76,3 +91,8 @@ addChangeInputListener("elementTESTSelectClickAll", "elementTESTInputClickAll");
 addChangeInputListener("browserSelectTabNav", "browserInputTabNav");
 addChangeInputListener("browserSelectForNavThKeyPr", "browserInputForNavThKeyPr");
 addChangeInputListener("browserSelectScrollMultiPage", "browserInputScrollMultiPage");
+pageMethodSelected();
+
+$(function () {
+    $("#sortable").sortable();
+});

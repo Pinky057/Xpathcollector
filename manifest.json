@@ -49,7 +49,7 @@
     "scripts": ["background.js"]
   },
   "devtools_page": "devtools.html",
-  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://code.jquery.com ; object-src 'self'",
   "homepage_url": "https://www.letcode.in",
   "browser_action": {
     "default_title": "LetXPath",
