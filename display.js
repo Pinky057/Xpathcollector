@@ -39,15 +39,15 @@ function updateList(item, status) {
 }
 
 function resetInput() {
-    var inputElement = document.getElementById("elementTESTClick");
+    var inputElement = document.getElementById("elementtestclick");
     // Reset the input value when the checkbox state changes
     if (inputElement) {
         inputElement.value = '';
     }
 }
 function updateInputValue() {
-    var selectElement = document.getElementById("elementTESTSelect");
-    var inputElement = document.getElementById("elementTESTInput");
+    var selectElement = document.getElementById("elementtestselect");
+    var inputElement = document.getElementById("elementtestinput");
 
     console.log(" selectElement ", selectElement.value);
     if (selectElement && inputElement) {
@@ -57,8 +57,8 @@ function updateInputValue() {
 }
 
 function updateSelectValue() {
-    var selectElement = document.getElementById("elementTESTSelect");
-    var inputElement = document.getElementById("elementTESTInput");
+    var selectElement = document.getElementById("elementtestselect");
+    var inputElement = document.getElementById("elementtestinput");
     if (selectElement && inputElement) {
         selectElement.value = inputElement.value;
     }
@@ -86,11 +86,11 @@ function addChangeInputListener(selectID, inputID) {
     });
 }
 
-addChangeInputListener("elementTESTSelect", "elementTESTInput");
-addChangeInputListener("elementTESTSelectClickAll", "elementTESTInputClickAll");
-addChangeInputListener("browserSelectTabNav", "browserInputTabNav");
-addChangeInputListener("browserSelectForNavThKeyPr", "browserInputForNavThKeyPr");
-addChangeInputListener("browserSelectScrollMultiPage", "browserInputScrollMultiPage");
+addChangeInputListener("elementtestselect", "elementtestinput");
+addChangeInputListener("elementtestselectclickall", "elementtestinputclickall");
+addChangeInputListener("browserselecttabnav", "browserinputtabnav");
+addChangeInputListener("browserselectfornavthkeypr", "browserinputfornavthkeypr");
+addChangeInputListener("browserselectscrollmultipage", "browserinputscrollmultipage");
 pageMethodSelected();
 
 $(function () {
