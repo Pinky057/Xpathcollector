@@ -96,3 +96,48 @@ pageMethodSelected();
 $(function () {
     $("#sortable").sortable();
 });
+
+window.onload = function() {
+    // Get the element with class="defaultOpen" and click on it
+    document.querySelector(".tablinks").click();
+};
+
+
+window.onload = function() {
+    // Click on the first tab by default
+    document.getElementById("tab1").click();
+
+    // Add event listeners for all tab buttons:
+    document.getElementById("tab1").addEventListener("click", function() {
+        openTab('Tab1');
+    });
+    document.getElementById("tab2").addEventListener("click", function() {
+        openTab('Tab2');
+    });
+    document.getElementById("tab3").addEventListener("click", function() {
+        openTab('Tab3');
+    });
+};
+
+//tab navigation
+function openTab(tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all buttons with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i<tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab's content, and
+    // add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    document.getElementById("tab" + tabName.charAt(3)).classList.add("active");
+}
