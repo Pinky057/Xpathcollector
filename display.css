@@ -271,4 +271,6 @@ button {
 
 .element-card ul {
     font-size: 1.2em;  /* adjust as needed */
+    list-style: none;
+text-align: left;
 }
