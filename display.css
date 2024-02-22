@@ -210,7 +210,7 @@ button {
 
 /* Change background color of buttons when they are active (or clicked) */
 .tab button.active {
-    background-color: rgba(30, 144, 255, 0.53);
+    background-color: rgba(30, 144, 255, 0.47);
 }
 
 /* Styles for the tab content */
@@ -224,6 +224,29 @@ button {
 /* Show the first tab by default */
 .tabcontent:first-child {
     display: block;
+}
+.tablinks {
+    /* existing css */
+
+    height: 50px;  /* adjust as needed */
+    line-height: 40px; /* adjust as needed */
+    position: relative;
+
+}
+
+.tablinks::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: dodgerblue;
+    transition: width .3s;
+}
+
+.tablinks:hover::after {
+    width: 100%;
 }
 /*.neumorphic {*/
 /*    !*border-radius: 1rem;*!*/
