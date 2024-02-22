@@ -108,7 +108,7 @@ input[type="checkbox"]:checked+.accordion-content,
 
 .additional-card {
     margin: auto;
-    padding: 20px;
+    padding: 30px;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -130,9 +130,10 @@ input[type="checkbox"]:checked+.accordion-content,
 }
 
 .additional-card button {
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px;
-    width: 30%;
+    width: 20%;
     background-color: dodgerBlue;
     color: white;
     border: none;
@@ -197,6 +198,11 @@ button {
     margin-left: -1.3em;
 }
 /* Styles for the tab links/buttons */
+.tab {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
 .tab button {
     background-color: #f1f1f1;
     color: black;
