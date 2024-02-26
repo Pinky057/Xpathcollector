@@ -141,3 +141,6 @@ function openTab(tabName) {
     document.getElementById(tabName).style.display = "block";
     document.getElementById("tab" + tabName.charAt(3)).classList.add("active");
 }
+$(document).ready(function(){
+    $("#workflow-content").load("workflow.html");
+});
