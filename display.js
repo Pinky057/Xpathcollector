@@ -145,3 +145,56 @@ $(document).ready(function(){
     $("#Tab2").load("view.html");
     $("#workflow-content").load("workflow.html");
 });
+
+//save page level method to local storage
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('display-save-btn').addEventListener('click', function() {
+
+        // Get input values
+        var methodName = document.getElementById('method-name').value;
+        var variables = document.getElementById('variables').value;
+        var parameters = document.getElementById('parameters').value;
+        var returnType = document.getElementById('return-type').value;
+
+        // Form the data object
+        var formData = {
+            methodName: methodName,
+            variables: variables,
+            parameters: parameters,
+            returnType: returnType
+        };
+
+        // Get existing data from LocalStorage and convert it to an array
+        var existingData = JSON.parse(localStorage.getItem('formData_list')) || [];
+
+        // Push new object into the existing array
+        existingData.push(formData);
+
+        // Save back to LocalStorage
+        localStorage.setItem('formData_list', JSON.stringify(existingData));
+
+        // Alert user of save
+        alert('Data has been saved!');
+
+        // Log saved data
+        console.log('Saved data:', formData);
+    });
+});
+
+
+// Fetch the stored data from LocalStorage
+var storedData = JSON.parse(localStorage.getItem('formData_list')) || [];
+
+// Get the list container
+var listContainer = document.getElementById('form-data-list');
+
+// For each object in storedData, create a list item and append it
+storedData.forEach(function(formData) {
+    var listItem = document.createElement('li');
+    listItem.textContent = 'Method Name: ' + formData.methodName +
+        ', Variables: ' + formData.variables +
+        ', Parameters: ' + formData.parameters +
+        ', Return Type: ' + formData.returnType;
+
+    listContainer.appendChild(listItem);
+});
