@@ -10,6 +10,26 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="display.js" defer></script>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .cardworkflow {
+            border: 1px solid black;
+            padding: 20px;
+            margin: 10px;
+            min-height: 50px;  /* Adjust as needed */
+        }
+
+        .card-75 {
+            width: 75%;
+        }
+
+        .card-25 {
+            width: 25%;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,9 +46,9 @@
 
         <!-- Tab links -->
         <div class="tab">
-            <button class="tablinks " id="tab1">Tab 1</button>
-            <button class="tablinks " id="tab2">Tab 2</button>
-            <button class="tablinks " id="tab3">Tab 3</button>
+            <button class="tablinks " id="tab1">Display Page</button>
+            <button class="tablinks " id="tab2">View Page </button>
+            <button class="tablinks " id="tab3"> Workflow </button>
         </div>
 
 
@@ -39,8 +59,18 @@
 
 <!--tab 3 begains here-->
         <div id="Tab3" class="tabcontent">
-            <h3>Tab 3</h3>
-            <p>Some content for Tab 3.</p>
+
+            <div class="container">
+                <div class="cardworkflow card-75">
+                    <h3>Card 1</h3>
+                    <p>This card is 75% width of the container.</p>
+                </div>
+
+                <div class="cardworkflow card-25">
+                    <h3>Card 2</h3>
+                    <p>This card is 25% width of the container.</p>
+                </div>
+            </div>
         </div>
 <!--experimenting with tabs-->
 <!--    tab1-->
