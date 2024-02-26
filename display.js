@@ -142,5 +142,6 @@ function openTab(tabName) {
     document.getElementById("tab" + tabName.charAt(3)).classList.add("active");
 }
 $(document).ready(function(){
+    $("#Tab2").load("view.html");
     $("#workflow-content").load("workflow.html");
 });

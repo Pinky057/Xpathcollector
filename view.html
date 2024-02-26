@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://code.jquery.com;"> -->
+    <link rel="stylesheet" href="display.css">
+    <title>Display Page Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="display.js" defer></script>
+    <style>
+        .content-container-view{
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="content-container-view">
+    <div class="card middle" id="middleCard">
+        <h2>Card Title 2</h2>
+        <div class="card-container">
+
+            <div class="element-card">
+                <h3>Gmail:</h3>
+                <ul class="selected-method-list">
+                    <li>
+                        <input type="checkbox" id="presence" name="method" value="presence">
+                        <label for="presence">Presence of element</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="type" name="method" value="type">
+                        <label for="type">Type</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="clear" name="method" value="clear">
+                        <label for="clear">Clear content</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="element-card">
+                <h3>Search Button:</h3>
+                <ul class="selected-method-list">
+                    <li>
+                        <input type="checkbox" id="presence_searchbtn" name="method" value="presence">
+                        <label for="presence_searchbtn">Presence of element</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="type_searchbtn" name="method" value="type_cricket">
+                        <label for="type_searchbtn">Type : cricket</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="clear_searchbtn" name="method" value="clear">
+                        <label for="clear_searchbtn">Clear content</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="element-card">
+                <h3>Store:</h3>
+                <ul class="selected-method-list">
+                    <li>
+                        <input type="checkbox" id="presence_store" name="method" value="presence">
+                        <label for="presence_store">Presence of element</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="type_store" name="method" value="type">
+                        <label for="type_store">Type</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="clear_store" name="method" value="clear">
+                        <label for="clear_store">Clear content</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="element-card">
+                <h3>About:</h3>
+                <ul class="selected-method-list">
+                    <li>
+                        <input type="checkbox" id="presence_about" name="method" value="presence">
+                        <label for="presence_about">Presence of element</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="type_about" name="method" value="type">
+                        <label for="type_about">Type</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="clear_about" name="method" value="clear">
+                        <label for="clear_about">Clear content</label>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <footer class="footer">
+        <p>&copy; 2023 TS360</p>
+    </footer>
+</body>
+
+</html>
