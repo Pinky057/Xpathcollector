@@ -254,22 +254,7 @@ button {
 .tablinks:hover::after {
     width: 100%;
 }
-/*.neumorphic {*/
-/*    !*border-radius: 1rem;*!*/
-/*    background: #e0e0e0;*/
-/*    box-shadow:  20px 20px 60px #bebebe,*/
-/*    -20px -20px 60px #ffffff;*/
-/*}*/
-/*.neumorphic:hover {*/
-/*    box-shadow:  15px 15px 30px #bebebe,*/
-/*    -15px -15px 30px #ffffff;*/
-/*}*/
 
-/*!* Indicate which tab is active *!*/
-/*.neumorphic.active {*/
-/*    box-shadow: inset 5px 5px 10px #bebebe,*/
-/*    inset -5px -5px 10px #ffffff;*/
-/*}*/
 
 .card-container {
     display: flex;
@@ -289,8 +274,7 @@ button {
     padding: 1rem 1.5rem 1rem 1rem;
     margin: 1rem;
     box-sizing: border-box;
-    box-shadow: 5px 5px 15px rgba(145, 160, 180, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.7); /*neumorphic effect*/
-    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); !* add a shadow *!*/
+    box-shadow: 5px 5px 15px rgba(145, 160, 180, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.7);
 }
 
 .element-card h3 {
