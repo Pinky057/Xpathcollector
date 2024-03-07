@@ -97,24 +97,24 @@ $(function () {
     $("#sortable").sortable();
 });
 
-window.onload = function() {
+window.onload = function () {
     // Get the element with class="defaultOpen" and click on it
     document.querySelector(".tablinks").click();
 };
 
 
-window.onload = function() {
+window.onload = function () {
     // Click on the first tab by default
     document.getElementById("tab1").click();
 
     // Add event listeners for all tab buttons:
-    document.getElementById("tab1").addEventListener("click", function() {
+    document.getElementById("tab1").addEventListener("click", function () {
         openTab('Tab1');
     });
-    document.getElementById("tab2").addEventListener("click", function() {
+    document.getElementById("tab2").addEventListener("click", function () {
         openTab('Tab2');
     });
-    document.getElementById("tab3").addEventListener("click", function() {
+    document.getElementById("tab3").addEventListener("click", function () {
         openTab('Tab3');
     });
 };
@@ -132,7 +132,7 @@ function openTab(tabName) {
 
     // Get all buttons with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i<tablinks.length; i++) {
+    for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
@@ -141,14 +141,16 @@ function openTab(tabName) {
     document.getElementById(tabName).style.display = "block";
     document.getElementById("tab" + tabName.charAt(3)).classList.add("active");
 }
-$(document).ready(function(){
-    $("#Tab2").load("view.html");
+$(document).ready(function () {
+    $("#Tab2").load("view.html", function () {
+        createXPathListCardContainer();
+    });
     $("#workflow-content").load("workflow.html");
 });
 
 //save page level method to local storage
 document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('display-save-btn').addEventListener('click', function() {
+    document.getElementById('display-save-btn').addEventListener('click', function () {
 
         // Get input values
         var methodName = document.getElementById('method-name').value;
@@ -189,7 +191,7 @@ var storedData = JSON.parse(localStorage.getItem('formData_list')) || [];
 var listContainer = document.getElementById('form-data-list');
 
 // For each object in storedData, create a list item and append it
-storedData.forEach(function(formData) {
+storedData.forEach(function (formData) {
     var listItem = document.createElement('li');
     listItem.textContent = 'Method Name: ' + formData.methodName +
         ', Variables: ' + formData.variables +
@@ -198,3 +200,93 @@ storedData.forEach(function(formData) {
 
     listContainer.appendChild(listItem);
 });
+
+function createElementXPathListCard(title, xpaths) {
+    var card = document.createElement('div');
+    card.className = 'element-card';
+    //console.log("createElementXPathListCard title", title, "xpaths", JSON.stringify(xpaths));
+    var heading = document.createElement('h3');
+    heading.textContent = title;
+    var xpathList = document.createElement('ul');
+    xpathList.className = 'selected-method-list';
+    xpathList.style.listStyleType = 'disc';
+    xpathList.style.maxWidth = '100%'; // Set a maximum width for the <ul> element
+    xpathList.style.wordWrap = 'break-word'; // Fallback for older browsers
+
+    for (var i = 0; i < xpaths.length; i++) {
+        //console.log(" Xpath ", xpaths[i]);
+        var listItem = document.createElement('li');
+        listItem.textContent = xpaths[i];
+        xpathList.appendChild(listItem);
+    };
+
+    card.appendChild(heading);
+    card.appendChild(xpathList);
+
+    return card;
+}
+
+// Function to create the card container and append cards to it
+function createXPathListCardContainer() {
+    var xpathlist = localStorage.getItem('panelDataList:');
+    //console.log("createXPathListCardContainer displayXPathlist ", xpathlist);
+    var container = document.getElementById("xpathcard");
+    //container.className = 'card-container-view';
+    container.className = 'card-container';
+    var xpathListObj = JSON.parse(xpathlist);
+    for (var i = 0; i < xpathListObj.length; i++) {
+        var card = createElementXPathListCard(JSON.stringify(xpathListObj[i].elementName), xpathListObj[i].XPathList);
+        container.appendChild(card);
+    }
+
+    return container;
+}
+
+//METHOD Card
+
+function createElementMethodCard(title, methods) {
+    var card = document.createElement('div');
+    card.className = 'element-card';
+    //console.log("createElementMethodCard title", title, "methods", JSON.stringify(methods));
+    var heading = document.createElement('h3');
+    heading.textContent = title;
+    var methodList = document.createElement('ul');
+    methodList.className = 'selected-method-list';
+    methodList.style.listStyleType = 'disc';
+    methodList.style.whiteSpace = 'break-spaces';
+    methodList.style.overflowWrap = 'break-word';
+    methodList.style.maxWidth = '100%'; // Set a maximum width for the <ul> element
+    methodList.style.wordWrap = 'break-word'; // Fallback for older browsers
+
+    for (var i = 0; i < methods.length; i++) {
+        console.log(" Method ", methods[i]);
+        var listItem = document.createElement('li');
+        listItem.textContent = methods[i];
+        methodList.appendChild(listItem);
+    };
+
+    card.appendChild(heading);
+    card.appendChild(methodList);
+
+    return card;
+}
+
+// Function to create the card container and append cards to it
+function createMethodCardContainer() {
+    var xpathlist = localStorage.getItem('panelDataList:');
+    //console.log(" createMethodCardContainer ", xpathlist);
+    var container = document.getElementById("method-card-container");
+    container.className = 'card-container-view';
+    //container.className = 'card-container';
+    var xpathListObj = JSON.parse(xpathlist);
+    for (var i = 0; i < xpathListObj.length; i++) {
+        console.log(JSON.stringify(xpathListObj[i]), "FFF DDDDD", JSON.stringify(xpathListObj[i].Methods));
+        var card = createElementMethodCard(JSON.stringify(xpathListObj[i].elementName), xpathListObj[i].Methods);
+        container.appendChild(card);
+    }
+
+    return container;
+}
+createMethodCardContainer();
+
+

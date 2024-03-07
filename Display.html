@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://code.jquery.com;"> -->
-<link rel="stylesheet" href="display.css">
+    <link rel="stylesheet" href="display.css">
     <title>Display Page Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -24,338 +24,267 @@
         </label>
     </div>
 
-        <!-- Tab links -->
-        <div class="tab">
-            <button class="tablinks " id="tab1">Page Method Details</button>
-            <button class="tablinks " id="tab2">XPath Details </button>
-            <button class="tablinks " id="tab3"> Workflow </button>
-        </div>
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks " id="tab1">Page Method Details</button>
+        <button class="tablinks " id="tab2">XPath Details </button>
+        <button class="tablinks " id="tab3"> Workflow </button>
+    </div>
 
 
-        <div id="Tab2" class="tabcontent"></div>
+    <div id="Tab2" class="tabcontent"></div>
 
-<!--tab 3 begains here-->
+    <!--tab 3 begains here-->
 
-        <div id="Tab3" class="tabcontent">
-            <div id="workflow-content"></div>
-        </div>
+    <div id="Tab3" class="tabcontent">
+        <div id="workflow-content"></div>
+    </div>
 
 
     <div id="Tab1" class="tabcontent">
 
-    <div class="additional-card-container">
-        <div class="additional-card">
-            <h2>Page Level Method</h2>
-            <div class="input-container">
-                <input type="text" id="method-name"  placeholder="Methode Name">
-                <input type="text" id="variables" placeholder="Variables">
-                <input type="text" id="parameters" placeholder="Parameter">
-                <input type="text" id="return-type" placeholder="Return Type">
-            </div>
-            <button id="display-save-btn">Save</button>
-        </div>
-    </div>
-
-    <div class="content-container">
-        <div class="card">
-            <h2>Methods</h2>
-            <form id="page-actions">
-                <label>
-                    <input id="scrollSlow" type="checkbox" name="pageAction1" value="scrollupslow">
-                    scroll up slow
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction2" value="scrolldownslow">
-                    scroll down slow
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction3" value="scrolldownsfast">
-                    scroll down fast
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction4" value="quickwait">
-                    quick wait
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction5" value="smallwait">
-                    small wait
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction6" value="medwait">
-                    med wait
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction7" value="longwait">
-                    long wait
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction8" value="quickestwait">
-                    quickest wait
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction9" value="conditional click">
-                    conditional click
-                    <div class="accordion-content">
-                        <textarea placeholder="Additional information."></textarea>
-                        <textarea placeholder="Additional information."></textarea>
-                    </div>
-                </label>
-                <label>
-                    <input type="checkbox" name="pageAction10" value="type">
-                    type
-                    <div class="accordion-content">
-                        <textarea placeholder="Additional information."></textarea>
-                    </div>
-                </label>
-                <label>
-                    <input type="checkbox" name="pageAction11" value="conditionalentertext">
-                    conditional enter text
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction12" value="dismissprompt">
-                    dismiss prompt
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction13" value="scrollmultipage">
-                    scroll multi page
-                    <div class="accordion-content">
-                        <select id="browserselectscrollmultipage">
-                            <option value="Google Chrome">Google Chrome</option>
-                            <option value="Firefox">Firefox</option>
-                            <option value="Safari">Safari</option>
-                            <option value="Internet Explorer">Internet Explorer</option>
-                            <option value="Opera">Opera</option>
-                        </select>
-
-                        <input type="text" id="browserinputscrollmultipage" placeholder="Google Chrome - 3-8">
-                    </div>
-                </label>
-
-                <label>
-                    <input type="checkbox" name="pageAction14" value="selectalltextinscreen">
-                    select all text in screen
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction15" value="fwdnavigationthroughkeypress">
-                    forward navigation through key press
-                    <div class="accordion-content">
-                        <select id="browserselectfornavthkeypr">
-                            <option value="Google Chrome">Google Chrome</option>
-                            <option value="Firefox">Firefox</option>
-                            <option value="Safari">Safari</option>
-                            <option value="Internet Explorer">Internet Explorer</option>
-                            <option value="Opera">Opera</option>
-                        </select>
-
-                        <input type="text" id="browserinputfornavthkeypr" placeholder="Google Chrome - 5">
-                    </div>
-                </label>
-                <label>
-                    <input type="checkbox" name="pageAction16" value="tabnavigation">
-                    tab navigation
-                    <div class="accordion-content">
-                        <select id="browserSelectTabNav">
-                            <option value="Google Chrome">Google Chrome</option>
-                            <option value="Firefox">Firefox</option>
-                            <option value="Safari">Safari</option>
-                            <option value="Internet Explorer">Internet Explorer</option>
-                            <option value="Opera">Opera</option>
-                        </select>
-
-                        <input type="text" id="browserinputtabnav" placeholder="Google Chrome - 3">
-                    </div>
-                </label>
-                <label>
-                    <input type="checkbox" name="pageAction17" value="doocr">
-                    do ocr
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction18" value="doimagecomparison">
-                    do image comparison
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction19" value="findelement">
-                    find element
-                    <div class="accordion-content">
-                        <textarea placeholder="Element name."></textarea>
-                    </div>
-
-                </label>
-                <label>
-                    <input type="checkbox" name="pageAction20" value="scrollupfast">
-                    scroll up fast
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction21" value="keydownkeypress">
-                    key down key press
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction22" value="selectfromlist">
-                    select from list
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction23" value="clickall">
-                    click all
-                    <div class="accordion-content">
-                        <select id="elementtestselectclickall">
-                            <option value="Element1">Element1</option>
-                            <option value="Element2">Element2</option>
-                            <option value="Element3">Element3</option>
-                            <option value="Element4">Element4</option>
-                            <option value="Element5">Element5</option>
-                        </select>
-
-                        <input type="text" id="elementtestselectclickall">
-                    </div>
-                </label>
-                <label>
-                    <input type="checkbox" name="pageAction24" value="elseblock">
-                    else block
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="pageAction25" value="endofblock">
-                    end of block
-                </label>
-                <br>
-                <label>
-                    <input id="elementtestclick" type="checkbox" name="pageAction26" value="scrolltoelement">
-                    scroll to element
-                    <div class="accordion-content">
-                        <select id="elementtestselect">
-                            <option value="Element1">Element7</option>
-                            <option value="Element2">Element2</option>
-                            <option value="Element3">Element3</option>
-                            <option value="Element4">Element4</option>
-                            <option value="Element5">Element5</option>
-                        </select>
-
-                        <input type="text" id="elementtestinput">
-                    </div>
-                </label>
-
-                <label>
-                    <input type="checkbox" name="pageAction27" value="Multicall">
-                    multi call
-                    <div class="accordion-content">
-                        <select id="methodselect">
-                            <option value="method1">Method1</option>
-                            <option value="method2">Method2</option>
-                            <option value="method3">Method3</option>
-                            <option value="method4">Method4</option>
-                            <option value="method5">Method5</option>
-                        </select>
-                    </div>
-                </label>
-
-            </form>
-        </div>
-
-        <div class="card middle" id="middleCard">
-            <h2>Element Method List</h2>
-            <div class="card-container">
-
-                <div class="element-card">
-                    <h3>Gmail:</h3>
-                    <ul class="selected-method-list">
-                        <li>
-                            <input type="checkbox" id="presence" name="method" value="presence">
-                            <label for="presence">Presence of element</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="type" name="method" value="type">
-                            <label for="type">Type</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="clear" name="method" value="clear">
-                            <label for="clear">Clear content</label>
-                        </li>
-                    </ul>
+        <div class="additional-card-container">
+            <div class="additional-card">
+                <h2>Page Level Method</h2>
+                <div class="input-container">
+                    <input type="text" id="method-name" placeholder="Methode Name">
+                    <input type="text" id="variables" placeholder="Variables">
+                    <input type="text" id="parameters" placeholder="Parameter">
+                    <input type="text" id="return-type" placeholder="Return Type">
                 </div>
-
-                <div class="element-card">
-                    <h3>Search Button:</h3>
-                    <ul class="selected-method-list">
-                        <li>
-                            <input type="checkbox" id="presence_searchbtn" name="method" value="presence">
-                            <label for="presence_searchbtn">Presence of element</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="type_searchbtn" name="method" value="type_cricket">
-                            <label for="type_searchbtn">Type : cricket</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="clear_searchbtn" name="method" value="clear">
-                            <label for="clear_searchbtn">Clear content</label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="element-card">
-                    <h3>Store:</h3>
-                    <ul class="selected-method-list">
-                        <li>
-                            <input type="checkbox" id="presence_store" name="method" value="presence">
-                            <label for="presence_store">Presence of element</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="type_store" name="method" value="type">
-                            <label for="type_store">Type</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="clear_store" name="method" value="clear">
-                            <label for="clear_store">Clear content</label>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="element-card">
-                    <h3>About:</h3>
-                    <ul class="selected-method-list">
-                        <li>
-                            <input type="checkbox" id="presence_about" name="method" value="presence">
-                            <label for="presence_about">Presence of element</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="type_about" name="method" value="type">
-                            <label for="type_about">Type</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="clear_about" name="method" value="clear">
-                            <label for="clear_about">Clear content</label>
-                        </li>
-                    </ul>
-                </div>
-
+                <button id="display-save-btn">Save</button>
             </div>
         </div>
 
-        <div class="card card3">
-            <h2>ADD Method Sequence</h2>
-            <ul id="sortable"></ul>
-            <button class="complete">Save</button>
+        <div class="content-container">
+            <div class="card">
+                <h2>Methods</h2>
+                <form id="page-actions">
+                    <label>
+                        <input id="scrollSlow" type="checkbox" name="pageAction1" value="scrollupslow">
+                        scroll up slow
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction2" value="scrolldownslow">
+                        scroll down slow
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction3" value="scrolldownsfast">
+                        scroll down fast
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction4" value="quickwait">
+                        quick wait
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction5" value="smallwait">
+                        small wait
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction6" value="medwait">
+                        med wait
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction7" value="longwait">
+                        long wait
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction8" value="quickestwait">
+                        quickest wait
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction9" value="conditional click">
+                        conditional click
+                        <div class="accordion-content">
+                            <textarea placeholder="Additional information."></textarea>
+                            <textarea placeholder="Additional information."></textarea>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pageAction10" value="type">
+                        type
+                        <div class="accordion-content">
+                            <textarea placeholder="Additional information."></textarea>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pageAction11" value="conditionalentertext">
+                        conditional enter text
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction12" value="dismissprompt">
+                        dismiss prompt
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction13" value="scrollmultipage">
+                        scroll multi page
+                        <div class="accordion-content">
+                            <select id="browserselectscrollmultipage">
+                                <option value="Google Chrome">Google Chrome</option>
+                                <option value="Firefox">Firefox</option>
+                                <option value="Safari">Safari</option>
+                                <option value="Internet Explorer">Internet Explorer</option>
+                                <option value="Opera">Opera</option>
+                            </select>
+
+                            <input type="text" id="browserinputscrollmultipage" placeholder="Google Chrome - 3-8">
+                        </div>
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="pageAction14" value="selectalltextinscreen">
+                        select all text in screen
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction15" value="fwdnavigationthroughkeypress">
+                        forward navigation through key press
+                        <div class="accordion-content">
+                            <select id="browserselectfornavthkeypr">
+                                <option value="Google Chrome">Google Chrome</option>
+                                <option value="Firefox">Firefox</option>
+                                <option value="Safari">Safari</option>
+                                <option value="Internet Explorer">Internet Explorer</option>
+                                <option value="Opera">Opera</option>
+                            </select>
+
+                            <input type="text" id="browserinputfornavthkeypr" placeholder="Google Chrome - 5">
+                        </div>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pageAction16" value="tabnavigation">
+                        tab navigation
+                        <div class="accordion-content">
+                            <select id="browserSelectTabNav">
+                                <option value="Google Chrome">Google Chrome</option>
+                                <option value="Firefox">Firefox</option>
+                                <option value="Safari">Safari</option>
+                                <option value="Internet Explorer">Internet Explorer</option>
+                                <option value="Opera">Opera</option>
+                            </select>
+
+                            <input type="text" id="browserinputtabnav" placeholder="Google Chrome - 3">
+                        </div>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pageAction17" value="doocr">
+                        do ocr
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction18" value="doimagecomparison">
+                        do image comparison
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction19" value="findelement">
+                        find element
+                        <div class="accordion-content">
+                            <textarea placeholder="Element name."></textarea>
+                        </div>
+
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pageAction20" value="scrollupfast">
+                        scroll up fast
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction21" value="keydownkeypress">
+                        key down key press
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction22" value="selectfromlist">
+                        select from list
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction23" value="clickall">
+                        click all
+                        <div class="accordion-content">
+                            <select id="elementtestselectclickall">
+                                <option value="Element1">Element1</option>
+                                <option value="Element2">Element2</option>
+                                <option value="Element3">Element3</option>
+                                <option value="Element4">Element4</option>
+                                <option value="Element5">Element5</option>
+                            </select>
+
+                            <input type="text" id="elementtestselectclickall">
+                        </div>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pageAction24" value="elseblock">
+                        else block
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction25" value="endofblock">
+                        end of block
+                    </label>
+                    <br>
+                    <label>
+                        <input id="elementtestclick" type="checkbox" name="pageAction26" value="scrolltoelement">
+                        scroll to element
+                        <div class="accordion-content">
+                            <select id="elementtestselect">
+                                <option value="Element1">Element7</option>
+                                <option value="Element2">Element2</option>
+                                <option value="Element3">Element3</option>
+                                <option value="Element4">Element4</option>
+                                <option value="Element5">Element5</option>
+                            </select>
+
+                            <input type="text" id="elementtestinput">
+                        </div>
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="pageAction27" value="Multicall">
+                        multi call
+                        <div class="accordion-content">
+                            <select id="methodselect">
+                                <option value="method1">Method1</option>
+                                <option value="method2">Method2</option>
+                                <option value="method3">Method3</option>
+                                <option value="method4">Method4</option>
+                                <option value="method5">Method5</option>
+                            </select>
+                        </div>
+                    </label>
+
+                </form>
+            </div>
+
+            <div class="card middle" id="middleCard">
+                <h2>Element Method List</h2>
+                <div class="card-container" id="method-card-container">
+                </div>
+
+            </div>
+
+            <div class="card card3">
+                <h2>ADD Method Sequence</h2>
+                <ul id="sortable"></ul>
+                <button class="complete">Save</button>
+            </div>
         </div>
-    </div>
 
 
-    <footer class="footer">
-        <p>&copy; 2023 TS360</p>
-    </footer>
+        <footer class="footer">
+            <p>&copy; 2023 TS360</p>
+        </footer>
     </div>
 </body>
 

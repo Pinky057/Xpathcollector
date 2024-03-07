@@ -2,10 +2,17 @@
 // variable be used for console log
 var bkg = chrome.extension.getBackgroundPage();
 bkg.console.log("Working on ", document.baseURI);
+var xpathList = [];
+var elementObjectList = [];
+var elementObjectMap = {};
 
 chrome.runtime.onMessage.addListener((req, rec, res) => {
   document.querySelector(".toast").classList.add("d-hide");
   bkg.console.log("From message listener with request ", req.request);
+  bkg.console.log("From message listener with request ", req);
+  elementObjectMap = {};
+  xpathList = [];
+  elementObjectMap["elementName"] = req.methodname;
   bkg.console.log("Sender tab id" , rec.tab.id, " own tabID ", chrome.devtools.inspectedWindow.tabId);
   switch (req.request) {
     // case "pageInfo":
@@ -150,19 +157,27 @@ function handleCopyButtonClick() {
     var value = checkboxes[i].value;
 
     // Get corresponding textarea value
-    var textarea = checkboxes[i].parentNode.querySelector("textarea");
+    //var textarea = checkboxes[i].parentNode.querySelector("textarea");
 
-    if (textarea && textarea.value) {
-      value += " " + textarea.value; // Append textarea value to checkbox value
+    var textarea = checkboxes[i].parentNode.querySelectorAll("textarea");
+    //bkg.console.log("TEXTAREA ", textarea);
+    for(var j =0; j < textarea.length; j++){
+      value += "$$" + textarea[j].value;
+      //bkg.console.log("MMMMMMMMM ", value); // Append textarea value to checkbox value
     }
-
+    //bkg.console.log("DDDDDD ", value);
     // Push the value into the array
     selectedOptions.push(value);
+    //bkg.console.log("aaaaaaaa ", JSON.stringify(selectedOptions));
   }
 
-  // join the array into a string with ", " separator
-  var copiedText = selectedOptions.join(", ");
-
+  var copiedText = JSON.stringify(selectedOptions);
+  elementObjectMap["Methods"] = selectedOptions;
+  //bkg.console.log("CCCCCCCC ", elementObjectMap);
+  elementObjectList.push(elementObjectMap);
+  //bkg.console.log("final  ", elementObjectList);
+  localStorage.setItem("panelDataList:", JSON.stringify(elementObjectList));
+  elementObjectMap = {};
   // create a temporary input field for copying the content to clipboard
   var tempInput = document.createElement("input");
   tempInput.value = copiedText;
@@ -350,7 +365,10 @@ function buildUI(data) {
     .attributes.getNamedItem("data-badge").value = len.length;
   for (let i = 0; i < len.length; i++) {
     generateXPathUI(data, i);
+    xpathList.push(data.xpathid[i][1]  + " = " + data.xpathid[i][2]);
   }
+  bkg.console.log("WWWWWW ", xpathList);
+  elementObjectMap["XPathList"] = xpathList;
 }
 // -------- Build XPath UI -------
 function generateXPathUI(data, i) {
@@ -378,7 +396,6 @@ function generateXPathUI(data, i) {
 }
 // ------- build drop-down for snippet based on element type -------
 function getSelectionValues(data, i, xp, isCSS) {
-  // let xp = data.xpathid;
   let finalOP;
   let t = "";
   if (isCSS) {

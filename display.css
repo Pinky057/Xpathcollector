@@ -145,11 +145,15 @@ button {
     text-align: center;
     color: dodgerblue;
 }
+
 .card3 {
     display: flex;
-    flex-direction: column;  /* Stack child elements vertically (top to bottom) */
-    justify-content: space-between;  /* Maximize the space between child elements */
-    height: 100%;  /* Fill the entire height of the card */
+    flex-direction: column;
+    /* Stack child elements vertically (top to bottom) */
+    justify-content: space-between;
+    /* Maximize the space between child elements */
+    height: 100%;
+    /* Fill the entire height of the card */
 }
 
 .complete {
@@ -197,21 +201,25 @@ button {
     position: absolute;
     margin-left: -1.3em;
 }
+
 /* Styles for the tab links/buttons */
 .tab {
     position: sticky;
     top: 0;
     z-index: 1;
 }
+
 .tab button {
     background-color: #f1f1f1;
     color: black;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    width: 33.33%; /* Divide the width between the buttons/tabs */
+    width: 33.33%;
+    /* Divide the width between the buttons/tabs */
     text-align: center;
-    float: left; /* To arrange the tabs side by side */
+    float: left;
+    /* To arrange the tabs side by side */
 }
 
 /* Change background color of buttons when they are active (or clicked) */
@@ -221,21 +229,26 @@ button {
 
 /* Styles for the tab content */
 .tabcontent {
-    display: none; /* Hide all tab content by default */
+    display: none;
+    /* Hide all tab content by default */
     padding: 15px;
     border: 1px solid #ccc;
-    border-top: none; /* Hide the top border that exists due to .tab class */
+    border-top: none;
+    /* Hide the top border that exists due to .tab class */
 }
 
 /* Show the first tab by default */
 .tabcontent:first-child {
     display: block;
 }
+
 .tablinks {
     /* existing css */
 
-    height: 50px;  /* adjust as needed */
-    line-height: 40px; /* adjust as needed */
+    height: 50px;
+    /* adjust as needed */
+    line-height: 40px;
+    /* adjust as needed */
     position: relative;
 
 }
@@ -260,7 +273,34 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
 }
+
+/* ADD STARTED */
+/* .card-container > * {
+    word-wrap: break-word;
+} */
+.card-container xxx {
+    list-style-type: disc;
+    margin: 0;
+    /* Reset margin */
+    padding: 0;
+    /* Reset padding */
+    flex-basis: 100%;
+    /* Allow the ul to take up the full width */
+}
+
+.element-card rrr {
+    list-style-type: disc;
+    margin: 0;
+    /* Reset margin */
+    padding: 0;
+    /* Reset padding */
+    flex-basis: 100%;
+    /* Allow the ul to take up the full width */
+}
+
+/* ADD ENDED */
 
 .element-card {
     display: flex;
@@ -278,12 +318,15 @@ button {
 }
 
 .element-card h3 {
-    font-size: 1.5em;  /* adjust as needed */
+    font-size: 1.5em;
+    /* adjust as needed */
     color: gray;
 }
 
 .element-card ul {
-    font-size: 1.2em;  /* adjust as needed */
+    font-size: 1.2em;
+    /* adjust as needed */
     list-style: none;
-text-align: left;
+    text-align: left;
+    word-wrap: break-word;
 }

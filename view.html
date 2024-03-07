@@ -7,112 +7,34 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://code.jquery.com;"> -->
     <link rel="stylesheet" href="display.css">
     <title>Display Page Document</title>
-<!--    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
-<!--    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>-->
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <!--    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+    <!--    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>-->
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
     <script src="display.js" defer></script>
     <style>
-        .content-container-view{
+        .content-container-view {
             margin: 15px 15px 5px;
             padding: 20px 0;
         }
-      .view {
+
+        .view {
             background: #cce5ff;
             color: darkblue;
             margin: 5px;
         }
-      h2{
-          text-align: center;
-      }
 
+        h2 {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-<div class="content-container-view">
-    <div class="card middle" id="middleCard">
-        <h2>Xpath List</h2>
-        <div class="card-container">
-
-            <div class="element-card">
-                <h3>Gmail</h3>
-                <ul class="selected-method-list ">
-                    <li class="view">
-                        <input type="checkbox" id="presence" name="method" value="presence">
-                        <label for="presence">Class based Xpath (//a[@class='gb_H'])[1]</label>
-                    </li>
-                    <li class="view">
-                        <input type="checkbox" id="type" name="method" value="type">
-                        <label for="type">Parent Class Xpath (//div[@class='gb_I gb_J']//a)[1] </label>
-                    </li>
-                    <li class="view">
-                        <input type="checkbox" id="clear" name="method" value="clear">
-                        <label for="clear">Link text As Xpath //a[contains(text(),'Gmail')]</label>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="element-card">
-                <h3>Image</h3>
-                <ul class="selected-method-list">
-                    <li class="view">
-
-                    <input type="checkbox" id="presence" name="method" value="presence">
-                        <label for="presence">Class based Xpath (//a[@class='gb_H'])[1]</label>
-                    </li>
-                    <li class="view">
-
-                    <input type="checkbox" id="type" name="method" value="type">
-                        <label for="type">Parent Class Xpath (//div[@class='gb_I gb_J']//a)[1] </label>
-                    </li>
-                    <li class="view">
-                        <input type="checkbox" id="clear" name="method" value="clear">
-                        <label for="clear">Link text As Xpath //a[contains(text(),'Gmail')]</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="element-card">
-                <h3>Store</h3>
-                <ul class="selected-method-list">
-                    <li class="view">
-
-                    <input type="checkbox" id="presence" name="method" value="presence">
-                        <label for="presence">Class based Xpath (//a[@class='gb_H'])[1]</label>
-                    </li>
-                    <li class="view">
-
-                    <input type="checkbox" id="type" name="method" value="type">
-                        <label for="type">Parent Class Xpath (//div[@class='gb_I gb_J']//a)[1] </label>
-                    </li>
-                    <li class="view">
-
-                    <input type="checkbox" id="clear" name="method" value="clear">
-                        <label for="clear">Link text As Xpath //a[contains(text(),'Gmail')]</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="element-card">
-                <h3>Search</h3>
-                <ul class="selected-method-list">
-                    <li class="view">
-
-                    <input type="checkbox" id="presence" name="method" value="presence">
-                        <label for="presence">Class based Xpath (//a[@class='gb_H'])[1]</label>
-                    </li>
-                    <li class="view">
-                        <input type="checkbox" id="type" name="method" value="type">
-                        <label for="type">Parent Class Xpath (//div[@class='gb_I gb_J']//a)[1] </label>
-                    </li>
-                    <li class="view">
-                        <input type="checkbox" id="clear" name="method" value="clear">
-                        <label for="clear">Link text As Xpath //a[contains(text(),'Gmail')]</label>
-                    </li>
-                </ul>
-            </div>
-
+    <div class="content-container-view">
+        <div class="card middle" id="xpathcard">
+            <h2>Xpath List</h2>
         </div>
     </div>
-</div>
     <footer class="footer">
         <p>&copy; 2023 TS360</p>
     </footer>
