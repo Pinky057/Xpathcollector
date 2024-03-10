@@ -13,7 +13,7 @@ function handleCheckboxChange(event) {
     }
 }
 
-function pageMethodSelected() {
+function addMethodCheckboxListeners() {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', handleCheckboxChange);
@@ -91,7 +91,7 @@ addChangeInputListener("elementtestselectclickall", "elementtestinputclickall");
 addChangeInputListener("browserselecttabnav", "browserinputtabnav");
 addChangeInputListener("browserselectfornavthkeypr", "browserinputfornavthkeypr");
 addChangeInputListener("browserselectscrollmultipage", "browserinputscrollmultipage");
-pageMethodSelected();
+//addMethodCheckboxListeners();
 
 $(function () {
     $("#sortable").sortable();
@@ -265,9 +265,9 @@ function createElementMethodCard(title, methods) {
         //methodList.appendChild(listItem);
         var checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.id = 'clear_about';
+        checkbox.id = methods[i];
         checkbox.name = 'method';
-        checkbox.value = 'clear';
+        checkbox.value = methods[i];
         var label = document.createElement('label');
         label.htmlFor = 'clear_about';
         label.textContent = methods[i];
@@ -299,5 +299,6 @@ function createMethodCardContainer() {
     return container;
 }
 createMethodCardContainer();
+addMethodCheckboxListeners();
 
 
