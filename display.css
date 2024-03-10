@@ -215,7 +215,7 @@ button {
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    width: 33.33%;
+    width: 50%;
     /* Divide the width between the buttons/tabs */
     text-align: center;
     float: left;
