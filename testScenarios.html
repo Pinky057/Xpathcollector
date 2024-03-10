@@ -5,9 +5,61 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/testScenarios.css">
     <title>Document</title>
 </head>
 <body>
-<h1> Test Scenarios</h1>
+<div id="app">
+    <h2>Test Scenarios</h2>
+
+    <label>TestSuite Name</label>
+    <input type="text" />
+
+    <label>Requirement Id</label>
+    <input type="text" />
+
+    <label>Select Pages</label>
+    <div class="checkbox-group">
+        <label><input type="checkbox" value="Page 1"> Page 1</label>
+        <label><input type="checkbox" value="Page 2"> Page 2</label>
+        <label><input type="checkbox" value="Page 3"> Page 3</label>
+        <!-- Include more options as required -->
+    </div>
+
+    <label>Background URL</label>
+    <input type="url" />
+
+    <label>Verification Screen</label>
+    <select>
+        <option value="">Please select a method</option>
+        <option value="method1">Screen 1</option>
+        <option value="method2">Screen 2</option>
+        <option value="method3">Method 3</option>
+    </select>
+
+    <label>Parameters</label>
+    <div class="parameter-inputs">
+        <!-- Text inputs for each parameter here -->
+        <input type="text" />
+
+    </div>
+
+    <label>Workflow Method</label>
+    <select>
+        <option value="">Please select a method</option>
+        <option value="method1">Method 1</option>
+        <option value="method2">Method 2</option>
+        <option value="method3">Method 3</option>
+        <!-- Include more options as required -->
+    </select>
+
+    <label>Select Page Methods for Verification Screen</label>
+    <div class="checkbox-group">
+        <!-- Checkbox options for all page methods here -->
+        <label><input type="checkbox" value="Page 1"> Verification Screen 1</label>
+        <label><input type="checkbox" value="Page 2">Verification Screen 2</label>
+        <label><input type="checkbox" value="Page 3"> Verification Screen 3</label>
+    </div>
+</div>
 </body>
 </html>

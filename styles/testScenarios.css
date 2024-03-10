@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#app {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#app h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#app label {
+    display: block;
+    margin: 20px 0 5px;
+    font-weight: bold;
+    color: #444;
+}
+
+#app input[type="text"],
+#app input[type="url"],
+#app select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#app .checkbox-group {
+    padding: 10px 0;
+}
+
+#app .checkbox-group label {
+    display: block;
+    margin: 5px 0;
+}
+
+#app .parameter-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+#app .parameter-inputs input {
+    margin-bottom: 5px;
+}
