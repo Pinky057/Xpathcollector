@@ -252,7 +252,7 @@ function createElementMethodCard(title, methods) {
     heading.textContent = title;
     var methodList = document.createElement('ul');
     methodList.className = 'selected-method-list';
-    methodList.style.listStyleType = 'disc';
+    //methodList.style.listStyleType = 'disc';
     methodList.style.whiteSpace = 'break-spaces';
     methodList.style.overflowWrap = 'break-word';
     methodList.style.maxWidth = '100%'; // Set a maximum width for the <ul> element
@@ -261,7 +261,18 @@ function createElementMethodCard(title, methods) {
     for (var i = 0; i < methods.length; i++) {
         console.log(" Method ", methods[i]);
         var listItem = document.createElement('li');
-        listItem.textContent = methods[i];
+        //listItem.textContent = methods[i];
+        //methodList.appendChild(listItem);
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'clear_about';
+        checkbox.name = 'method';
+        checkbox.value = 'clear';
+        var label = document.createElement('label');
+        label.htmlFor = 'clear_about';
+        label.textContent = methods[i];
+        listItem.appendChild(checkbox);
+        listItem.appendChild(label);
         methodList.appendChild(listItem);
     };
 
