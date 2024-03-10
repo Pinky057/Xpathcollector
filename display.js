@@ -244,10 +244,56 @@ function createXPathListCardContainer() {
 
 //METHOD Card
 
+// function createElementMethodCard(title, methods) {
+//     var card = document.createElement('div');
+//     card.className = 'element-card';
+//     //console.log("createElementMethodCard title", title, "methods", JSON.stringify(methods));
+//     var heading = document.createElement('h3');
+//     heading.textContent = title;
+//     var methodList = document.createElement('ul');
+//     methodList.className = 'selected-method-list';
+//     methodList.style.listStyleType = 'disc';
+//     methodList.style.whiteSpace = 'break-spaces';
+//     methodList.style.overflowWrap = 'break-word';
+//     methodList.style.maxWidth = '100%'; // Set a maximum width for the <ul> element
+//     methodList.style.wordWrap = 'break-word'; // Fallback for older browsers
+//
+//     for (var i = 0; i < methods.length; i++) {
+//         console.log(" Method ", methods[i]);
+//         var listItem = document.createElement('input');
+//         listItem.textContent = methods[i];
+//         methodList.appendChild(listItem);
+//     };
+//
+//     card.appendChild(heading);
+//     card.appendChild(methodList);
+//
+//     return card;
+// }
+//
+// // Function to create the card container and append cards to it
+// function createMethodCardContainer() {
+//     var xpathlist = localStorage.getItem('panelDataList:');
+//     //console.log(" createMethodCardContainer ", xpathlist);
+//     var container = document.getElementById("method-card-container");
+//     container.className = 'card-container-view';
+//     //container.className = 'card-container';
+//     var xpathListObj = JSON.parse(xpathlist);
+//     for (var i = 0; i < xpathListObj.length; i++) {
+//         console.log(JSON.stringify(xpathListObj[i]), "FFF DDDDD", JSON.stringify(xpathListObj[i].Methods));
+//         var card = createElementMethodCard(JSON.stringify(xpathListObj[i].elementName), xpathListObj[i].Methods);
+//         container.appendChild(card);
+//     }
+//
+//     return container;
+// }
+// createMethodCardContainer();
+
+
 function createElementMethodCard(title, methods) {
     var card = document.createElement('div');
     card.className = 'element-card';
-    //console.log("createElementMethodCard title", title, "methods", JSON.stringify(methods));
+
     var heading = document.createElement('h3');
     heading.textContent = title;
     var methodList = document.createElement('ul');
@@ -255,14 +301,23 @@ function createElementMethodCard(title, methods) {
     methodList.style.listStyleType = 'disc';
     methodList.style.whiteSpace = 'break-spaces';
     methodList.style.overflowWrap = 'break-word';
-    methodList.style.maxWidth = '100%'; // Set a maximum width for the <ul> element
-    methodList.style.wordWrap = 'break-word'; // Fallback for older browsers
+    methodList.style.maxWidth = '100%';
+    methodList.style.wordWrap = 'break-word';
 
     for (var i = 0; i < methods.length; i++) {
-        console.log(" Method ", methods[i]);
-        var listItem = document.createElement('li');
-        listItem.textContent = methods[i];
-        methodList.appendChild(listItem);
+        var checkboxItem = document.createElement('input');
+        checkboxItem.type = 'checkbox';
+        checkboxItem.name = 'method';
+        checkboxItem.value = methods[i];
+        checkboxItem.id = 'method' + i;
+
+        var label = document.createElement('label');
+        label.htmlFor = 'method' + i;
+        label.appendChild(document.createTextNode(methods[i]));
+
+        methodList.appendChild(checkboxItem);
+        methodList.appendChild(label);
+        methodList.appendChild(document.createElement('br'));  // Add this line
     };
 
     card.appendChild(heading);
@@ -271,22 +326,18 @@ function createElementMethodCard(title, methods) {
     return card;
 }
 
-// Function to create the card container and append cards to it
 function createMethodCardContainer() {
     var xpathlist = localStorage.getItem('panelDataList:');
-    //console.log(" createMethodCardContainer ", xpathlist);
     var container = document.getElementById("method-card-container");
     container.className = 'card-container-view';
-    //container.className = 'card-container';
+
     var xpathListObj = JSON.parse(xpathlist);
     for (var i = 0; i < xpathListObj.length; i++) {
-        console.log(JSON.stringify(xpathListObj[i]), "FFF DDDDD", JSON.stringify(xpathListObj[i].Methods));
         var card = createElementMethodCard(JSON.stringify(xpathListObj[i].elementName), xpathListObj[i].Methods);
         container.appendChild(card);
     }
 
     return container;
 }
+
 createMethodCardContainer();
-
-

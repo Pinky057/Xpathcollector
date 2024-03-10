@@ -330,3 +330,39 @@ button {
     text-align: left;
     word-wrap: break-word;
 }
+
+/*list element method */
+/* Style for the card */
+.element-card{
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px 5px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+
+/* Style for card heading */
+.element-card h3{
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+/* Style for card content */
+.selected-method-list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* Style for checkbox and labels */
+.selected-method-list input[type="checkbox"]{
+    margin-right: 10px;
+}
+
+.selected-method-list label{
+    display: inline-block;
+    margin: 5px 0;
+    font-size: 16px;
+    cursor: pointer;
+}
