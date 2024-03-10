@@ -11,7 +11,18 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="display.js" defer></script>
-
+    <style>
+        #form-data-list {
+            list-style-type: none;  /* removes bullet points */
+            padding: 0;  /* removes default padding */
+            margin: 0;  /* removes default margin */
+        }
+        #form-data-list li {
+            padding: 10px;  /* adds padding around each list item */
+            background-color: #fafafa;  /* sets list item background color */
+            border-bottom: 1px solid #ddd;  /* adds a border at the bottom of each list item */
+        }
+    </style>
 </head>
 
 <body>
@@ -34,74 +45,7 @@
             <div class="card-container">
 
                 <div class="element-card">
-                    <h3>page level method 1</h3>
-                    <ul class="selected-method-list">
-                        <li>
-                            <input type="checkbox" id="presence" name="method" value="presence">
-                            <label for="presence">Travel destination</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="type" name="method" value="type">
-                            <label for="type">Type</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="clear" name="method" value="clear">
-                            <label for="clear">Clear content</label>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="element-card">
-                    <h3>Search Button:</h3>
-                    <ul class="selected-method-list">
-                        <li>
-                            <input type="checkbox" id="presence_searchbtn" name="method" value="presence">
-                            <label for="presence_searchbtn">Presence of element</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="type_searchbtn" name="method" value="type_cricket">
-                            <label for="type_searchbtn">Type : cricket</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="clear_searchbtn" name="method" value="clear">
-                            <label for="clear_searchbtn">Clear content</label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="element-card">
-                    <h3>Store:</h3>
-                    <ul class="selected-method-list">
-                        <li>
-                            <input type="checkbox" id="presence_store" name="method" value="presence">
-                            <label for="presence_store">Presence of element</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="type_store" name="method" value="type">
-                            <label for="type_store">Type</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="clear_store" name="method" value="clear">
-                            <label for="clear_store">Clear content</label>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="element-card">
-                    <h3>About:</h3>
-                    <ul class="selected-method-list">
-                        <li>
-                            <input type="checkbox" id="presence_about" name="method" value="presence">
-                            <label for="presence_about">Presence of element</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="type_about" name="method" value="type">
-                            <label for="type_about">Type</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="clear_about" name="method" value="clear">
-                            <label for="clear_about">Clear content</label>
-                        </li>
-                    </ul>
+                    <ul id="form-data-list"></ul>
                 </div>
 
             </div>
@@ -109,7 +53,6 @@
 
         <div class="card card3">
             <h2>ADD Method Sequence</h2>
-            <ul id="form-data-list"></ul>
 <!--            <ul id="sortable"></ul>-->
             <button class="complete">Save</button>
         </div>

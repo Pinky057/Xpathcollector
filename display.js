@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-// Fetch the stored data from LocalStorage
+// Fetch the stored data from LocalStorage and show it to the workflow page
 var storedData = JSON.parse(localStorage.getItem('formData_list')) || [];
 
 // Get the list container
@@ -193,10 +193,10 @@ var listContainer = document.getElementById('form-data-list');
 // For each object in storedData, create a list item and append it
 storedData.forEach(function (formData) {
     var listItem = document.createElement('li');
-    listItem.textContent = 'Method Name: ' + formData.methodName +
-        ', Variables: ' + formData.variables +
-        ', Parameters: ' + formData.parameters +
-        ', Return Type: ' + formData.returnType;
+    listItem.innerText = 'Method Name: ' + formData.methodName + '\n' +
+        'Variables: ' + formData.variables + '\n' +
+        'Parameters: ' + formData.parameters + '\n' +
+        'Return Type: ' + formData.returnType;
 
     listContainer.appendChild(listItem);
 });
@@ -280,13 +280,44 @@ function createElementMethodCard(title, methods) {
     return card;
 }
 
+// function createMethodCardContainer() {
+//     var xpathlist = localStorage.getItem('panelDataList:');
+//     var container = document.getElementById("method-card-container");
+//     container.className = 'card-container-view';
+//
+//     var xpathListObj = JSON.parse(xpathlist);
+//     for (var i = 0; i < xpathListObj.length; i++) {
+//         var card = createElementMethodCard(JSON.stringify(xpathListObj[i].elementName), xpathListObj[i].Methods);
+//         container.appendChild(card);
+//     }
+//
+//     return container;
+// }
+//
+// createMethodCardContainer();
 function createMethodCardContainer() {
     var xpathlist = localStorage.getItem('panelDataList:');
     var container = document.getElementById("method-card-container");
     container.className = 'card-container-view';
 
-    var xpathListObj = JSON.parse(xpathlist);
+    if (xpathlist === null) {
+        console.error("No panelDataList found in localStorage");
+        return;
+    }
+
+    var xpathListObj;
+    try {
+        xpathListObj = JSON.parse(xpathlist);
+    } catch (e) {
+        console.error("Error parsing panelDataList from localStorage", e);
+        return;
+    }
+
     for (var i = 0; i < xpathListObj.length; i++) {
+        if (!Array.isArray(xpathListObj[i].Methods)) {
+            console.warn(`Item ${i} is missing a Methods array. Skipping it.`);
+            continue;
+        }
         var card = createElementMethodCard(JSON.stringify(xpathListObj[i].elementName), xpathListObj[i].Methods);
         container.appendChild(card);
     }
@@ -295,3 +326,25 @@ function createMethodCardContainer() {
 }
 
 createMethodCardContainer();
+
+// input element field values
+
+function updateSelectionOptions(selectElementId) {
+    var selectElement = document.getElementById(selectElementId);
+    var titles = document.querySelectorAll(".element-card h3");
+
+    // Clear existing options
+    selectElement.innerHTML = "";
+
+    titles.forEach(function(titleElement, index) {
+        var option = document.createElement("option");
+        option.value = "Element" + (index + 1);
+        option.textContent = titleElement.textContent;
+        selectElement.appendChild(option);
+    });
+}
+
+// Call the function after the method cards have been generated
+
+updateSelectionOptions("elementtestselect1");
+updateSelectionOptions("elementtestselect2");
