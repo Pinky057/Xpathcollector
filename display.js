@@ -202,8 +202,12 @@ storedData.forEach(function (formData) {
         'Variables: ' + formData.variables + '\n' +
         'Parameters: ' + formData.parameters + '\n' +
         'Return Type: ' + formData.returnType;
-
-    listContainer.appendChild(listItem);
+        if (listContainer !== null) {
+            listContainer.appendChild(listItem);
+        } else {
+            console.error("listContainer is null. Unable to append listItem.");
+        }
+    //listContainer.appendChild(listItem);
 });
 
 function createElementXPathListCard(title, xpaths) {
@@ -252,7 +256,7 @@ function createXPathListCardContainer() {
 function createElementMethodCard(title, methods) {
     var card = document.createElement('div');
     card.className = 'element-card';
-    //console.log("createElementMethodCard title", title, "methods", JSON.stringify(methods));
+    console.log("createElementMethodCard title", title, "methods", JSON.stringify(methods));
     var heading = document.createElement('h3');
     heading.textContent = title;
     var methodList = document.createElement('ul');
@@ -290,7 +294,7 @@ function createElementMethodCard(title, methods) {
 // Function to create the card container and append cards to it
 function createMethodCardContainer() {
     var xpathlist = localStorage.getItem('panelDataList:');
-    //console.log(" createMethodCardContainer ", xpathlist);
+    console.log(" createMethodCardContainer ", xpathlist);
     var container = document.getElementById("method-card-container");
     container.className = 'card-container-view';
     //container.className = 'card-container';
