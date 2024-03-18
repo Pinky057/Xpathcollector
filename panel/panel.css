@@ -1,0 +1,82 @@
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+input[type="checkbox"]:checked+.accordion-content,
+.selected-checkbox+.accordion-content {
+    max-height: 100px;
+    /* Adjust this value based on your content height */
+}
+
+span.label {
+    font-size: small;
+}
+
+#tab_container .container_item {
+    display: none;
+}
+
+#tab_container .container_item.active {
+    display: block;
+}
+
+li img {
+    width: 1rem;
+}
+
+button img {
+    width: 20px;
+}
+.save-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-label {
+    padding: .1rem 0;
+}
+
+.copied::after {
+    font-family: 'Oxygen Mono', monospace;
+    position: absolute;
+    /* top: 50%; */
+    display: block;
+    content: "Copied";
+    font-size: 0.75em;
+    padding: 2px 3px;
+    color: #fff;
+    background-color: rgb(243, 149, 26);
+    border-radius: 3px;
+    opacity: 0;
+    will-change: opacity, transform;
+    animation: showcopied 1.5s cubic-bezier(0, 1.14, 0, 1.14);
+}
+
+::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+@keyframes showcopied {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

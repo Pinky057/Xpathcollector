@@ -6,89 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LetXPath</title>
   <link rel="stylesheet" href="../app/styles/main.css">
+  <link rel="stylesheet" href="panel.css">
   <script defer src="../app/utils/jquery.js"></script>
   <script defer src="../panelconfig.js"></script>
   <script defer src="../panel/panel.js"></script>
-  <style>
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-    }
-
-    textarea {
-      width: 100%;
-      box-sizing: border-box;
-      margin-top: 5px;
-    }
-
-    input[type="checkbox"]:checked+.accordion-content,
-    .selected-checkbox+.accordion-content {
-      max-height: 100px;
-      /* Adjust this value based on your content height */
-    }
-
-    span.label {
-      font-size: small;
-    }
-
-    #tab_container .container_item {
-      display: none;
-    }
-
-    #tab_container .container_item.active {
-      display: block;
-    }
-
-    li img {
-      width: 1rem;
-    }
-
-    button img {
-      width: 20px;
-    }
-
-    .form-label {
-      padding: .1rem 0;
-    }
-
-    .copied::after {
-      font-family: 'Oxygen Mono', monospace;
-      position: absolute;
-      /* top: 50%; */
-      display: block;
-      content: "Copied";
-      font-size: 0.75em;
-      padding: 2px 3px;
-      color: #fff;
-      background-color: rgb(243, 149, 26);
-      border-radius: 3px;
-      opacity: 0;
-      will-change: opacity, transform;
-      animation: showcopied 1.5s cubic-bezier(0, 1.14, 0, 1.14);
-    }
-
-    ::-moz-focus-inner {
-      padding: 0;
-      border: 0;
-    }
-
-    @keyframes showcopied {
-      0% {
-        opacity: 0;
-        transform: translateX(100%);
-      }
-
-      70% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-  </style>
 </head>
 
 <body class="bg-dark text-dark">
@@ -100,20 +21,10 @@
       <li class="tab-item c-hand" data-option="2">
         <a class="badge" id="cssbadge" data-badge="0">CSS</a>
       </li>
-      <!-- <li class="tab-item c-hand" data-option="3">
-        <a>Axes</a>
-      </li> -->
-      <!-- <li class="tab-item c-hand" data-option="5">
-        <a>Search</a>
-      </li> -->
-      <li class="tab-item c-hand" data-option="3">
-        <a> Methods</a>
-      </li>
-      <!-- <li class="tab-item c-hand" data-option="6">
-        <a>Record</a>
-      </li> -->
+
+
       <!-- about -->
-      <li class="tab-item tooltip tooltip-bottom c-hand" data-tooltip="About LetXPath" data-option="4">
+      <li class="tab-item tooltip tooltip-bottom c-hand" data-tooltip="About TS360" data-option="4">
         <a>
           <img src="../assets/32.png" alt="letxpath">
         </a>
@@ -148,80 +59,7 @@
         </div>
       </div>
     </div>
-    <!-- element level verification methods -->
-    <div class="container_item card bg-dark" data-item="3">
-      <div class="card-body" id="anchorXPath">
-        <div class="title">
-          <h2 class="text-secondary"> Methods</h2>
 
-          <form id="checkboxForm">
-            <label>
-              <input type="checkbox" name="option1" value="presence of element">
-              presence of element
-            </label>
-            <br>
-            <label>
-              <input type="checkbox" name="option2" value="click on an element">
-              click on an element
-              <div class="accordion-content">
-                <textarea placeholder="Additional information."></textarea>
-                <textarea placeholder="Additional information."></textarea>
-              </div>
-            </label>
-            <label>
-              <input type="checkbox" name="option3" value="right Click on an element">
-              right click on an element
-              <div class="accordion-content">
-                <textarea placeholder="Additional information."></textarea>
-                <textarea placeholder="Additional information."></textarea>
-              </div>
-            </label>
-
-            <label>
-              <input type="checkbox" name="option8" value="find and click on element">
-              find and click on element
-              <div class="accordion-content">
-                <textarea placeholder="Additional information."></textarea>
-                <textarea placeholder="Additional information."></textarea>
-              </div>
-            </label>
-            <label>
-              <input type="checkbox" name="option9" value="keypress on element">
-              keypress on element
-              <div class="accordion-content">
-                <textarea placeholder="Additional information."></textarea>
-                <textarea placeholder="Additional information."></textarea>
-
-              </div>
-            </label>
-
-            <label>
-              <input type="checkbox" name="option14" value="multiclick">
-              multi click
-            </label>
-            <br>
-            <label>
-              <input type="checkbox" name="option15" value="visibility of element">
-              visibility of element
-            </label>
-            <br>
-            <label>
-              <input type="checkbox" name="option16" value="elementclick">
-              element click
-            </label>
-            <br>
-            <label>
-              <input type="checkbox" name="option17" value="entertext">
-              enter text
-            </label>
-            <br> <br>
-            <button class="btn btn-success" type="button" id="saveAndCopyButton">Save and Copy Selected</button>
-          </form>
-          <!-- for the copy function to be executed -->
-          <br>
-        </div>
-      </div>
-    </div>
     <!-- About -->
     <div class="container_item card bg-dark" data-item="4">
       <div class="card-body bg-dark">
@@ -230,7 +68,7 @@
             <div class="column">
               <div class="s-rounded">
                 <a href="https://twitter.com/intent/tweet?text=https://chrome.google.com/webstore/detail/letxpath/bekehlnepmijedippfibbmbglglbmlgk"
-                  target="_blank" class="tooltip tooltip-bottom" data-tooltip="Tweet LetXPath">
+                  target="_blank" class="tooltip tooltip-bottom" data-tooltip="Tweet TS360">
                   <img src="../assets/icons/panel/twitter.svg" alt="tweet" width="40px">
                 </a>
               </div>
@@ -238,14 +76,14 @@
             <div class="column">
               <div class="s-rounded">
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://chrome.google.com/webstore/detail/letxpath/bekehlnepmijedippfibbmbglglbmlgk/"
-                  target="_blank" class="tooltip tooltip-bottom" data-tooltip="Post LetXPath">
+                  target="_blank" class="tooltip tooltip-bottom" data-tooltip="Post TS360">
                   <img src="../assets/icons/panel/linkedin.svg" alt="tweet" width="40px"></a>
               </div>
             </div>
             <div class="column">
               <div class="s-rounded">
                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://chrome.google.com/webstore/detail/letxpath/bekehlnepmijedippfibbmbglglbmlgk/"
-                  target="_blank" class="tooltip tooltip-bottom" data-tooltip="Share LetXPath">
+                  target="_blank" class="tooltip tooltip-bottom" data-tooltip="Share TS360">
                   <img src="../assets/icons/panel/facebook.svg" alt="tweet" width="40px"></img>
                 </a>
               </div>
@@ -270,8 +108,6 @@
               usage.
               I will be forever grateful. Thank you in advance for helping me out!
             </p>
-            <p>Send me a PR, if you like to <a href="https://github.com/ortoniKC/LetXPath/pulls"
-                target="_blank">contribute</a></p>
           </div>
         </div>
       </div>
@@ -300,6 +136,9 @@
       </div>
     </div>
   </div>
+  <br>
+  <button class="btn btn-success save-btn" type="button" id="saveAndCopyButton">Save and Copy Selected</button>
+
 </body>
 
 </html>
