@@ -262,26 +262,26 @@ button {
     width: 100%;
 }
 
-
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
+    align-items: flex-start; /* Add this line */
 }
+
 .card-container-view {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start; /* Add this line */
 }
+
 .card-container-view > div {
     flex: 0 1 400px; /* adjust "200px" as per your needs */
     margin: 10px;
 }
 /* ADD STARTED */
-/* .card-container > * {
-    word-wrap: break-word;
-} */
+
 .card-container xxx {
     list-style-type: disc;
     margin: 0;
