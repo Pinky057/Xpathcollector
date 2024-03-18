@@ -250,38 +250,104 @@ function createXPathListCardContainer() {
 
     return container;
 }
+//
+// //updated with checkbox METHOD Card
+//
+// function createElementMethodCard(title, methods) {
+//     var card = document.createElement('div');
+//     card.className = 'element-card';
+//     console.log("createElementMethodCard title", title, "methods", JSON.stringify(methods));
+//     var heading = document.createElement('h3');
+//     heading.textContent = title;
+//     var methodList = document.createElement('ul');
+//     methodList.className = 'selected-method-list';
+//     //methodList.style.listStyleType = 'disc';
+//     methodList.style.whiteSpace = 'break-spaces';
+//     methodList.style.overflowWrap = 'break-word';
+//     methodList.style.maxWidth = '100%'; // Set a maximum width for the <ul> element
+//     methodList.style.wordWrap = 'break-word'; // Fallback for older browsers
+//
+//     for (var i = 0; i < methods.length; i++) {
+//         console.log(" Method ", methods[i]);
+//         var listItem = document.createElement('li');
+//         //listItem.textContent = methods[i];
+//         //methodList.appendChild(listItem);
+//         var checkbox = document.createElement('input');
+//         checkbox.type = 'checkbox';
+//         checkbox.id = methods[i];
+//         checkbox.name = 'method';
+//         checkbox.value = methods[i];
+//         var label = document.createElement('label');
+//         label.htmlFor = 'clear_about';
+//         label.textContent = methods[i];
+//         listItem.appendChild(checkbox);
+//         listItem.appendChild(label);
+//         methodList.appendChild(listItem);
+//     };
+//
+//     card.appendChild(heading);
+//     card.appendChild(methodList);
+//
+//     return card;
+// }
+//
+// // Function to create the card container and append cards to it
+// function createMethodCardContainer() {
+//     var xpathlist = localStorage.getItem('panelDataList:');
+//     console.log(" createMethodCardContainer ", xpathlist);
+//     var container = document.getElementById("method-card-container");
+//     container.className = 'card-container-view';
+//     //container.className = 'card-container';
+//     var xpathListObj = JSON.parse(xpathlist);
+//     for (var i = 0; i < xpathListObj.length; i++) {
+//         console.log(JSON.stringify(xpathListObj[i]), "FFF DDDDD", JSON.stringify(xpathListObj[i].Methods));
+//         var card = createElementMethodCard(JSON.stringify(xpathListObj[i].elementName), xpathListObj[i].Methods);
+//         container.appendChild(card);
+//     }
+//
+//     return container;
+// }
+// createMethodCardContainer();
+// addMethodCheckboxListeners();
+//
 
-//updated with checkbox METHOD Card
 
-function createElementMethodCard(title, methods) {
+
+// new refactored element method list card
+
+function createFixedMethodCard(title) {
     var card = document.createElement('div');
     card.className = 'element-card';
-    console.log("createElementMethodCard title", title, "methods", JSON.stringify(methods));
+
     var heading = document.createElement('h3');
     heading.textContent = title;
+
     var methodList = document.createElement('ul');
     methodList.className = 'selected-method-list';
-    //methodList.style.listStyleType = 'disc';
     methodList.style.whiteSpace = 'break-spaces';
     methodList.style.overflowWrap = 'break-word';
-    methodList.style.maxWidth = '100%'; // Set a maximum width for the <ul> element
-    methodList.style.wordWrap = 'break-word'; // Fallback for older browsers
+    methodList.style.maxWidth = '100%';
+    methodList.style.wordWrap = 'break-word';
+
+    // Predefined methods
+    var methods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5', 'Method 6'];
 
     for (var i = 0; i < methods.length; i++) {
-        console.log(" Method ", methods[i]);
         var listItem = document.createElement('li');
-        //listItem.textContent = methods[i];
-        //methodList.appendChild(listItem);
+
         var checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = methods[i];
         checkbox.name = 'method';
         checkbox.value = methods[i];
+
         var label = document.createElement('label');
-        label.htmlFor = 'clear_about';
+        label.htmlFor = methods[i];
         label.textContent = methods[i];
+
         listItem.appendChild(checkbox);
         listItem.appendChild(label);
+
         methodList.appendChild(listItem);
     };
 
@@ -290,26 +356,22 @@ function createElementMethodCard(title, methods) {
 
     return card;
 }
-
-// Function to create the card container and append cards to it
-function createMethodCardContainer() {
+function createFixedMethodCardContainer() {
     var xpathlist = localStorage.getItem('panelDataList:');
-    console.log(" createMethodCardContainer ", xpathlist);
     var container = document.getElementById("method-card-container");
     container.className = 'card-container-view';
-    //container.className = 'card-container';
+
     var xpathListObj = JSON.parse(xpathlist);
     for (var i = 0; i < xpathListObj.length; i++) {
-        console.log(JSON.stringify(xpathListObj[i]), "FFF DDDDD", JSON.stringify(xpathListObj[i].Methods));
-        var card = createElementMethodCard(JSON.stringify(xpathListObj[i].elementName), xpathListObj[i].Methods);
+        var card = createFixedMethodCard(JSON.stringify(xpathListObj[i].elementName));
         container.appendChild(card);
     }
 
     return container;
 }
-createMethodCardContainer();
-addMethodCheckboxListeners();
 
+createFixedMethodCardContainer();
+addMethodCheckboxListeners();
 
 // input element field values
 

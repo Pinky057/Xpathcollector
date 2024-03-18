@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://code.jquery.com;"> -->
     <link rel="stylesheet" href="styles/display.css">
+    <link rel="stylesheet" href="styles/nav.css">
+
     <title>Workflow Page Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -26,7 +28,25 @@
 </head>
 
 <body>
-    <div class="additional-card-container">
+<nav id="navbar" class="">
+    <div class="nav-wrapper">
+        <!-- Navbar Logo -->
+        <div class="logo">
+            <a href="#">
+                <img width="100px" height="auto" src="app/src/TS360Logo.png" alt="logo">
+            </a>
+        </div>
+
+        <!-- Navbar Links -->
+        <ul id="menu">
+            <li><a href="Display.html">Display</a></li>
+            <li><a href="workflow.html">Workflow</a></li>
+            <li><a href="testScenarios.html">Test Scenarios</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+    <div class="additional-card-container marginTop">
         <div class="additional-card">
             <h2>Workflow method</h2>
             <div class="input-container">

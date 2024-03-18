@@ -117,6 +117,9 @@ input[type="checkbox"]:checked+.accordion-content,
     flex: 1;
     box-sizing: border-box;
 }
+.marginTop{
+    margin-top: 65px;
+}
 
 .additional-card button {
     margin-top: 20px;
