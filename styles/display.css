@@ -41,7 +41,7 @@ body {
 
 }
 .card.middle {
-    flex: 2;
+    flex: 3;
     /* Makes the middle div twice as wide */
 }
 
@@ -269,7 +269,15 @@ button {
     justify-content: space-around;
 
 }
-
+.card-container-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card-container-view > div {
+    flex: 0 1 400px; /* adjust "200px" as per your needs */
+    margin: 10px;
+}
 /* ADD STARTED */
 /* .card-container > * {
     word-wrap: break-word;
@@ -329,8 +337,8 @@ button {
 /* Style for the card */
 .element-card{
     border: 1px solid #000;
-    padding: 10px;
-    margin: 10px 5px;
+    padding: 5px;
+    margin: 5px 5px;
     box-sizing: border-box;
     background-color: #f0f0f0;
 }
