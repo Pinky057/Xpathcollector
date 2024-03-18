@@ -253,48 +253,6 @@ function createXPathListCardContainer() {
 
 
 // new refactored element method list card
-
-// function createFixedMethodCard(title) {
-//     var card = document.createElement('div');
-//     card.className = 'element-card';
-//
-//     var heading = document.createElement('h3');
-//     heading.textContent = title;
-//
-//     var methodList = document.createElement('ul');
-//     methodList.className = 'selected-method-list';
-//     methodList.style.whiteSpace = 'break-spaces';
-//     methodList.style.overflowWrap = 'break-word';
-//     methodList.style.maxWidth = '100%';
-//     methodList.style.wordWrap = 'break-word';
-//
-//     // Predefined methods
-//     var methods = [' presence of element', 'click on an element', 'right click on an element','find and click on element',' keypress on element','multi click', 'visibility of element', 'element click', 'enter text'];
-//
-//     for (var i = 0; i < methods.length; i++) {
-//         var listItem = document.createElement('li');
-//
-//         var checkbox = document.createElement('input');
-//         checkbox.type = 'checkbox';
-//         checkbox.id = methods[i];
-//         checkbox.name = 'method';
-//         checkbox.value = methods[i];
-//
-//         var label = document.createElement('label');
-//         label.htmlFor = methods[i];
-//         label.textContent = methods[i];
-//
-//         listItem.appendChild(checkbox);
-//         listItem.appendChild(label);
-//
-//         methodList.appendChild(listItem);
-//     };
-//
-//     card.appendChild(heading);
-//     card.appendChild(methodList);
-//
-//     return card;
-// }
 function createFixedMethodCard(title) {
     var card = document.createElement('div');
     card.className = 'element-card';
@@ -332,16 +290,25 @@ function createFixedMethodCard(title) {
         if(['click on an element', 'right click on an element', 'find and click on element', 'keypress on element'].includes(methods[i])) {
             var details = document.createElement('details');
             var summary = document.createElement('summary');
-            summary.textContent = "Options";
+            summary.textContent = " ";
             details.appendChild(summary);
 
+            var optionList = document.createElement('ul');
+
+            var nestedOption1 = document.createElement('li');
             var nestedInput1 = document.createElement('input');
             nestedInput1.type = 'text';
-            details.appendChild(nestedInput1);
+            nestedOption1.appendChild(nestedInput1);
 
+            var nestedOption2 = document.createElement('li');
             var nestedInput2 = document.createElement('input');
             nestedInput2.type = 'text';
-            details.appendChild(nestedInput2);
+            nestedOption2.appendChild(nestedInput2);
+
+            optionList.appendChild(nestedOption1);
+            optionList.appendChild(nestedOption2);
+
+            details.appendChild(optionList);
 
             listItem.appendChild(details);
         }
@@ -354,6 +321,8 @@ function createFixedMethodCard(title) {
 
     return card;
 }
+
+
 function createFixedMethodCardContainer() {
     var xpathlist = localStorage.getItem('panelDataList:');
     var container = document.getElementById("method-card-container");
