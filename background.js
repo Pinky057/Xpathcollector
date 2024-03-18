@@ -1,6 +1,6 @@
 // create context menu to get XPath on click -  In feature this might removed
 chrome.contextMenus.create({
-    "id": "LetXPath",
+    "id": "TS360",
     "title": "Select Parent",
     "contexts": ["all"]
 })
@@ -11,13 +11,13 @@ let isSource = false;
 function toggle() {
     isSource = !isSource;
     if (isSource) {
-        chrome.contextMenus.update('LetXPath', { "title": "Select Child", }, () => { })
+        chrome.contextMenus.update('TS360', { "title": "Select Child", }, () => { })
     } else {
-        chrome.contextMenus.update('LetXPath', { "title": "Select Parent", }, () => { })
+        chrome.contextMenus.update('TS360', { "title": "Select Parent", }, () => { })
     }
 }
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-    if (info.menuItemId == "LetXPath") {
+    if (info.menuItemId == "TS360") {
         toggle();
     }
 });
@@ -115,7 +115,7 @@ let installReason = (detail) => {
         });
         chrome.notifications.create(
             {
-                title: 'LetXPath',
+                title: 'TS360',
                 message: 'Please restart your browser to use LetXPath',
                 iconUrl: 'assets/32.png',
                 type: 'basic'
@@ -137,7 +137,7 @@ function onClickNotification() {
 function updateNotification() {
     chrome.notifications.create(
         {
-            title: 'LetXPath',
+            title: 'TS360',
             message: 'LetXPath has been updated. Please click to read the changelog.',
             iconUrl: 'assets/32.png',
             type: 'basic'

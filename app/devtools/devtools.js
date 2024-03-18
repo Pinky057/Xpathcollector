@@ -13,7 +13,7 @@ devtools_connections.postMessage({
   name: "init",
   tabId: chrome.devtools.inspectedWindow.tabId,
 });
-let name = "LetXPath";
+let name = "TS360";
 let html = "panel/panel.html";
 let isActive = false;
 // Create a sidebar panle
