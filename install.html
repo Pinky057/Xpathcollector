@@ -6,24 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./app/styles/main.css">
     <title>Thank you</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(114, 188, 236, 0.38);
+        }
+
+        .container-card {
+            height: 80%;
+            width: 80%;
+            background-color: #fff;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            transition: box-shadow 0.3s ease-in-out;
+
+            /* added styles */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        h2{
+            margin:5px;
+            font-size: 1.5em;
+           color: #3b4351;
+            padding-bottom: 15px; /* Adjust as needed */
+            border-bottom: 2px solid rgba(114, 188, 236, 0.38); /* Adjust color and thickness as needed */
+        }
+        .installSocial {
+            display: flex;
+            justify-content: space-between; /* or 'space-between' depending on your layout needs */
+            /*flex-wrap: wrap;*/
+        }
+        .s-rounded {
+            /* styling for each individual item goes here */
+            padding: 10px;
+            margin: 10px;
+
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="hero-body">
-                <h2>Thank you for installing LetXPath</h2>
-                <h2>Find more about LetXPath by giving it a try today itself !</h2>
-            </div>
-        </div>
-    </div>
-    <div class="hero hero-lg bg-dark">
-        <div class="hero-body">
-            <h1>Please restart your browser to enjoy LetXPath</h1>
-            <p> <a class="btn btn-primary" href="https://youtu.be/91HXmTwr3eQ" target="_blank">Watch the video to know
-                    more!</a></p>
-        </div>
-    </div>
+<div class="container-card">
+    <img width="100px" height="auto" src="app/src/TS360Logo.png" alt="logo">
+
+    <h2>Thank you for installing TS360 Test Automation</h2>
+
+    <h3>Find more about <span class="text-capitalize text-bold text-success">TS360 Test Automation</span> by giving it a try today itself !</h3>
+    <p>Please restart your browser to enjoy TS360 Test Automation</p>
+    <p> <a class="btn btn-success" href="#" target="_blank">Watch the video to know
+            more!</a></p>
+
+
+<div class="installSocial">
+                        <div class="s-rounded">
+                            <a href="#"
+                               target="_blank" class="tooltip tooltip-bottom" data-tooltip="Tweet TS360">
+                                <img src="assets/icons/panel/twitter.svg" alt="tweet" width="40px">
+                            </a>
+                        </div>
+
+
+                        <div class="s-rounded">
+                            <a href="#"
+                               target="_blank" class="tooltip tooltip-bottom" data-tooltip="Post TS360">
+                                <img src="assets/icons/panel/linkedin.svg" alt="tweet" width="40px"></a>
+                        </div>
+
+
+                        <div class="s-rounded">
+                            <a href="#"
+                               target="_blank" class="tooltip tooltip-bottom" data-tooltip="Share TS360">
+                                <img src="assets/icons/panel/facebook.svg" alt="tweet" width="40px">
+                            </a>
+                        </div>
+
+   </div>
+
+</div>
+
 </body>
 
 </html>
