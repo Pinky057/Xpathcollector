@@ -252,13 +252,15 @@ function createXPathListCardContainer() {
 }
 
 
-// new refactored element method list card
+// new refactored element method list card--------------------------------------------
+
 function createFixedMethodCard(title) {
     var card = document.createElement('div');
     card.className = 'element-card';
 
     var heading = document.createElement('h3');
     heading.textContent = title;
+    heading.style.cursor = 'pointer'; // give user feedback that heading is clickable
 
     var methodList = document.createElement('ul');
     methodList.className = 'selected-method-list';
@@ -266,6 +268,7 @@ function createFixedMethodCard(title) {
     methodList.style.overflowWrap = 'break-word';
     methodList.style.maxWidth = '100%';
     methodList.style.wordWrap = 'break-word';
+    methodList.style.display = 'none'; // hide the list by default
 
     // Predefined methods
     var methods = ['presence of element', 'click on an element', 'right click on an element','find and click on element','keypress on element','multi click', 'visibility of element', 'element click', 'enter text'];
@@ -314,13 +317,23 @@ function createFixedMethodCard(title) {
         }
 
         methodList.appendChild(listItem);
-    };
+    }
+
+    heading.addEventListener('click', function() {
+        // Toggle visibility of methodList when heading is clicked
+        if (methodList.style.display === 'none') {
+            methodList.style.display = 'block';
+        } else {
+            methodList.style.display = 'none';
+        }
+    });
 
     card.appendChild(heading);
     card.appendChild(methodList);
 
     return card;
 }
+
 
 
 function createFixedMethodCardContainer() {
@@ -340,7 +353,7 @@ function createFixedMethodCardContainer() {
 createFixedMethodCardContainer();
 addMethodCheckboxListeners();
 
-// input element field values
+// input element field values----------------------------------------------
 
 function updateSelectionOptions(selectElementId) {
     var selectElement = document.getElementById(selectElementId);
