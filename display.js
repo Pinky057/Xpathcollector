@@ -330,7 +330,7 @@ function createFixedMethodCard(title) {
     methodList.style.wordWrap = 'break-word';
 
     // Predefined methods
-    var methods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5', 'Method 6'];
+    var methods = [' presence of element', 'click on an element', 'right click on an element','find and click on element',' keypress on element','multi click', 'visibility of element', 'element click', 'enter text'];
 
     for (var i = 0; i < methods.length; i++) {
         var listItem = document.createElement('li');
