@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,24 +13,24 @@
 </head>
 
 <body>
-<nav id="navbar" class="">
-    <div class="nav-wrapper">
-        <!-- Navbar Logo -->
-        <div class="logo">
-            <a href="#">
-                <img width="100px" height="auto" src="app/src/TS360Logo.png" alt="logo">
-            </a>
-        </div>
+    <nav id="navbar" class="">
+        <div class="nav-wrapper">
+            <!-- Navbar Logo -->
+            <div class="logo">
+                <a href="#">
+                    <img width="100px" height="auto" src="app/src/TS360Logo.png" alt="logo">
+                </a>
+            </div>
 
-        <!-- Navbar Links -->
-        <ul id="menu">
-            <li><a href="Display.html">Display</a></li>
-            <li><a href="workflow.html">Workflow</a></li>
-  <li><a href="testScenarios.html">Test Scenarios</a></li>
-   <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+            <!-- Navbar Links -->
+            <ul id="menu">
+                <li><a href="Display.html">Display</a></li>
+                <li><a href="workflow.html">Workflow</a></li>
+                <li><a href="testScenarios.html">Test Scenarios</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="header">
         <div class="flex-container">
@@ -223,12 +224,22 @@
                     <label>
                         <input type="checkbox" name="pageAction23" value="clickall">
                         click all
-                        <div class="accordion-content">
-                            <select id="elementtestselect1">
+                        <div class="accordion-content" id="clickalldiv">
+                            <select id="elementtestselect1" multiple>
                             </select>
+                            <!-- <select id="elementtestselect1a">
+                                    <option value="value1">True</option>
+                                    <option value="value2">False</option>
+                            </select> -->
+                            <br>
 
-                            <input type="text" id="elementtestselectclickall">
+                            <select id="elementtestselect3">
+
+                            </select>
+                            <!-- <input type="checkbox" id="elementtestselectclickall1"> -->
+
                         </div>
+
                     </label>
                     <label>
                         <input type="checkbox" name="pageAction24" value="elseblock">
@@ -241,7 +252,7 @@
                     </label>
                     <br>
                     <label>
-                        <input  type="checkbox" name="pageAction26" value="scrolltoelement">
+                        <input type="checkbox" name="pageAction26" value="scrolltoelement">
                         scroll to element
                         <div class="accordion-content">
                             <select id="elementtestselect2">
@@ -264,6 +275,31 @@
                         </div>
                     </label>
 
+                    <br>
+                    <label>
+                        <input type="checkbox" name="pageAction28" value="clickby">
+                        click by
+                        <div class="accordion-content">
+                            <label>Page methods:
+                                <select id="pagemethodselect1">
+                                </select>
+                            </label>
+                            <label>Parameters:
+                                <select id="pagemethodselect2">
+                                </select>
+                            </label>
+                            <label>Variables:
+                                <select id="pagemethodselect3">
+                                </select>
+                            </label>
+                            <br>
+                            <select id="valueselect1">
+                                <option value="value1">text</option>
+                                <option value="value2">label</option>
+                                <option value="value3">number</option>
+                            </select>
+                        </div>
+                    </label>
                 </form>
             </div>
 

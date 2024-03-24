@@ -2,9 +2,33 @@
 // variable be used for console log
 var bkg = chrome.extension.getBackgroundPage();
 bkg.console.log("Working on ", document.baseURI);
+bkg.console.log("page on ", document);
 var xpathList = [];
 var elementObjectList = [];
 var elementObjectMap = {};
+
+// chrome.runtime.onInstalled.addListener(function() {
+//   // Add a listener to capture the URL when the tab is updated
+//   chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+//       // Check if the tab's URL has been fully loaded
+//       if (changeInfo.status === 'complete') {
+//           // Capture the URL
+//           var url = tab.url;
+//           console.log('Current URL:', url);
+//           // You can then use the URL for further processing
+//       }
+//   });
+//});
+
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+
+  if (changeInfo.status === 'complete' && tab.active) {
+    // Capture the URL
+    var url = tab.url;
+    console.log('Current URL:', url);
+
+  }
+});
 
 chrome.runtime.onMessage.addListener((req, rec, res) => {
   document.querySelector(".toast").classList.add("d-hide");
@@ -13,7 +37,7 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
   elementObjectMap = {};
   xpathList = [];
   elementObjectMap["elementName"] = req.methodname;
-  bkg.console.log("Sender tab id" , rec.tab.id, " own tabID ", chrome.devtools.inspectedWindow.tabId);
+  bkg.console.log("Sender tab id", rec.tab.id, " own tabID ", chrome.devtools.inspectedWindow.tabId);
   switch (req.request) {
     // case "pageInfo":
     //   console.log(req.request);
@@ -86,17 +110,17 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
       return true;
     case "customSearchResult":
       buildSearchUI(req.data);
-    case "activeDevTools" :
+    case "activeDevTools":
       var answer = false;
-      if(rec.tab.id == chrome.devtools.inspectedWindow.tabId) {
+      if (rec.tab.id == chrome.devtools.inspectedWindow.tabId) {
         answer = true;
       }
-      const response = { reply: answer};
-      bkg.console.log("Request tab ID ", rec.tab.id, " devtools/panel tab ID ", chrome.devtools.inspectedWindow.tabId,  "replying  ", answer);
+      const response = { reply: answer };
+      bkg.console.log("Request tab ID ", rec.tab.id, " devtools/panel tab ID ", chrome.devtools.inspectedWindow.tabId, "replying  ", answer);
       res(response);
       return true;
-    case "reset" :
-      if(rec.tab.id == chrome.devtools.inspectedWindow.tabId) {
+    case "reset":
+      if (rec.tab.id == chrome.devtools.inspectedWindow.tabId) {
         bkg.console.log("resetting the panel");
         resetVerificationMethods();
       }
@@ -152,7 +176,7 @@ function handleCopyButtonClick() {
   var selectedOptions = [];
 
   // loop through all selected(check) checkboxes
-  for(var i = 0; i < checkboxes.length; i++) {
+  for (var i = 0; i < checkboxes.length; i++) {
     // Get the checkbox's value
     var value = checkboxes[i].value;
 
@@ -161,7 +185,7 @@ function handleCopyButtonClick() {
 
     var textarea = checkboxes[i].parentNode.querySelectorAll("textarea");
     //bkg.console.log("TEXTAREA ", textarea);
-    for(var j =0; j < textarea.length; j++){
+    for (var j = 0; j < textarea.length; j++) {
       value += "$$" + textarea[j].value;
       //bkg.console.log("MMMMMMMMM ", value); // Append textarea value to checkbox value
     }
@@ -190,7 +214,7 @@ function handleCopyButtonClick() {
   // remove the temporary input field
   document.body.removeChild(tempInput);
 
-  bkg.console.log("Copy to clipboard" , copiedText);
+  bkg.console.log("Copy to clipboard", copiedText);
 
   // alert the user that the contents were copied
   alert("Selected options have been copied to clipboard: " + copiedText);
@@ -219,7 +243,7 @@ function handleSaveButtonClick() {
 
 //called the save and copy function when the user clicks on the save and copy button
 
-document.getElementById("saveAndCopyButton").addEventListener("click", function() {
+document.getElementById("saveAndCopyButton").addEventListener("click", function () {
   handleSaveButtonClick(); // comment out resetVerificationMethods() inside this function
   handleCopyButtonClick(); // comment out resetVerificationMethods() inside this function
 
@@ -228,29 +252,29 @@ document.getElementById("saveAndCopyButton").addEventListener("click", function(
 });
 
 
-function resetVerificationMethods(){
+function resetVerificationMethods() {
   // Get all checked checkboxes
   var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
 
   // loop through all selected(check) checkboxes
-  for(var i = 0; i < checkboxes.length; i++) {
+  for (var i = 0; i < checkboxes.length; i++) {
     // reset the checkbox's value
     checkboxes[i].checked = false;
 
     // Get corresponding textarea value
     var textarea = checkboxes[i].parentNode.querySelector("textarea");
     if (textarea && textarea.value) {
-     //reset to default values
+      //reset to default values
       textarea.value = "";
       textarea.placeholder = "Additional Information";
     }
   }
 }
 
-window.isDirty = function (){
+window.isDirty = function () {
   // Get all checked checkboxes
-   var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
-   return checkboxes.length > 0;
+  var checkboxes = document.querySelectorAll('#checkboxForm input[type="checkbox"]:checked');
+  return checkboxes.length > 0;
 }
 
 // generate axes based on user inputs
@@ -265,9 +289,8 @@ function generateAxes(req) {
   let ui = `<div class="form-horizontal">
     <div class="form-group">
     <div class="col-12">
-      <code class="form-label tooltip tooltip-bottom" id="anxp" data-copytarget="#anxp" data-tooltip="Click to copy" value="${
-        req.data.proOrFol
-      }">${req.data.defaultXPath}</code>
+      <code class="form-label tooltip tooltip-bottom" id="anxp" data-copytarget="#anxp" data-tooltip="Click to copy" value="${req.data.proOrFol
+    }">${req.data.defaultXPath}</code>
     </div>
     </div>
   </div>
@@ -365,7 +388,7 @@ function buildUI(data) {
     .attributes.getNamedItem("data-badge").value = len.length;
   for (let i = 0; i < len.length; i++) {
     generateXPathUI(data, i);
-    xpathList.push(data.xpathid[i][1]  + " = " + data.xpathid[i][2]);
+    xpathList.push(data.xpathid[i][1] + " = " + data.xpathid[i][2]);
   }
   bkg.console.log("WWWWWW ", xpathList);
   elementObjectMap["XPathList"] = xpathList;
@@ -373,22 +396,20 @@ function buildUI(data) {
 // -------- Build XPath UI -------
 function generateXPathUI(data, i) {
   let ui = `<div class="form-horizontal bg-dark">
-    <span class="label label-success label-rounded sm">${i + 1}. ${
-    data.xpathid[i][1]
-  }</span>
+    <span class="label label-success label-rounded sm">${i + 1}. ${data.xpathid[i][1]
+    }</span>
     <div class="form-group">
       <div class="col-10 c-hand" id="xpathVal" data-copytarget="#xpath${i}">
-        <code class="form-label tooltip tooltip-top" id="xpath${i}" data-copytarget="#xpath${i}" data-tooltip="Click to copy">${
-    data.xpathid[i][2]
-  }</code>
+        <code class="form-label tooltip tooltip-top" id="xpath${i}" data-copytarget="#xpath${i}" data-tooltip="Click to copy">${data.xpathid[i][2]
+    }</code>
       </div>
       <div class="col-2 tooltip tooltip-top" data-tooltip="Copy Snippet">
       <div class="form-group bg-dark"><select class="form-select select-sm " id="snippetsSelector">${getSelectionValues(
-        data,
-        i,
-        data.xpathid,
-        false
-      )}</select></div>
+      data,
+      i,
+      data.xpathid,
+      false
+    )}</select></div>
       </div>
     </div>
   </div>`;
@@ -443,22 +464,20 @@ function buildCSSUI(data) {
   let ui = "";
   for (let i = 0; i < data.cssPath.length; i++) {
     ui += `<div class="form-horizontal">
-      <span class="label label-rounded label-success sm">${i + 1}. ${
-      data.cssPath[i][1]
-    }</span>
+      <span class="label label-rounded label-success sm">${i + 1}. ${data.cssPath[i][1]
+      }</span>
         <div class="form-group">
           <div class="col-10 tooltip tooltip-top" id="xpathVal" data-tooltip="Click to copy" data-copytarget="#css${i}">
-            <code class="form-label" id="css${i}" data-copytarget="#css${i}">${
-      data.cssPath[i][2]
-    }</code>
+            <code class="form-label" id="css${i}" data-copytarget="#css${i}">${data.cssPath[i][2]
+      }</code>
           </div>
           <div class="col-2 tooltip tooltip-top" data-tooltip="Copy Snippet">
             <select class="form-select select-sm" id="snippetsSelector">${getSelectionValues(
-              data,
-              i,
-              data.cssPath,
-              true
-            )}</select>
+        data,
+        i,
+        data.cssPath,
+        true
+      )}</select>
           </div>
         </div>
       </div>`;

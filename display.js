@@ -1,15 +1,20 @@
 // display.js
 
 var bkg = chrome.extension.getBackgroundPage();
-let listItemMap = {}; // Store references to list items
+let listItemMap = new Map(); // Store references to list items
+
 function handleCheckboxChange(event) {
     // Check if the checkbox is checked
     if (event.target.checked) {
-        updateList(event.target.value, "checked")
+        //updateList(event.target.value, "checked")
+        resetSelectionOptions("clickall", "elementtestselect1", "elementtestselect3", "elementtestselect1a");
+        updateIndMethods(event.target.value, "elementtestselect1", "elementtestselect3", "elementtestselect1a");
         console.log(`Checkbox with value ${event.target.value} is checked.`);
+
     } else {
         console.log(`Checkbox with value ${event.target.value} is unchecked.`);
-        updateList(event.target.value, "unchecked")
+        removeAll(event.target.value, "elementtestselect1", "elementtestselect3", "elementtestselect1a");
+
     }
 }
 
@@ -202,11 +207,11 @@ storedData.forEach(function (formData) {
         'Variables: ' + formData.variables + '\n' +
         'Parameters: ' + formData.parameters + '\n' +
         'Return Type: ' + formData.returnType;
-        if (listContainer !== null) {
-            listContainer.appendChild(listItem);
-        } else {
-            console.error("listContainer is null. Unable to append listItem.");
-        }
+    if (listContainer !== null) {
+        listContainer.appendChild(listItem);
+    } else {
+        console.error("listContainer is null. Unable to append listItem.");
+    }
     //listContainer.appendChild(listItem);
 });
 
@@ -271,7 +276,7 @@ function createFixedMethodCard(title) {
     methodList.style.display = 'none'; // hide the list by default
 
     // Predefined methods
-    var methods = ['presence of element', 'click on an element', 'right click on an element','find and click on element','keypress on element','multi click', 'visibility of element', 'element click', 'enter text'];
+    var methods = ['presence of element', 'click on an element', 'right click on an element', 'find and click on element', 'keypress on element', 'multi click', 'visibility of element', 'element click', 'enter text'];
 
     for (var i = 0; i < methods.length; i++) {
         var listItem = document.createElement('li');
@@ -290,7 +295,7 @@ function createFixedMethodCard(title) {
         listItem.appendChild(label);
 
         // Add nested inputs for specified methods
-        if(['click on an element', 'right click on an element', 'find and click on element', 'keypress on element'].includes(methods[i])) {
+        if (['click on an element', 'right click on an element', 'find and click on element', 'keypress on element'].includes(methods[i])) {
             var details = document.createElement('details');
             var summary = document.createElement('summary');
             summary.textContent = " ";
@@ -319,7 +324,7 @@ function createFixedMethodCard(title) {
         methodList.appendChild(listItem);
     }
 
-    heading.addEventListener('click', function() {
+    heading.addEventListener('click', function () {
         // Toggle visibility of methodList when heading is clicked
         if (methodList.style.display === 'none') {
             methodList.style.display = 'block';
@@ -354,23 +359,139 @@ createFixedMethodCardContainer();
 addMethodCheckboxListeners();
 
 // input element field values----------------------------------------------
-
-function updateSelectionOptions(selectElementId) {
-    var selectElement = document.getElementById(selectElementId);
-    var titles = document.querySelectorAll(".element-card h3");
-
-    // Clear existing options
-    selectElement.innerHTML = "";
-
-    titles.forEach(function(titleElement, index) {
-        var option = document.createElement("option");
-        option.value = "Element" + (index + 1);
-        option.textContent = titleElement.textContent;
-        selectElement.appendChild(option);
-    });
+function resetSelectionOptions(key, id1, id2, id3) {
+    const selectElement1 = document.getElementById(id1);
+    if (selectElement1 !== null) {
+        selectElement1.selectedIndex = -1; // Unselect any currently selected option
+    }
+    const selectElement2 = document.getElementById(id2);
+    if (selectElement2 !== null) {
+        selectElement2.selectedIndex = -1; // Unselect any currently selected option
+    }
+    const selectElement3 = document.getElementById(id3);
+    if (selectElement3 !== null) {
+        selectElement3.selectedIndex = -1; // Unselect any currently selected option
+    }
 }
 
-// Call the function after the method cards have been generated
+//function updateSelectionOptions(selectElementId, status) {
+function updateSelectionOptions(key, id1, id2, id3) {
+    //var status = false;
 
-updateSelectionOptions("elementtestselect1");
-updateSelectionOptions("elementtestselect2");
+    newFunction(id1, false);
+    newFunction(id2, true);
+    newFunctionTF(id3);
+
+    function newFunction(currentId, dummy) {
+        const selectElement = document.getElementById(currentId);
+        console.log("selectelement: ", selectElement);
+        var titles = document.querySelectorAll(".element-card h3");
+        console.log("Title: ", titles);
+        // Clear existing options
+        selectElement.innerHTML = "";
+        if (dummy) {
+            var option = document.createElement("option");
+            option.value = "";
+            option.disabled = true; // Disable the option
+            option.selected = true; // Select the option by default
+            option.textContent = "";
+            console.log("Adding dummy option: ", option);
+            selectElement.appendChild(option);
+        }
+        titles.forEach(function (titleElement, index) {
+            var option = document.createElement("option");
+            option.value = "Element" + (index + 1);
+            option.textContent = titleElement.textContent;
+            console.log("option: ", option.textContent);
+            selectElement.appendChild(option);
+
+        });
+        selectElement.addEventListener("change", function () {
+            updateIndMethods(key, id1, id2, id3);
+        });
+    }
+    function newFunctionTF(currentId) {
+        console.log("Called newFunctionTF", currentId);
+        var selectElement = document.createElement("select");
+        selectElement.id = currentId;
+
+        console.log("selectelementTF: ", selectElement);
+        var titles = ["True", "False"];
+        selectElement.innerHTML = "";
+        var option = document.createElement("option");
+        option.value = "";
+        option.disabled = true; // Disable the option
+        option.selected = true; // Select the option by default
+        option.textContent = "";
+        console.log("Adding dummy option: ", option);
+        selectElement.appendChild(option);
+
+        titles.forEach(function (titleElement, index) {
+            var option = document.createElement("option");
+            option.value = "Element" + (index + 1);
+            option.textContent = titleElement;
+            console.log("option element: ", option);
+            selectElement.appendChild(option);
+        });
+        var division = document.getElementById("clickalldiv");
+        division.appendChild(selectElement);
+        selectElement.addEventListener("change", function () {
+            updateIndMethods(key, id1, id2, id3);
+        });
+    }
+}
+
+
+
+//updateSelectionOptions("elementtestselect1", false);
+updateSelectionOptions("clickall", "elementtestselect1", "elementtestselect3", "elementtestselect1a");
+//updateSelectionOptions("elementtestselect3", true);
+//updateSelectionOptions("elementtestselect2", false);
+
+function updateIndMethods(key, id1, id2, id3) {
+    removeAll(key, id1, id2, id3);
+    addAll(key, id1, id2, id3);
+}
+
+function removeAll(key, id1, id2, id3) {
+    if (listItemMap.has(key)) {
+        var list = listItemMap.get(key);
+        console.log("Values for key '" + key + "':");
+        for (var i = 0; i < list.length; i++) {
+            document.getElementById("sortable").removeChild(list[i]);
+            console.log("removed: ", list[i]);
+        }
+        listItemMap.delete(key);
+    } else {
+        console.log("Key '" + key + "' not found in the Map.");
+    }
+}
+
+function addAll(key, id1, id2, id3) {
+    console.log("addAll ", key, id1);
+    const list = document.getElementById("sortable");
+    listItemMap.set(key, []);
+
+    const li = document.createElement('li');
+    li.textContent = key;
+    list.appendChild(li);
+    listItemMap.get(key).push(li);
+
+    newFunction(id1);
+    newFunction(id2);
+    newFunction(id3);
+
+    function newFunction(currentId) {
+        var ele1 = document.getElementById(currentId);
+        console.log("ele1.selectedOptions:", ele1.selectedOptions);
+        var selectedOptions1 = Array.from(ele1.selectedOptions).map(option => option.textContent);
+        for (var i = 0; i < selectedOptions1.length; i++) {
+            console.log("selectedOptions1[i] ", selectedOptions1[i]);
+            const liId1 = document.createElement('li');
+            liId1.textContent = selectedOptions1[i];
+            list.appendChild(liId1);
+            listItemMap.get(key).push(liId1);
+        }
+    }
+
+}
