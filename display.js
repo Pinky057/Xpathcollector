@@ -6,7 +6,6 @@ let listItemMap = new Map(); // Store references to list items
 function handleCheckboxChange(event) {
     // Check if the checkbox is checked
     if (event.target.checked) {
-        //updateList(event.target.value, "checked")
         resetSelectionOptions("clickall", "elementtestselect1", "elementtestselect3", "elementtestselect1a");
         updateIndMethods(event.target.value, "elementtestselect1", "elementtestselect3", "elementtestselect1a");
         console.log(`Checkbox with value ${event.target.value} is checked.`);
@@ -97,7 +96,6 @@ addChangeInputListener("elementtestselectclickall", "elementtestinputclickall");
 addChangeInputListener("browserselecttabnav", "browserinputtabnav");
 addChangeInputListener("browserselectfornavthkeypr", "browserinputfornavthkeypr");
 addChangeInputListener("browserselectscrollmultipage", "browserinputscrollmultipage");
-//addMethodCheckboxListeners();
 
 $(function () {
     $("#sortable").sortable();
@@ -124,9 +122,7 @@ window.onload = function () {
     document.getElementById("tab2").addEventListener("click", function () {
         openTab('Tab2');
     });
-    // document.getElementById("tab3").addEventListener("click", function () {
-    //     openTab('Tab3');
-    // });
+
 };
 
 //tab navigation
@@ -212,7 +208,7 @@ storedData.forEach(function (formData) {
     } else {
         console.error("listContainer is null. Unable to append listItem.");
     }
-    //listContainer.appendChild(listItem);
+
 });
 
 function createElementXPathListCard(title, xpaths) {
@@ -374,7 +370,7 @@ function resetSelectionOptions(key, id1, id2, id3) {
     }
 }
 
-//function updateSelectionOptions(selectElementId, status) {
+
 function updateSelectionOptions(key, id1, id2, id3) {
     //var status = false;
 
@@ -441,12 +437,7 @@ function updateSelectionOptions(key, id1, id2, id3) {
     }
 }
 
-
-
-//updateSelectionOptions("elementtestselect1", false);
 updateSelectionOptions("clickall", "elementtestselect1", "elementtestselect3", "elementtestselect1a");
-//updateSelectionOptions("elementtestselect3", true);
-//updateSelectionOptions("elementtestselect2", false);
 
 function updateIndMethods(key, id1, id2, id3) {
     removeAll(key, id1, id2, id3);

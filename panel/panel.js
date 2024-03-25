@@ -7,19 +7,6 @@ var xpathList = [];
 var elementObjectList = [];
 var elementObjectMap = {};
 
-// chrome.runtime.onInstalled.addListener(function() {
-//   // Add a listener to capture the URL when the tab is updated
-//   chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-//       // Check if the tab's URL has been fully loaded
-//       if (changeInfo.status === 'complete') {
-//           // Capture the URL
-//           var url = tab.url;
-//           console.log('Current URL:', url);
-//           // You can then use the URL for further processing
-//       }
-//   });
-//});
-
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
   if (changeInfo.status === 'complete' && tab.active) {
@@ -39,24 +26,6 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
   elementObjectMap["elementName"] = req.methodname;
   bkg.console.log("Sender tab id", rec.tab.id, " own tabID ", chrome.devtools.inspectedWindow.tabId);
   switch (req.request) {
-    // case "pageInfo":
-    //   console.log(req.request);
-    //   try {
-    //     let ui = `<table class="table table-striped"><tbody>
-    //     <tr>
-    //     <td>Page Title</td>
-    //     <td>${req.tab.title}</td>
-    //     </tr>
-    //     <tr>
-    //     <td>Page URL</td>
-    //     <td>${req.tab.url}</td>
-    //     </tr>
-    //     </tbody></table>`;
-    //     jQuery('#eleInfo').empty();
-    //     jQuery('#eleInfo').append(ui);
-    //   } catch (error) { }
-    //   return true;
-
     case "send_to_dev":
       buildUI(req);
       document
@@ -219,17 +188,6 @@ function handleCopyButtonClick() {
   // alert the user that the contents were copied
   alert("Selected options have been copied to clipboard: " + copiedText);
 }
-
-
-// for the save button to save the input elements to the local storage
-// Add this to your panel.js
-// document.getElementById("saveButton").addEventListener("click", function() {
-//   var checkedItems = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(checkbox => checkbox.value);
-//   localStorage.setItem("selectedItems", JSON.stringify(checkedItems));
-//   bkg.console.log("Saved to local storage", JSON.stringify(checkedItems));
-//   // after saved to local storage, reset verification methods values to default
-//   resetVerificationMethods();
-// });
 
 // function to handle save button click
 function handleSaveButtonClick() {
