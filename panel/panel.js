@@ -12,7 +12,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status === 'complete' && tab.active) {
     // Capture the URL
     var url = tab.url;
-    console.log('Current URL:', url);
+    bkg.console.log('Current URL:', url);
 
   }
 });
@@ -21,9 +21,11 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
   document.querySelector(".toast").classList.add("d-hide");
   bkg.console.log("From message listener with request ", req.request);
   bkg.console.log("From message listener with request ", req);
+  bkg.console.log('Current URLDDDDDD:', rec.tab.url);
   elementObjectMap = {};
   xpathList = [];
   elementObjectMap["elementName"] = req.methodname;
+  elementObjectMap["PageURL"] = rec.tab.url;
   bkg.console.log("Sender tab id", rec.tab.id, " own tabID ", chrome.devtools.inspectedWindow.tabId);
   switch (req.request) {
     case "send_to_dev":

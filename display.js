@@ -239,7 +239,7 @@ function createElementXPathListCard(title, xpaths) {
 // Function to create the card container and append cards to it
 function createXPathListCardContainer() {
     var xpathlist = localStorage.getItem('panelDataList:');
-    //console.log("createXPathListCardContainer displayXPathlist ", xpathlist);
+    console.log("createXPathListCardContainer displayXPathlist ", xpathlist);
     var container = document.getElementById("xpathcard");
     //container.className = 'card-container-view';
     container.className = 'card-container';
