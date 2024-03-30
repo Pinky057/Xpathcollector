@@ -1,0 +1,553 @@
+{
+  "elementDependentMethods":
+  [
+    {
+      "label": "Presence Of Element",
+      "name":"presenceOfElement",
+      "type": "ElementDependent",
+      "requiredInput": []
+    },
+    {
+      "label": "Click On Element",
+      "name":"clickOnElement",
+      "type": "ElementDependent",
+      "requiredInput": []
+    }
+  ,
+    {
+      "label": "Right Click On Element",
+      "name":"rightClickOnElement",
+      "type": "ElementDependent",
+      "requiredInput": []
+    },
+    {
+      "label": "Find And Click On Element",
+      "name":"findAndClickOnElement",
+      "type": "ElementDependent",
+      "requiredInput": []
+    },
+    {
+      "label": "Key Press On Element",
+      "name":"keyPressOnElement",
+      "type": "ElementDependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Key",
+          "fieldname": "values",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"options",
+          "options":["return","tab","up","down","left","right"]
+        }
+      ]
+    },
+    {
+      "label": "Visibility of Element",
+      "name":"visibilityOfElement",
+      "type": "ElementDependent",
+      "requiredInput": []
+    }
+  ,
+    {
+      "label": "Element Click",
+      "name":"elementClick",
+      "type": "ElementDependent",
+      "requiredInput": []
+    },
+    {
+      "label": "Enter Text",
+      "name":"enterText",
+      "type": "ElementDependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Search Text",
+          "fieldName": "values",
+          "fieldType": "INPUT",
+          "minimumRequired":1,
+          "contentType":"STRING"
+        },
+        {
+          "fieldLabel": "prop",
+          "fieldType": "CHECKBOX",
+          "dependentOn": "values"
+        }
+      ]
+    }
+  ],
+  "elementIndependentMethods":
+  [
+    {
+      "label": "Scroll Up Slow",
+      "name":"scrollUpSlow",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "Scroll Down Slow",
+      "name":"scrollDownSlow",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    }
+  ,
+    {
+      "label": "Scroll Down Fast",
+      "name":"scrollDownFast",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "QuickWait",
+      "name":"quickWait",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "SmallWait",
+      "name":"smallWait",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "MedWait",
+      "name":"medWait",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "LongWait",
+      "name":"longWait",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "QuickestWait",
+      "name":"quickestWait",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "dismissPrompt",
+      "name":"dismissPrompt",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Element",
+          "fieldName":"elements",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"elements"
+        }
+      ]
+    },
+    {
+      "label": "scrollMultiPage",
+      "name":"scrollMultiPage",
+      "type": "ElementIndependent",
+      "requiredInput": [{
+        "fieldLabel": "Chrome-number of Tabs",
+        "fieldName": "values",
+        "fieldType": "INPUT",
+        "minimumRequired":1,
+        "contentType":"NUMBER"
+      },
+        {
+          "fieldLabel": "Chrome-number of Page Down",
+          "fieldName": "values",
+          "fieldType": "INPUT",
+          "minimumRequired":1,
+          "contentType":"NUMBER"
+        }]
+    },
+    {
+      "label": "selectAllTextInScreen",
+      "name":"selectAllTextInScreen",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "fwdNavigationThroughKeyPress",
+      "name":"fwdNavigationThroughKeyPress",
+      "type": "ElementIndependent",
+      "requiredInput": [{
+        "fieldLabel": "Chrome-number",
+        "fieldName": "values",
+        "fieldType": "INPUT",
+        "minimumRequired":1,
+        "contentType":"NUMBER"
+      }
+      ]
+    },
+    {
+      "label": "tabNavigation",
+      "name":"tabNavigation",
+      "type": "ElementIndependent",
+      "requiredInput": [{
+        "fieldLabel": "Chrome-number",
+        "fieldName": "values",
+        "fieldType": "INPUT",
+        "minimumRequired":1,
+        "contentType":"NUMBER"
+      }]
+    },
+    {
+      "label": "doOCR",
+      "name":"doOCR",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "doImageComparison",
+      "name":"doImageComparison",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "findElement",
+      "name":"findElement",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Parameter",
+          "fieldName":"parameters",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"parameters"
+        },
+        {
+          "fieldLabel": "Element Independent Method",
+          "fieldName":"elementIndependentMethod",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":0,
+          "fieldContent":"elementIndependentMethods"
+        }
+      ]
+    },
+    {
+      "label": "scrollUpFast",
+      "name":"scrollUpFast",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "keyDownByKeyPress",
+      "name":"keyDownByKeyPress",
+      "type": "ElementIndependent",
+      "requiredInput": [{
+        "fieldLabel": "Number",
+        "fieldName": "values",
+        "fieldType": "INPUT",
+        "minimumRequired":1,
+        "contentType":"NUMBER"
+      }]
+    },
+    {
+      "label": "selectFromList",
+      "name":"selectFromList",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Input",
+          "fieldName": "values",
+          "fieldType": "INPUT",
+          "minimumRequired":1,
+          "contentType":"STRING"
+        },
+        {
+          "fieldLabel": "Variable",
+          "fieldName":"variables",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":0,
+          "fieldContent":"variables"
+        }
+      ]
+    },
+    {
+      "label": "ClickAll",
+      "name":"ClickAll",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "List of Web Elements",
+          "fieldName":"elements",
+          "fieldType": "DROPDOWN",
+          "selectionType": "MULTIPLE",
+          "minimumRequired":2,
+          "fieldContent":"elements"
+        },
+        {
+          "fieldLabel": "Element",
+          "fieldName":"values",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":0,
+          "fieldContent":"elements"
+        },
+        {
+          "fieldLabel": "Value",
+          "fieldName": "values",
+          "fieldType": "DROPDOWN",
+          "selectionType": "CONDITIONAL_IF_SELECTED_@_values",
+          "minimumRequired":0,
+          "fieldContent":"options",
+          "options":[true,false]
+        }
+      ]
+    },
+    {
+      "label": "elseBlock",
+      "name":"elseBlock",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "endOfBlock",
+      "name":"endOfBlock",
+      "type": "ElementIndependent",
+      "requiredInput": []
+    },
+    {
+      "label": "scrollToElement",
+      "name":"scrollToElement",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Element",
+          "fieldName":"elements",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"elements"
+        }
+      ]
+    },
+    {
+      "label": "multiCall",
+      "name":"multiCall",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Parameter",
+          "fieldName":"parameters",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"parameters"
+        },
+        {
+          "fieldLabel": "Element Independent Method",
+          "fieldName": "elementIndependentMethod",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"elementIndependentMethods"
+        }
+      ]
+    },
+    {
+      "label": "type",
+      "name":"type",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Element",
+          "fieldName":"elements",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"elements"
+        },
+        {
+          "fieldLabel": "Parameter",
+          "fieldName":"parameters",
+          "fieldType": "DROPDOWN",
+          "selectionType": "CONDITIONAL_IF_NOT_SELECTED_@_variables",
+          "minimumRequired":0,
+          "fieldContent":"parameters"
+        },
+        {
+          "fieldLabel": "Variable",
+          "fieldName":"variables",
+          "fieldType": "DROPDOWN",
+          "selectionType": "CONDITIONAL_IF_NOT_SELECTED_@_parameters",
+          "minimumRequired":0,
+          "fieldContent":"variables"
+        }
+      ]
+    },
+    {
+      "label": "ConditionalClick",
+      "name":"conditionalClick",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Element",
+          "fieldName":"elements",
+          "fieldType": "DROPDOWN",
+          "selectionType": "MULTIPLE",
+          "minimumRequired":2,
+          "fieldContent":"elements"
+        },
+        {
+          "fieldLabel": "Parameter",
+          "fieldName":"parameters",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"parameters"
+        },
+        {
+          "fieldLabel": "Variable",
+          "fieldName":"variables",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":0,
+          "fieldContent":"variables"
+        },
+        {
+          "fieldLabel": "prop",
+          "fieldType": "CHECKBOX",
+          "dependentOn": "Variable"
+        },
+        {
+          "fieldLabel": "Value",
+          "fieldName": "values",
+          "fieldType": "INPUT",
+          "minimumRequired":1,
+          "contentType":"STRING"
+        }
+
+      ]
+    },
+    {
+      "label": "ConditionalEnterText",
+      "name":"conditionalEnterText",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Element",
+          "fieldName":"elements",
+          "fieldType": "DROPDOWN",
+          "minimumRequired":2,
+          "fieldContent":"elements"
+        },
+        {
+          "fieldLabel": "Parameter",
+          "fieldName":"parameters",
+          "fieldType": "DROPDOWN",
+          "minimumRequired":1,
+          "fieldContent":"parameters"
+        },
+        {
+          "fieldLabel": "Variable",
+          "fieldName":"variables",
+          "fieldType": "DROPDOWN",
+          "minimumRequired":0,
+          "fieldContent":"variables"
+        },
+        {
+          "fieldLabel": "prop",
+          "fieldType": "CHECKBOX",
+          "fieldContent":"true,false",
+          "dependentOn": "Variable"
+        }
+      ]
+    },
+    {
+      "label": "multiClick",
+      "name":"multiClick",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Parameter",
+          "fieldName":"parameters",
+          "fieldType": "DROPDOWN",
+          "minimumRequired":2,
+          "fieldContent":"parameters"
+        }
+      ]
+    },
+    {
+      "label": "clickBy",
+      "name":"clickBy",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Value",
+          "fieldName": "values",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"options",
+          "options":["text","label","number"]
+        },
+        {
+          "fieldLabel": "Element Independent Method",
+          "fieldName": "elementIndependentMethods",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":1,
+          "fieldContent":"elementIndependentMethods"
+        },
+        {
+          "fieldLabel": "Parameter",
+          "fieldName":"parameters",
+          "fieldType": "DROPDOWN",
+          "selectionType": "CONDITIONAL_IF_NOT_SELECTED_@_variables",
+          "minimumRequired":0,
+          "fieldContent":"parameters"
+        },
+        {
+          "fieldLabel": "Variable",
+          "fieldName":"variables",
+          "fieldType": "DROPDOWN",
+          "selectionType": "CONDITIONAL_IF_NOT_SELECTED_@_parameters",
+          "minimumRequired":0,
+          "fieldContent":"variables"
+        }
+      ]
+    },
+    {
+      "label": "clickIf",
+      "name":"clickIf",
+      "type": "ElementIndependent",
+      "requiredInput": [
+        {
+          "fieldLabel": "Element",
+          "fieldName":"elements",
+          "fieldType": "DROPDOWN",
+          "minimumRequired":1,
+          "fieldContent":"elements"
+        },
+        {
+          "fieldLabel": "Element Independent Method",
+          "fieldName": "elementIndependentMethods",
+          "fieldType": "DROPDOWN",
+          "selectionType": "SINGLE",
+          "minimumRequired":0,
+          "fieldContent":"elementIndependentMethods"
+        },
+        {
+          "fieldLabel": "Parameter",
+          "fieldName":"parameters",
+          "fieldType": "DROPDOWN",
+          "selectionType": "CONDITIONAL_IF_SELECTED_@_elementIndependentMethods",
+          "minimumRequired":0,
+          "fieldContent":"parameters"
+        },
+        {
+          "fieldLabel": "Page method",
+          "fieldName":"pageMethod",
+          "fieldType": "DROPDOWN",
+          "selectionType": "CONDITIONAL_IF_NOT_SELECTED_@_elementIndependentMethods",
+          "minimumRequired":0,
+          "fieldContent":"pagemethods"
+        }
+      ]
+    }
+  ]
+}

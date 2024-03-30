@@ -1,111 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--  <link rel="stylesheet" href="styles.css">-->
-  <title>TS360 Test Automation</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f0f0f0; /* Optional background color for the body */
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  <link rel="stylesheet" href="styles.css">-->
+    <title>TS360 Test Automation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0; /* Optional background color for the body */
+      }
 
-    .card {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 300px; /* Adjust the width as needed */
-      text-align: center; /* Center-align content */
-    }
+      .card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px; /* Adjust the width as needed */
+        text-align: center; /* Center-align content */
+      }
 
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .logo {
-      width: 50px; /* Adjust the width as needed */
-      height: auto;
-      margin-right: 15px; /* Adjust the margin as needed */
-      border-radius: 50%; /* Make the logo image rounded */
-    }
+      .logo {
+        width: 50px; /* Adjust the width as needed */
+        height: auto;
+        margin-right: 15px; /* Adjust the margin as needed */
+        border-radius: 50%; /* Make the logo image rounded */
+      }
 
-    .name {
-      margin: 0;
-    }
+      .name {
+        margin: 0;
+      }
 
-    .separator {
-      width: 100%;
-      border: 1px solid #ccc; /* Adjust the color as needed */
-      margin: 15px 0; /* Adjust the margin as needed */
-    }
+      .separator {
+        width: 100%;
+        border: 1px solid #ccc; /* Adjust the color as needed */
+        margin: 15px 0; /* Adjust the margin as needed */
+      }
 
-    .content {
-      text-align: center;
-    }
+      .content {
+        text-align: center;
+      }
 
-    .link {
-      text-decoration: none;
-      color: #007bff; /* Adjust the color as needed */
-    }
+      .link {
+        text-decoration: none;
+        color: #007bff; /* Adjust the color as needed */
+      }
 
-    .rating {
-      margin: 0;
-      font-weight: bold;
-      color: #ffc107; /* Adjust the color as needed */
-    }
+      .rating {
+        margin: 0;
+        font-weight: bold;
+        color: #ffc107; /* Adjust the color as needed */
+      }
 
-    .footer {
-      margin-top: 20px; /* Adjust the margin as needed */
-    }
+      .footer {
+        margin-top: 20px; /* Adjust the margin as needed */
+      }
 
-    .social-text {
-      margin-bottom: 10px; /* Adjust the margin as needed */
-    }
+      .social-text {
+        margin-bottom: 10px; /* Adjust the margin as needed */
+      }
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-    }
+      .social-icons {
+        display: flex;
+        justify-content: center;
+      }
 
-    .social-icon {
-      margin: 0 10px; /* Adjust the margin as needed */
-    }
+      .social-icon {
+        margin: 0 10px; /* Adjust the margin as needed */
+      }
 
-    .social-icon img {
-      width: 30px; /* Adjust the width as needed */
-      height: 30px; /* Adjust the height as needed */
-    }
-
-  </style>
-</head>
-<body>
-<div class="card">
-  <div class="header">
-    <img alt="TS360 Company Logo" src="TS360Logo.png" class="logo">
-    <h2 class="name">TS360 Test Automation</h2>
-  </div>
-  <hr class="separator">
-  <div class="content">
-    <a href="#" class="link">Visit our website</a>
-    <p class="rating">Rating: 4.5/5</p>
-    <div class="footer">
-      <p class="social-text">Follow us on social media:</p>
-      <div class="social-icons">
-        <a href="#" class="social-icon"><img src="insta.jpg" alt="Facebook"></a>
-        <a href="#" class="social-icon"><img src="fb.png" alt="Twitter"></a>
-        <a href="#" class="social-icon"><img src="web.png" alt="Instagram"></a>
+      .social-icon img {
+        width: 30px; /* Adjust the width as needed */
+        height: 30px; /* Adjust the height as needed */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <img alt="TS360 Company Logo" src="TS360Logo.png" class="logo" />
+        <h2 class="name">TS360 Test Automation</h2>
+      </div>
+      <hr class="separator" />
+      <div class="content">
+        <a href="#" class="link">Visit our website</a>
+        <p class="rating">Rating: 4.5/5</p>
+        <div class="footer">
+          <p class="social-text">Follow us on social media:</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"
+              ><img src="insta.jpg" alt="Facebook"
+            /></a>
+            <a href="#" class="social-icon"
+              ><img src="fb.png" alt="Twitter"
+            /></a>
+            <a href="#" class="social-icon"
+              ><img src="web.png" alt="Instagram"
+            /></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
 </html>

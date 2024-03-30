@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://code.jquery.com;"> -->
-    <link rel="stylesheet" href="styles/display.css">
-    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/display.css" />
+    <link rel="stylesheet" href="styles/nav.css" />
 
     <title>Workflow Page Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -14,74 +13,75 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="display.js" defer></script>
     <style>
-        #form-data-list {
-            list-style-type: none;  /* removes bullet points */
-            padding: 0;  /* removes default padding */
-            margin: 0;  /* removes default margin */
-        }
-        #form-data-list li {
-            padding: 10px;  /* adds padding around each list item */
-            background-color: #fafafa;  /* sets list item background color */
-            border-bottom: 1px solid #ddd;  /* adds a border at the bottom of each list item */
-        }
+      #form-data-list {
+        list-style-type: none; /* removes bullet points */
+        padding: 0; /* removes default padding */
+        margin: 0; /* removes default margin */
+      }
+      #form-data-list li {
+        padding: 10px; /* adds padding around each list item */
+        background-color: #fafafa; /* sets list item background color */
+        border-bottom: 1px solid #ddd; /* adds a border at the bottom of each list item */
+      }
     </style>
-</head>
+  </head>
 
-<body>
-<nav id="navbar" class="">
-    <div class="nav-wrapper">
+  <body>
+    <nav id="navbar" class="">
+      <div class="nav-wrapper">
         <!-- Navbar Logo -->
         <div class="logo">
-            <a href="#">
-                <img width="100px" height="auto" src="app/src/TS360Logo.png" alt="logo">
-            </a>
+          <a href="#">
+            <img
+              width="100px"
+              height="auto"
+              src="app/src/TS360Logo.png"
+              alt="logo"
+            />
+          </a>
         </div>
 
         <!-- Navbar Links -->
         <ul id="menu">
-            <li><a href="Display.html">Display</a></li>
-            <li><a href="workflow.html">Workflow</a></li>
-            <li><a href="testScenarios.html">Test Scenarios</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <li><a href="Display.html">Display</a></li>
+          <li><a href="workflow.html">Workflow</a></li>
+          <li><a href="testScenarios.html">Test Scenarios</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-    </div>
-</nav>
+      </div>
+    </nav>
     <div class="additional-card-container marginTop">
-        <div class="additional-card">
-            <h2>Workflow method</h2>
-            <div class="input-container">
-                <input type="text" placeholder="Methode Name">
-                <input type="text" placeholder="Variables">
-                <input type="text" placeholder="Parameter">
-                <input type="text" placeholder="Return Type">
-            </div>
-            <button>Save</button>
+      <div class="additional-card">
+        <h2>Workflow method</h2>
+        <div class="input-container">
+          <input type="text" placeholder="Methode Name" />
+          <input type="text" placeholder="Variables" />
+          <input type="text" placeholder="Parameter" />
+          <input type="text" placeholder="Return Type" />
         </div>
+        <button>Save</button>
+      </div>
     </div>
 
     <div class="content-container">
-        <div class="card middle" id="middleCard">
-            <h2>Method List</h2>
-            <div class="card-container">
-
-                <div class="card">
-                    <ul id="form-data-list"></ul>
-                </div>
-
-            </div>
+      <div class="card middle" id="middleCard">
+        <h2>Method List</h2>
+        <div class="card-container">
+          <div class="card">
+            <ul id="form-data-list"></ul>
+          </div>
         </div>
+      </div>
 
-        <div class="card card3">
-            <h2>ADD Method Sequence</h2>
-<!--            <ul id="sortable"></ul>-->
-            <button class="complete">Save</button>
-        </div>
+      <div class="card card3">
+        <h2>ADD Method Sequence</h2>
+        <!--            <ul id="sortable"></ul>-->
+        <button class="complete">Save</button>
+      </div>
     </div>
 
-
     <footer class="footer">
-        <p>&copy; 2023 TS360</p>
+      <p>&copy; 2023 TS360</p>
     </footer>
-</body>
-
+  </body>
 </html>

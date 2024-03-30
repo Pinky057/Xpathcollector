@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,24 +12,24 @@
 </head>
 
 <body>
-    <nav id="navbar" class="">
-        <div class="nav-wrapper">
-            <!-- Navbar Logo -->
-            <div class="logo">
-                <a href="#">
-                    <img width="100px" height="auto" src="app/src/TS360Logo.png" alt="logo">
-                </a>
-            </div>
-
-            <!-- Navbar Links -->
-            <ul id="menu">
-                <li><a href="Display.html">Display</a></li>
-                <li><a href="workflow.html">Workflow</a></li>
-                <li><a href="testScenarios.html">Test Scenarios</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<nav id="navbar" class="">
+    <div class="nav-wrapper">
+        <!-- Navbar Logo -->
+        <div class="logo">
+            <a href="#">
+                <img width="100px" height="auto" src="app/src/TS360Logo.png" alt="logo">
+            </a>
         </div>
-    </nav>
+
+        <!-- Navbar Links -->
+        <ul id="menu">
+            <li><a href="Display.html">Display</a></li>
+            <li><a href="workflow.html">Workflow</a></li>
+  <li><a href="testScenarios.html">Test Scenarios</a></li>
+   <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
     <div class="header">
         <div class="flex-container">
@@ -39,14 +38,14 @@
         </div>
         <label>
             <span class="title">Page Title:</span>
-            <input type="text" placeholder="Enter text here..." class="additional-input">
+            <input id="title-input" type="text" placeholder="Enter text here..." class="additional-input">
         </label>
     </div>
 
     <!-- Tab links -->
     <div class="tab">
         <button class="tablinks " id="tab1">Page Method Details</button>
-        <button class="tablinks " id="tab2">XPath Details </button>
+        <button class="tablinks " id="tab2">Page Details </button>
     </div>
 
 
@@ -59,7 +58,7 @@
             <div class="additional-card">
                 <h2>Page Level Method</h2>
                 <div class="input-container">
-                    <input type="text" id="method-name" placeholder="Methode Name">
+                    <input type="text" id="method-name" required placeholder="Methode Name">
                     <input type="text" id="variables" placeholder="Variables">
                     <input type="text" id="parameters" placeholder="Parameter">
                     <input type="text" id="return-type" placeholder="Return Type">
@@ -73,72 +72,86 @@
                 <h2>Methods</h2>
                 <form id="page-actions">
                     <label>
-                        <input id="scrollSlow" type="checkbox" name="pageAction1" value="scrollupslow">
+                        <input id="scrollSlow" type="checkbox" name="scrollUpSlow" value="scrollupslow">
                         scroll up slow
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction2" value="scrolldownslow">
+                        <input type="checkbox" name="scrollDownSlow" value="scrolldownslow">
                         scroll down slow
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction3" value="scrolldownsfast">
+                        <input type="checkbox" name="scrollDownFast" value="scrolldownsfast">
                         scroll down fast
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction4" value="quickwait">
+                        <input type="checkbox" name="quickwait" value="quickwait">
                         quick wait
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction5" value="smallwait">
+                        <input type="checkbox" name="smallwait" value="smallwait">
                         small wait
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction6" value="medwait">
+                        <input type="checkbox" name="medwait" value="medwait">
                         med wait
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction7" value="longwait">
+                        <input type="checkbox" name="longwait" value="longwait">
                         long wait
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction8" value="quickestwait">
+                        <input type="checkbox" name="quickestwait" value="quickestwait">
                         quickest wait
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction9" value="conditional click">
+                        <input  type="checkbox" name="dismissPrompt" value="dismissPrompt">
+                        dismiss prompt
+                        <div class="accordion-content">
+                            <select id="elementtestselectdismissprompt">
+                            </select>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="conditionalClick" value="conditional click">
                         conditional click
                         <div class="accordion-content">
-                            <textarea placeholder="Additional information."></textarea>
-                            <textarea placeholder="Additional information."></textarea>
+                            <select id="elementtestselect4"></select>
+                            <select id="methodselect1"></select>
+                            <select id="perameterselect1"></select>
+                            <select id="variableselect1"></select>
+                            <input type="checkbox" name="variable" placeholder="variable">props
+                            <textarea name="value" placeholder="Additional information."></textarea>
                         </div>
                     </label>
                     <label>
                         <input type="checkbox" name="pageAction10" value="type">
                         type
                         <div class="accordion-content">
-                            <textarea placeholder="Additional information."></textarea>
+                            <select id="elementtestselectType"></select>
+                            <select id="perameterselectType"></select>
+                            <select id="variableselectType"></select>
                         </div>
                     </label>
                     <label>
                         <input type="checkbox" name="pageAction11" value="conditionalentertext">
                         conditional enter text
+                        <div class="accordion-content">
+                        <select id="elementtestselectText"></select>
+                        <select id="perameterselectText"></select>
+                        <select id="variableselectText"></select>
+                            <label>
+                        <input type="checkbox">props</label>
+                        </div>
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction12" value="dismissprompt">
-                        dismiss prompt
+                        <input type="checkbox" name="multiClick" value="multiClick">
+                        multi click
+                        <div class="accordion-content">
+                            <select id="perameterselectClick"></select>
+                        </div>
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction13" value="scrollmultipage">
+                        <input type="checkbox" name="scrollmultipage" value="scrollmultipage">
                         scroll multi page
                         <div class="accordion-content">
                             <select id="browserselectscrollmultipage">
@@ -149,17 +162,17 @@
                                 <option value="Opera">Opera</option>
                             </select>
 
-                            <input type="text" id="browserinputscrollmultipage" placeholder="Google Chrome - 3-8">
+                            <input type="number"  value="values" placeholder="Chrome-number of Tabs">
+                            <input type="number"  value="values" placeholder="Chrome-number of Page Down">
+
                         </div>
                     </label>
-
                     <label>
                         <input type="checkbox" name="pageAction14" value="selectalltextinscreen">
                         select all text in screen
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction15" value="fwdnavigationthroughkeypress">
+                        <input type="checkbox" name="fwdNavigationThroughKeyPress" value="fwdnavigationthroughkeypress">
                         forward navigation through key press
                         <div class="accordion-content">
                             <select id="browserselectfornavthkeypr">
@@ -170,7 +183,7 @@
                                 <option value="Opera">Opera</option>
                             </select>
 
-                            <input type="text" id="browserinputfornavthkeypr" placeholder="Google Chrome - 5">
+                            <input type="number" name="values" value="values" placeholder="Chrome-number">
                         </div>
                     </label>
                     <label>
@@ -185,74 +198,70 @@
                                 <option value="Opera">Opera</option>
                             </select>
 
-                            <input type="text" id="browserinputtabnav" placeholder="Google Chrome - 3">
+                            <input type="number" name="values"  value="values" placeholder="Chrome-number">
                         </div>
                     </label>
                     <label>
-                        <input type="checkbox" name="pageAction17" value="doocr">
+                        <input type="checkbox" name="doOCR" value="doocr">
                         do ocr
                     </label>
-                    <br>
                     <label>
                         <input type="checkbox" name="pageAction18" value="doimagecomparison">
                         do image comparison
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction19" value="findelement">
+                        <input type="checkbox" name="doImageComparison" value="findelement">
                         find element
                         <div class="accordion-content">
-                            <textarea placeholder="Element name."></textarea>
+                           <select id="parametertestselectImageComparison"></select>
+                            <select id="methodtestselectImageComparison"></select>
                         </div>
 
                     </label>
                     <label>
-                        <input type="checkbox" name="pageAction20" value="scrollupfast">
+                        <input type="checkbox" name="scrollUpFast" value="scrollupfast">
                         scroll up fast
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction21" value="keydownkeypress">
+                        <input type="checkbox" name="keydownkeypress" value="keydownkeypress">
                         key down key press
+                        <div class="accordion-content">
+                            <input type="number" name="values" value="values" placeholder="Number">
+                        </div>
                     </label>
-                    <br>
                     <label>
                         <input type="checkbox" name="pageAction22" value="selectfromlist">
                         select from list
+                        <div class="accordion-content">
+                            <input type="text" name="values" value="values" placeholder="Number">
+                            <select id="variableselectFormList"></select>
+                        </div>
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction23" value="clickall">
+                        <input type="checkbox" name="pageAction23" value="clickall" />
                         click all
                         <div class="accordion-content" id="clickalldiv">
-                            <select id="elementtestselect1" multiple>
-                            </select>
+                            <select id="elementtestselect1" multiple></select>
                             <!-- <select id="elementtestselect1a">
-                                    <option value="value1">True</option>
-                                    <option value="value2">False</option>
-                            </select> -->
-                            <br>
+                                                <option value="value1">True</option>
+                                                <option value="value2">False</option>
+                                        </select> -->
 
-                            <select id="elementtestselect3">
 
-                            </select>
+                            <select id="elementtestselect3"></select>
                             <!-- <input type="checkbox" id="elementtestselectclickall1"> -->
-
                         </div>
-
                     </label>
                     <label>
                         <input type="checkbox" name="pageAction24" value="elseblock">
                         else block
                     </label>
-                    <br>
                     <label>
                         <input type="checkbox" name="pageAction25" value="endofblock">
                         end of block
                     </label>
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction26" value="scrolltoelement">
+                        <input  type="checkbox" name="pageAction26" value="scrolltoelement">
                         scroll to element
                         <div class="accordion-content">
                             <select id="elementtestselect2">
@@ -260,44 +269,40 @@
                             <input type="text" id="elementtestinput">
                         </div>
                     </label>
-
                     <label>
-                        <input type="checkbox" name="pageAction27" value="Multicall">
+                        <input type="checkbox" name="multicall" value="Multicall">
                         multi call
                         <div class="accordion-content">
-                            <select id="methodselect">
-                                <option value="method1">Method1</option>
-                                <option value="method2">Method2</option>
-                                <option value="method3">Method3</option>
-                                <option value="method4">Method4</option>
-                                <option value="method5">Method5</option>
+                            <select id="perameterselectmulticall">
+                            </select>
+                            <select id="methodselectmulticall">
                             </select>
                         </div>
                     </label>
-
-                    <br>
                     <label>
-                        <input type="checkbox" name="pageAction28" value="clickby">
+                        <input type="checkbox" name="clickBy" value="clickBy">
                         click by
                         <div class="accordion-content">
-                            <label>Page methods:
-                                <select id="pagemethodselect1">
-                                </select>
-                            </label>
-                            <label>Parameters:
-                                <select id="pagemethodselect2">
-                                </select>
-                            </label>
-                            <label>Variables:
-                                <select id="pagemethodselect3">
-                                </select>
-                            </label>
-                            <br>
-                            <select id="valueselect1">
-                                <option value="value1">text</option>
-                                <option value="value2">label</option>
-                                <option value="value3">number</option>
+                            <select >
+                                <option value="text">text</option>
+                                <option value="label">label</option>
+                                <option value="number">number</option>
                             </select>
+                            <select id="methodtselectClickBy">
+                            </select>
+                            <select id="perameterselectClickBy"></select>
+                            <select id="variableselectClickBy"></select>
+                        </div>
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="clickIf" value="clickIf">
+                        click if
+                        <div class="accordion-content">
+                            <select id="elemntsClickIf"></select>
+                            <select id="methodtselectClickif"></select>
+                            <select id="perameterselectClickif"></select>
+                            <select id="pagemethodsClickif"></select>
                         </div>
                     </label>
                 </form>
@@ -313,10 +318,9 @@
             <div class="card card3">
                 <h2>ADD Method Sequence</h2>
                 <ul id="sortable"></ul>
-                <button class="complete">Save</button>
+                <button class="complete" id="update-btn">Done</button>
             </div>
         </div>
-
         <footer class="footer">
             <p>&copy; 2023 TS360</p>
         </footer>

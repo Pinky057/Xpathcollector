@@ -40,7 +40,6 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
         let ui = `<div class="empty bg-dark">
           <p class="empty-title h5">Please select any element to get CSS/XPath</p>
           <p class="empty-subtitle">more new patterns coming soon :)</p>
-          <p class="empty-subtitle">Did you know LetXPath is an open-source, if you found something wrong fix it :)</p>
           </div>`;
         jQuery("#cssbody").append(ui);
       }
@@ -49,7 +48,6 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
         let ui = `<div class="empty bg-dark">
           <p class="empty-title h5">Please select any element to get XPath/CSS</p>
           <p class="empty-subtitle">more new patterns coming soon :)</p>
-          <p class="empty-subtitle">Did you know LetXPath is an open-source, if you found something wrong fix it :)</p>
           </div>`;
         jQuery("#addXPath").append(ui);
       }
@@ -66,7 +64,6 @@ chrome.runtime.onMessage.addListener((req, rec, res) => {
       let ui = `<div class="empty bg-dark">
           <p class="empty-title h5">Please select any element to get XPath/CSS</p>
           <p class="empty-subtitle">more new patterns coming soon :)</p>
-          <p class="empty-subtitle">Did you know LetXPath is an open-source, if you found something wrong fix it :)</p>
           </div>`;
       jQuery("#addXPath").append(ui);
       jQuery("#cssbody").append(ui);
@@ -188,7 +185,7 @@ function handleCopyButtonClick() {
   bkg.console.log("Copy to clipboard", copiedText);
 
   // alert the user that the contents were copied
-  alert("Selected options have been copied to clipboard: " + copiedText);
+  alert("Saved");
 }
 
 // function to handle save button click
