@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="display.js" defer></script>
+
 </head>
 
 <body>
@@ -283,12 +284,12 @@
                         <input type="checkbox" name="clickBy" value="clickBy">
                         click by
                         <div class="accordion-content">
-                            <select >
+                            <select required >
                                 <option value="text">text</option>
                                 <option value="label">label</option>
                                 <option value="number">number</option>
                             </select>
-                            <select id="methodtselectClickBy">
+                            <select required id="methodtselectClickBy">
                             </select>
                             <select id="perameterselectClickBy"></select>
                             <select id="variableselectClickBy"></select>
@@ -299,10 +300,18 @@
                         <input type="checkbox" name="clickIf" value="clickIf">
                         click if
                         <div class="accordion-content">
-                            <select id="elemntsClickIf"></select>
+                            <label> Elements
+                            <select  required id="elemntsClickIf"></select>
+                            </label>
+                            <label> Methods
                             <select id="methodtselectClickif"></select>
+                            </label>
+                            <label> Parameters
                             <select id="perameterselectClickif"></select>
+                            </label>
+                            <label> Variables
                             <select id="pagemethodsClickif"></select>
+                            </label>
                         </div>
                     </label>
                 </form>

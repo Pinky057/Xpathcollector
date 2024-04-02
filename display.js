@@ -297,14 +297,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   });
 });
+// Fetch the stored data from LocalStorage and show it to the workflow page
 
 // reset function
-
-
-
-
-// Fetch the stored data from LocalStorage and show it to the workflow page
-var storedData = JSON.parse(localStorage.getItem("formData_list")) || [];
+let storedData = JSON.parse(localStorage.getItem("formData_list")) || [];
 
 // Get the list container
 var listContainer = document.getElementById("form-data-list");
@@ -506,7 +502,7 @@ function updateElemntSelectionOptions(selectElementId) {
   });
 }
 
-// Call the function after the method cards have been generated
+// Call the function after the method cards have been generated---------------------
 
 // updateElemntSelectionOptions("elementtestselect1");
 updateElemntSelectionOptions("elementtestselect2");
@@ -520,26 +516,66 @@ updateElemntSelectionOptions("elementtestselectdismissprompt");
 // input page level method field values----------------------------------------------
 
 // Gets JSON-formatted data from local storage
-var storedData = JSON.parse(localStorage.getItem("formData_list")) || [];
+// merging two methods
 
-function populateDropdownWithStoredData(selectElementId, fieldName) {
+storedData = JSON.parse(localStorage.getItem('formData_list')) || [];
+
+const dropdownOptions = [
+  "scroll up slow",
+  "scroll down slow",
+  "scroll down fast",
+  "quick wait",
+  "small wait",
+  "med wait",
+  "long wait",
+  "quickest wait",
+  "dismiss prompt",
+  "conditional click",
+  "type",
+  "conditional enter text",
+  "multi click",
+  "scroll multi page",
+  "select all text in screen",
+  "forward navigation through key press",
+  "tab navigation",
+  "do ocr",
+  "do image comparison",
+  "find element",
+  "scroll up fast",
+  "key down key press",
+  "select from list",
+  "click all",
+  "else block",
+  "end of block",
+  "scroll to element",
+  "multi call",
+  "click by",
+  "click if"
+];
+
+function populateDropdownWithStoredData(selectElementId, fieldName = null, options = storedData) {
   var selectElement = document.getElementById(selectElementId);
 
   // Clear existing options
-  selectElement.innerHTML = "";
+  selectElement.innerHTML = '';
 
-  // For each object in the array, create a dropdown option and append it
-  storedData.forEach(function (formData) {
-    var option = document.createElement("option");
+  // Create a default 'Select..' option and append it to the select
+  var defaultOption = document.createElement('option');
+  defaultOption.text = 'Select...';
+  defaultOption.value = '';
+  selectElement.appendChild(defaultOption);
 
-    // Accept an additional fieldName parameter and use it for the value and text
-    option.value = formData[fieldName];
-    option.textContent = formData[fieldName];
+  // Add options to the selectElement
+  options.forEach(function(item) {
+    var option = document.createElement('option');
+    option.value = fieldName ? item[fieldName] : item;
+    option.textContent = fieldName ? item[fieldName] : item;
     selectElement.appendChild(option);
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
+
   // Wait for the DOM to load, then populate the dropdown
   populateDropdownWithStoredData("methodselectmulticall", "methodName");
   populateDropdownWithStoredData("perameterselectmulticall", "parameters");
@@ -552,25 +588,80 @@ document.addEventListener("DOMContentLoaded", function () {
   populateDropdownWithStoredData("variableselectText", "variables");
   populateDropdownWithStoredData("perameterselectClick", "parameters");
   populateDropdownWithStoredData(
-    "parametertestselectImageComparison",
-    "parameters"
+      "parametertestselectImageComparison",
+      "parameters"
   );
   populateDropdownWithStoredData(
-    "methodtestselectImageComparison",
-    "methodName"
+      "methodtestselectImageComparison",
+      "methodName"
   );
   populateDropdownWithStoredData("variableselectFormList", "variables");
-  populateDropdownWithStoredData("methodtselectClickBy", "methodName");
+  // populateDropdownWithStoredData("methodtselectClickBy", "methodName");
   populateDropdownWithStoredData("perameterselectClickBy", "parameters");
   populateDropdownWithStoredData("variableselectClickBy", "variables");
-  populateDropdownWithStoredData("methodtselectClickif" , "methodName");
+  // populateDropdownWithStoredData("methodtselectClickif" , "methodName");
   populateDropdownWithStoredData("perameterselectClickif", "parameters");
   populateDropdownWithStoredData("pagemethodsClickif", "methodName");
+
+  // Populate dropdowns with dropdownOptions
+  populateDropdownWithStoredData('methodtselectClickBy', null, dropdownOptions);
+  populateDropdownWithStoredData('methodtselectClickif', null, dropdownOptions);
 });
 
 
 
-// need to moved uitils js
+
+
+// validations for input fields ----------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Your existing code...
+//for clickby
+  var parameterSelect = document.getElementById('perameterselectClickBy');
+  var variableSelect = document.getElementById('variableselectClickBy');
+
+  parameterSelect.addEventListener('change', function() {
+    // disable variable select if parameter is selected
+    variableSelect.disabled = !!this.value;
+  });
+
+  variableSelect.addEventListener('change', function() {
+    //disable parameter select if variable is selected
+    parameterSelect.disabled = !!this.value;
+  });
+
+  //for clickif
+
+  var methodSelectClickIf = document.getElementById('methodtselectClickif');
+  var parameterSelectClickIf = document.getElementById('perameterselectClickif');
+  var pageMethodsClickIf = document.getElementById('pagemethodsClickif');
+
+  methodSelectClickIf.addEventListener('change', function() {
+    // enable parameter select if method is selected, otherwise disable
+    parameterSelectClickIf.disabled = !this.value;
+    // enable pageMethods select if method is not selected, otherwise disable
+    pageMethodsClickIf.disabled = !!this.value;
+  });
+
+  pageMethodsClickIf.addEventListener('change', function() {
+    // if pageMethods is selected, disable method and parameter selects
+    if (this.value) {
+      methodSelectClickIf.disabled = true;
+      parameterSelectClickIf.disabled = true;
+    }
+    // if pageMethods is not selected, enable method and parameter selects
+    else {
+      methodSelectClickIf.disabled = false;
+      parameterSelectClickIf.disabled = false;
+    }
+  });
+
+
+  // Add validation for any other select pairs in the same manner...
+});
+
+
+// need to moved utils js
 $(document).ready(function(){
   $('input[type="checkbox"]').click(function(){
     $(this).next().animate({
@@ -723,3 +814,21 @@ function addAll(key, id1, id2, id3) {
     }
   }
 }
+
+// validations
+document.addEventListener('DOMContentLoaded', (event) => {
+  const parameterSelect = document.getElementById('perameterselectClickBy');
+  const variableSelect = document.getElementById('variableselectClickBy');
+
+  parameterSelect.addEventListener('change', function() {
+    if (this.value) {
+      variableSelect.disabled = true;
+    } else {
+      variableSelect.disabled = false;
+    }
+  });
+
+  variableSelect.addEventListener('change', function() {
+    parameterSelect.disabled = !!this.value;
+  });
+});
