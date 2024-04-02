@@ -814,21 +814,3 @@ function addAll(key, id1, id2, id3) {
     }
   }
 }
-
-// validations
-document.addEventListener('DOMContentLoaded', (event) => {
-  const parameterSelect = document.getElementById('perameterselectClickBy');
-  const variableSelect = document.getElementById('variableselectClickBy');
-
-  parameterSelect.addEventListener('change', function() {
-    if (this.value) {
-      variableSelect.disabled = true;
-    } else {
-      variableSelect.disabled = false;
-    }
-  });
-
-  variableSelect.addEventListener('change', function() {
-    parameterSelect.disabled = !!this.value;
-  });
-});
