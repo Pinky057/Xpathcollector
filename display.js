@@ -596,13 +596,10 @@ document.addEventListener('DOMContentLoaded', function () {
       "methodName"
   );
   populateDropdownWithStoredData("variableselectFormList", "variables");
-  // populateDropdownWithStoredData("methodtselectClickBy", "methodName");
   populateDropdownWithStoredData("perameterselectClickBy", "parameters");
   populateDropdownWithStoredData("variableselectClickBy", "variables");
-  // populateDropdownWithStoredData("methodtselectClickif" , "methodName");
   populateDropdownWithStoredData("perameterselectClickif", "parameters");
   populateDropdownWithStoredData("pagemethodsClickif", "methodName");
-
   // Populate dropdowns with dropdownOptions
   populateDropdownWithStoredData('methodtselectClickBy', null, dropdownOptions);
   populateDropdownWithStoredData('methodtselectClickif', null, dropdownOptions);
@@ -763,8 +760,7 @@ updateSelectionOptions(
     "elementtestselect1a"
 );
 updateSelectionOptions("scrolltoelement", "elementtestselectScroolElement");
-// updateSelectionOptions("conditionalClick", "elementtestselectConditionalclick");
-// updateSelectionOptions("type", "elementtestselectType");
+
 
 function updateIndMethods(key, id1, id2, id3) {
   removeAll(key, id1, id2, id3);
